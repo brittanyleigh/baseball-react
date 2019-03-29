@@ -1,21 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TeamChoice from './TeamChoice';
 import TeamDetail from './TeamDetail';
-import { fetchTeamData } from '../actions';
+import { fetchTeamData, getPreviousTeam } from '../actions';
+
 
 class App extends React.Component {
   
   componentDidMount() {
     this.props.fetchTeamData();
+    this.props.getPreviousTeam();
   }
-
+  
   render(){
     return (
       <div className="container">
-        Baseball!
         <TeamChoice/>
-        <TeamDetail/>
       </div>
     )    
   }
@@ -26,5 +27,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, 
-  { fetchTeamData }
+  { fetchTeamData, getPreviousTeam }
 )(App);

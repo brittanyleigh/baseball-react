@@ -1,34 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchTeamData } from '../actions';
+import { selectTeam } from '../actions';
 
 class TeamChoice extends React.Component {
   renderList(){
-    return (
-      console.log(this.props.teams)
-    )
-    /*
+    
     return this.props.teams.map((team) => {
       return (
-          <div className="item" key={team.ID}>
-            <div className="right floated content">
-              <button className="ui button primary" onClick={() => this.props.selectTeam(team)}>
-                Select
-              </button>
-            </div>
-            <div className="content">{team.title}</div>
-          </div>
+          <li className="nav__li" key={team.ID}>
+            <button className="ui button primary" onClick={() => this.props.selectTeam(team)}>
+              {team.City} {team.Name}
+            </button>
+          </li>
       );
     });
-    */
+    
   }
    render() {
-     return <div className="ui divided list">{this.renderList()}</div>
+     return (
+       <header role="banner">
+         <h1>{ this.props.selected_team.Name }</h1>
+         <div className="heading">
+           <nav className="nav">
+             <ul className="nav__ul">
+               {this.renderList()}
+             </ul>
+           </nav>
+         </div>
+       </header>
+     )
    }
 }
 
 const mapStateToProps = (state) => {
-  return { teams: state.teams };
+  return { 
+    teams: state.teams,
+    selected_team: state.selected_team
+   };
 }
 
-export default connect(mapStateToProps, { fetchTeamData })(TeamChoice);
+export default connect(mapStateToProps, { selectTeam })(TeamChoice);

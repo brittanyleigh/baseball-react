@@ -1,24 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const TeamDetail = ({ team }) => {
-  if (!team) {
-    return <div>Select a Team</div>
+
+class TeamDetail extends React.Component {
+  render() {
+    return (
+      <div>
+      <h3>Details for: {this.props.selected_team.Name}</h3>
+      </div>
+    )  
   }
-  return (
-    <div>
-    <h3>Details for:</h3>
-    <p>
-      Title: {team.team_id}
-      <br />
-      Duration: {team.team_name}
-    </p>
-    </div>
-  )
 }
 
 const mapStateToProps = (state) => {
-  return { team: state.selectedTeam }
+  return { 
+    team: state.selectedTeam,
+    selected_team: state.selected_team 
+  }
 };
 
 export default connect(mapStateToProps)(TeamDetail);
