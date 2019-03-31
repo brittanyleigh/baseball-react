@@ -1,21 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectTeam } from '../actions';
+import { selectTeam, getYesterdayScore } from '../actions';
 
-class TeamChoice extends React.Component {
+class SelectTeam extends React.Component {
+  
+  updateAllData(team) {
+      this.props.selectTeam(team);
+      this.props.getYesterdayScore();
+  }
+  
   renderList(){
-    
     return this.props.teams.map((team) => {
       return (
           <li className="nav__li" key={team.ID}>
-            <button className="ui button primary" onClick={() => this.props.selectTeam(team)}>
+            <button className="ui button primary" onClick={() => this.updateAllData(team)}>
               {team.City} {team.Name}
             </button>
           </li>
       );
     });
-    
   }
+  
    render() {
      return (
        <header role="banner">
@@ -39,4 +44,4 @@ const mapStateToProps = (state) => {
    };
 }
 
-export default connect(mapStateToProps, { selectTeam })(TeamChoice);
+export default connect(mapStateToProps, { selectTeam, getYesterdayScore })(SelectTeam);
