@@ -38,5 +38,24 @@ export const getYesterdayScore = () => async (dispatch, getState) => {
   const scoreDate = yester_year + yester_month + yester_date;
   const team = getState().selected_team;
   const response = await sports.get('scoreboard.json?fordate=' + scoreDate + '&team=' + team.ID);
-  dispatch({type: 'YESTERDAY_SCORE', payload: response.data.scoreboard.gameScore});   
+  let nogame = [{
+    id: 0, 
+    isUnplayed: 'true',
+    game: {scheduleStatus: 'Off Day!'} 
+    }]
+  let payload = response.data.scoreboard.gameScore ? response.data.scoreboard.gameScore : nogame;
+  dispatch({type: 'YESTERDAY_SCORE', payload: payload});   
+};  
+
+export const getTodayGame = () => async (dispatch, getState) => { 
+  const today = new Date(Date.now());
+  const year = today.getFullYear();
+  const month = ('0' + (today.getMonth() + 1)).slice(-2);
+  const date = today.getDate();
+  const gameDate = year + month + date;
+  const team = getState().selected_team;
+  const response = await sports.get('daily_game_schedule.json?fordate=' + gameDate + '&team=' + team.ID);
+  let nogame = [{id: 0, time: 'Off Day!'}]
+  let payload = response.data.dailygameschedule.gameentry ? response.data.dailygameschedule.gameentry : nogame;
+  dispatch({type: 'TODAY_GAME', payload: payload});   
 };  

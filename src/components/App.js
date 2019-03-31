@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SelectTeam from './SelectTeam';
 import TeamDataContainer from './TeamDataContainer';
-import ScheduleDetail from './ScheduleDetail';
-import { fetchTeamData, getPreviousTeam, getYesterdayScore } from '../actions';
+import YesterdayScore from './YesterdayScore';
+import TodayGame from './TodayGame';
+import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame } from '../actions';
 
 
 class App extends React.Component {
@@ -12,18 +13,18 @@ class App extends React.Component {
     this.props.fetchTeamData();
     this.props.getPreviousTeam();
     this.props.getYesterdayScore();
+    this.props.getTodayGame();
   }
   
   render(){
-    console.log(this.props);
     return (
       <div className="container">
         <SelectTeam/>
         <TeamDataContainer heading="Yesterday's Score" class="schedule">
-          <ScheduleDetail/>
+          <YesterdayScore/>
         </TeamDataContainer>
         <TeamDataContainer heading="Today's Game" class="schedule">
-          <ScheduleDetail/>
+          <TodayGame/>
         </TeamDataContainer>
       </div>
     )    
@@ -32,12 +33,9 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return { 
-    teams: state.teams,
-    selected_team: state.selected_team, 
-    yesterday: state.yesterday
   };
 }
 
 export default connect(mapStateToProps, 
-  { fetchTeamData, getPreviousTeam, getYesterdayScore }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame }
 )(App);

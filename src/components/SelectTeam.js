@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectTeam, getYesterdayScore } from '../actions';
+import { selectTeam, getYesterdayScore, getTodayGame } from '../actions';
 
 class SelectTeam extends React.Component {
   
   updateAllData(team) {
-      this.props.selectTeam(team);
-      this.props.getYesterdayScore();
+    this.props.selectTeam(team);
+    this.props.getYesterdayScore();
+    this.props.getTodayGame();
   }
   
   renderList(){
@@ -44,4 +45,4 @@ const mapStateToProps = (state) => {
    };
 }
 
-export default connect(mapStateToProps, { selectTeam, getYesterdayScore })(SelectTeam);
+export default connect(mapStateToProps, { selectTeam, getYesterdayScore, getTodayGame })(SelectTeam);
