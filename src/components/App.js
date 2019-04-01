@@ -4,7 +4,8 @@ import SelectTeam from './SelectTeam';
 import TeamDataContainer from './TeamDataContainer';
 import YesterdayScore from './YesterdayScore';
 import TodayGame from './TodayGame';
-import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame } from '../actions';
+import Standings from './Standings';
+import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings } from '../actions';
 
 
 class App extends React.Component {
@@ -14,28 +15,37 @@ class App extends React.Component {
     this.props.getPreviousTeam();
     this.props.getYesterdayScore();
     this.props.getTodayGame();
+    this.props.getStandings();
   }
   
   render(){
     return (
-      <div className="container">
-        <SelectTeam/>
-        <TeamDataContainer heading="Yesterday's Score" class="schedule">
-          <YesterdayScore/>
-        </TeamDataContainer>
-        <TeamDataContainer heading="Today's Game" class="schedule">
-          <TodayGame/>
-        </TeamDataContainer>
-      </div>
+      <React.Fragment>
+        <header role="banner">
+          <SelectTeam/>
+        </header>
+        <main role="main" class="container">
+          <TeamDataContainer heading="Yesterday's Score" class="schedule">
+            <YesterdayScore/>
+          </TeamDataContainer>
+          <TeamDataContainer heading="Today's Game" class="schedule">
+            <TodayGame/>
+          </TeamDataContainer>
+          <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings">
+            <Standings/>
+          </TeamDataContainer>
+        </main>
+      </React.Fragment>
     )    
   }
 }
 
 const mapStateToProps = (state) => {
   return { 
+    standings: state.standings
   };
 }
 
 export default connect(mapStateToProps, 
-  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings }
 )(App);

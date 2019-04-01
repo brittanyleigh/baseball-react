@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectTeam, getYesterdayScore, getTodayGame } from '../actions';
+import { selectTeam, getYesterdayScore, getTodayGame, getStandings } from '../actions';
 
 class SelectTeam extends React.Component {
   
@@ -8,6 +8,7 @@ class SelectTeam extends React.Component {
     this.props.selectTeam(team);
     this.props.getYesterdayScore();
     this.props.getTodayGame();
+    this.props.getStandings();
   }
   
   renderList(){
@@ -23,8 +24,9 @@ class SelectTeam extends React.Component {
   }
   
    render() {
+     console.log(this.props);
      return (
-       <header role="banner">
+       <React.Fragment>
          <h1>{ this.props.selected_team.Name }</h1>
          <div className="heading">
            <nav className="nav">
@@ -33,7 +35,7 @@ class SelectTeam extends React.Component {
              </ul>
            </nav>
          </div>
-       </header>
+       </React.Fragment>
      )
    }
 }
@@ -41,8 +43,9 @@ class SelectTeam extends React.Component {
 const mapStateToProps = (state) => {
   return { 
     teams: state.teams,
-    selected_team: state.selected_team
+    selected_team: state.selected_team,
+    standings: state.standings
    };
 }
 
-export default connect(mapStateToProps, { selectTeam, getYesterdayScore, getTodayGame })(SelectTeam);
+export default connect(mapStateToProps, { selectTeam, getYesterdayScore, getTodayGame, getStandings })(SelectTeam);

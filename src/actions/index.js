@@ -59,3 +59,24 @@ export const getTodayGame = () => async (dispatch, getState) => {
   let payload = response.data.dailygameschedule.gameentry ? response.data.dailygameschedule.gameentry : nogame;
   dispatch({type: 'TODAY_GAME', payload: payload});   
 };  
+
+export const getStandings = () => async (dispatch, getState) => { 
+  var param = encodeURIComponent('W,L,GB,Win %');
+  const response = await sports.get('division_team_standings.json?teamstats=' + param);
+  const team = getState().selected_team.ID;
+  let division;
+  if (team > 110 && team < 116) {
+    division = 0;
+  } else if (team > 115 && team < 121) {
+    division = 1;
+  } else if (team > 120 && team < 126) {
+    division = 2;
+  } else if (team > 125 && team < 131) {
+    division = 3;
+  } else if (team > 130 && team < 136) {
+    division = 4;
+  } else if (team > 135 && team < 141) {
+    division = 5;
+  }
+  dispatch({type: 'STANDINGS', payload: response.data.divisionteamstandings.division[division]});   
+};  
