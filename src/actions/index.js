@@ -1,4 +1,5 @@
 import sports from '../apis/sportsfeed';
+import {getTopThree} from './helpers.js';
 
 export const fetchTeamData = () => async (dispatch, getState) => { 
     const response = await sports.get('/overall_team_standings.json');
@@ -80,3 +81,33 @@ export const getStandings = () => async (dispatch, getState) => {
   }
   dispatch({type: 'STANDINGS', payload: response.data.divisionteamstandings.division[division]});   
 };  
+
+export const getPlayerStats = () => async (dispatch, getState) => { 
+  const team = getState().selected_team.ID;
+  const games_response = await sports.get('overall_team_standings.json?team=' + team);
+  const games_played =  games_response.data.overallteamstandings.teamstandingsentry[0].stats.GamesPlayed['#text'];
+  
+  const avg_response = await sports.get('cumulative_player_stats.json?team='+ team + '&playerstats=AVG,PA&sort=stats.AVG.D&limit=10');
+  const avg_data = avg_response.data.cumulativeplayerstats.playerstatsentry;
+  const avg_player_list = getTopThree(avg_data, games_played);
+    
+  const hr_response = await sports.get('cumulative_player_stats.json?team='+ team + '&playerstats=HR,PA&sort=stats.HR.D&limit=10');
+  const hr_data = hr_response.data.cumulativeplayerstats.playerstatsentry;
+  const hr_player_list = getTopThree(hr_data, games_played);
+  
+  const rbi_response = await sports.get('cumulative_player_stats.json?team='+ team + '&playerstats=RBI,PA&sort=stats.RBI.D&limit=10');
+  const rbi_data = rbi_response.data.cumulativeplayerstats.playerstatsentry;
+  const rbi_player_list = getTopThree(rbi_data, games_played);
+  
+  const ops_response = await sports.get('cumulative_player_stats.json?team='+ team + '&playerstats=OPS,PA&sort=stats.OPS.D&limit=10');
+  const ops_data = ops_response.data.cumulativeplayerstats.playerstatsentry;
+  const ops_player_list = getTopThree(ops_data, games_played);
+  
+  const qualified_player_list = {
+    'avg': avg_player_list,
+    'hr': hr_player_list,
+    'rbi': rbi_player_list,
+    'ops': ops_player_list
+  }
+  dispatch({type: 'PLAYER_STATS', payload: qualified_player_list});   
+}; 

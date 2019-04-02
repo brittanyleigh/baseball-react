@@ -5,7 +5,7 @@ import TeamDataContainer from './TeamDataContainer';
 import YesterdayScore from './YesterdayScore';
 import TodayGame from './TodayGame';
 import Standings from './Standings';
-import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings } from '../actions';
+import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats} from '../actions';
 
 
 class App extends React.Component {
@@ -16,6 +16,7 @@ class App extends React.Component {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
     this.props.getStandings();
+    this.props.getPlayerStats();
   }
   
   render(){
@@ -24,7 +25,7 @@ class App extends React.Component {
         <header role="banner">
           <SelectTeam/>
         </header>
-        <main role="main" class="container">
+        <main role="main" className="container">
           <TeamDataContainer heading="Yesterday's Score" class="schedule">
             <YesterdayScore/>
           </TeamDataContainer>
@@ -42,10 +43,11 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return { 
-    standings: state.standings
+    standings: state.standings,
+    stats: state.stats,
   };
 }
 
 export default connect(mapStateToProps, 
-  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats }
 )(App);
