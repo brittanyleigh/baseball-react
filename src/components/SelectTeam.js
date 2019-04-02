@@ -9,7 +9,7 @@ class SelectTeam extends React.Component {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
     this.props.getStandings();
-    this.props.getPlayerStats();
+    this.props.getPlayerStats(['HR', 'AVG', 'RBI', 'OPS']);
   }
   
   renderList(){
