@@ -26,7 +26,7 @@ class App extends React.Component {
       return playerStats.map((stat) => {
         return (
           <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat}>
-            <PlayerStats stat={this.props.stats[stat]}/>
+            <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
           </TeamDataContainer>
         );
       });
