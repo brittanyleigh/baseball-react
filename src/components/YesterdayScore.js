@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class YesterdayScore extends React.Component {
   render() {
     return this.props.yesterday.map((game) => {
-      let outcome, awayTeam, homeTeam;
+      let outcome, awayTeam, homeTeam, key;
       
       // get game status & win/loss if played
       if (game.isUnplayed === "true") {
@@ -25,8 +25,14 @@ class YesterdayScore extends React.Component {
         homeTeam = <div className="game__home-team">{game.game.homeTeam.Name}: { game.homeScore }</div>;
       }
       
+      if (game.game.ID) {
+        key = game.game.ID;
+      } else {
+        key = game.id;
+      }
+      
       return (
-        <div className="game" key={game.game.ID}>
+        <div className="game" key={key}>
           <div className="game__detail">{ outcome }</div>
             { awayTeam }
             { homeTeam }

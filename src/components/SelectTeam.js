@@ -46,7 +46,8 @@ const mapStateToProps = (state) => {
     teams: state.teams,
     selected_team: state.selected_team,
     standings: state.standings,
-    stats: state.stats
+    stats: state.stats,
+    yesterday: state.yesterday
    };
 }
 

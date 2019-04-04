@@ -85,7 +85,7 @@ export const getPlayerStats = (stats) => async (dispatch, getState) => {
   const team = getState().selected_team.ID;
   const games_response = await sports.get('overall_team_standings.json?team=' + team);
   const games_played =  games_response.data.overallteamstandings.teamstandingsentry[0].stats.GamesPlayed['#text'];
-  const stats_list = {};
+  const stats_list = [];
   
   for (var i = 0; i < stats.length; i++) {
     const response = await sports.get('cumulative_player_stats.json?team='+ team + '&playerstats=' + stats[i] + ',PA&sort=stats.' + stats[i] + '.D&limit=10');

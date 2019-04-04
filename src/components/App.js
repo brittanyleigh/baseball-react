@@ -5,8 +5,10 @@ import TeamDataContainer from './TeamDataContainer';
 import YesterdayScore from './YesterdayScore';
 import TodayGame from './TodayGame';
 import Standings from './Standings';
+import PlayerStats from './PlayerStats';
 import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats} from '../actions';
 
+const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
 class App extends React.Component {
   
@@ -16,7 +18,20 @@ class App extends React.Component {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
     this.props.getStandings();
-    this.props.getPlayerStats(['HR', 'AVG', 'RBI', 'OPS']);
+    this.props.getPlayerStats(playerStats);
+  }
+  
+  renderStats() {
+    if (this.props.stats){
+      return playerStats.map((stat) => {
+        return (
+          <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat}>
+            <PlayerStats stat={this.props.stats[stat]}/>
+          </TeamDataContainer>
+        );
+      });
+    }
+
   }
   
   render(){
@@ -35,6 +50,7 @@ class App extends React.Component {
           <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings">
             <Standings/>
           </TeamDataContainer>
+          {this.renderStats()}
         </main>
       </React.Fragment>
     )    
