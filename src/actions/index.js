@@ -5,6 +5,14 @@ export const fetchTeamData = () => async (dispatch, getState) => {
     const team_list = response.data.overallteamstandings.teamstandingsentry.map( function(team) {
        return team.team;
      });
+     team_list.sort(function(a, b) {
+          var textA = a.City.toUpperCase() + a.Name.toUpperCase();
+          var textB = b.City.toUpperCase() + b.Name.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      });
+      if (!localStorage.hasOwnProperty('selected_team')) {
+        localStorage.setItem('selected_team', JSON.stringify(team_list[0]));
+      }
     dispatch({type: 'TEAM_LIST', payload: team_list});
   };
 
@@ -13,7 +21,7 @@ export const selectTeam = (team) => (dispatch, getState) => {
   dispatch({type: 'TEAM_SELECTED', payload: team});
 };
 
-export const getPreviousTeam = (team) => {
+export const getPreviousTeam = () => async (dispatch, getState) => {
   if (localStorage.hasOwnProperty('selected_team')) {
     var previous_team = localStorage.getItem('selected_team');
     
@@ -22,12 +30,11 @@ export const getPreviousTeam = (team) => {
     } catch (e) {
       // 
     }
-  }
-  
-  return {
+  } 
+  dispatch({
     type: 'TEAM_SELECTED',
     payload: previous_team
-  };
+  });
 };
 
 export const getYesterdayScore = () => async (dispatch, getState) => { 
