@@ -6,10 +6,7 @@ class SelectTeam extends React.Component {
   
   updateAllData(team) {
     this.props.selectTeam(team);
-    this.props.getYesterdayScore();
-    this.props.getTodayGame();
-    this.props.getStandings();
-    this.props.getPlayerStats(['HR', 'AVG', 'RBI', 'OPS']);
+    this.props.getAllStats();
   }
   
   renderList(){

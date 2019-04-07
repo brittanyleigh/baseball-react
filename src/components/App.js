@@ -15,6 +15,10 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchTeamData();
     this.props.getPreviousTeam();
+    this.getAllStats();
+  }
+  
+  getAllStats = () => {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
     this.props.getStandings();
@@ -38,7 +42,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <header role="banner">
-          <SelectTeam/>
+          <SelectTeam getAllStats={this.getAllStats}/>
         </header>
         <main role="main" className="container">
           <TeamDataContainer heading="Yesterday's Score" class="schedule">
