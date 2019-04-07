@@ -15,7 +15,6 @@ class PlayerStats extends React.Component {
       } else if (this.props.stat === 'OPS'){
         statKey = 'BatterOnBasePlusSluggingPct';
       }
-      console.log(this.props.stat);
       return this.props.statData.map((player) => {      
         return (
           <div key={player.player.ID}>

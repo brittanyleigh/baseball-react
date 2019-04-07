@@ -1,4 +1,5 @@
 import sports from '../apis/sportsfeed';
+import news from '../apis/news';
 
 export const fetchTeamData = () => async (dispatch, getState) => { 
     const response = await sports.get('/overall_team_standings.json');
@@ -105,3 +106,11 @@ export const getPlayerStats = (stats) => async (dispatch, getState) => {
 
   dispatch({type: 'PLAYER_STATS', payload: stats_list});  
 }
+
+export const getTeamNews = () => async (dispatch, getState) => { 
+  const team = getState().selected_team;
+  const team_search = encodeURIComponent(team.City + ' ' + team.Name);
+  const response = await news.get('everything?q=' + team_search + '&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=10');
+  let payload = response.data.articles ? response.data.articles : null;
+  dispatch({type: 'TEAM_NEWS', payload: payload});   
+};  

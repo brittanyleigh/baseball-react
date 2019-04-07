@@ -6,7 +6,8 @@ import YesterdayScore from './YesterdayScore';
 import TodayGame from './TodayGame';
 import Standings from './Standings';
 import PlayerStats from './PlayerStats';
-import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats} from '../actions';
+import TeamNews from './TeamNews';
+import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews} from '../actions';
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
@@ -22,6 +23,7 @@ class App extends React.Component {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
     this.props.getStandings();
+    this.props.getTeamNews();
     this.props.getPlayerStats(playerStats);
   }
   
@@ -55,6 +57,9 @@ class App extends React.Component {
             <Standings/>
           </TeamDataContainer>
           {this.renderStats()}
+          <TeamDataContainer heading="News" class="news">
+            <TeamNews />
+          </TeamDataContainer>
         </main>
       </React.Fragment>
     )    
@@ -69,5 +74,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, 
-  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews }
 )(App);
