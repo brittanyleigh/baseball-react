@@ -6,6 +6,7 @@ import getTodayGameReducer from './getTodayGameReducer';
 import getStandingsReducer from './getStandingsReducer';
 import getPlayerStatsReducer from './getPlayerStatsReducer';
 import getTeamNewsReducer from './getTeamNewsReducer';
+import toggleMenuReducer from './toggleMenuReducer';
 
 export default combineReducers({
   teams: teamsReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   today: getTodayGameReducer,
   standings: getStandingsReducer,
   stats: getPlayerStatsReducer,
-  news: getTeamNewsReducer
+  news: getTeamNewsReducer,
+  menuIsOpen: toggleMenuReducer
 });

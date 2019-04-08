@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats } from '../actions';
+import { selectTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, toggleMenu } from '../actions';
 
 class SelectTeam extends React.Component {
   
@@ -9,13 +9,16 @@ class SelectTeam extends React.Component {
     this.props.getAllStats();
   }
   
+  toggleMenu() {
+    this.props.toggleMenu();
+  }
+  
   renderList(){
     return this.props.teams.map((team) => {
       return (
-          <li className="nav__li" key={team.ID}>
-            <button className="ui button primary" onClick={() => this.updateAllData(team)}>
-              {team.City} {team.Name}
-            </button>
+          <li className="nav__sub-li" key={team.ID} onClick={() => this.updateAllData(team)}>
+            <img className="nav__sub-li-img" src={require(`../img/${team.ID}.png`)} alt={`${team.City} ${team.Name} logo`}></img>
+            <span className="nav__sub-span">{team.City} {team.Name}</span>
           </li>
       );
     });
@@ -23,13 +26,25 @@ class SelectTeam extends React.Component {
   
    render() {
      console.log(this.props);
+     if (!this.props.selected_team.ID) {
+       return null;
+     }
      return (
        <React.Fragment>
-         <h1>{ this.props.selected_team.Name }</h1>
          <div className="heading">
            <nav className="nav">
              <ul className="nav__ul">
-               {this.renderList()}
+               <li className="nav__li" onClick={() => this.toggleMenu()}>
+                 <img 
+                   className="nav__li-img" 
+                   src={require(`../img/${this.props.selected_team.ID}.png`)} 
+                   alt={`${this.props.selected_team.City} ${this.props.selected_team.Name} logo`}>
+                 </img>
+                 <h1 className="nav__li-h1">{ this.props.selected_team.City } { this.props.selected_team.Name }</h1>
+               </li>
+               <ul className={`nav__sub-ul nav__sub-ul--${this.props.menuIsOpen}`}>
+                 {this.renderList()}
+               </ul>
              </ul>
            </nav>
          </div>
@@ -45,8 +60,9 @@ const mapStateToProps = (state) => {
     standings: state.standings,
     stats: state.stats,
     yesterday: state.yesterday,
-    news: state.news
+    news: state.news,
+    menuIsOpen: state.menuIsOpen
    };
 }
 
-export default connect(mapStateToProps, { selectTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats })(SelectTeam);
+export default connect(mapStateToProps, { selectTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, toggleMenu })(SelectTeam);

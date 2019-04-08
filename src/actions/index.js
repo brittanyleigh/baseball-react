@@ -114,3 +114,9 @@ export const getTeamNews = () => async (dispatch, getState) => {
   let payload = response.data.articles ? response.data.articles : null;
   dispatch({type: 'TEAM_NEWS', payload: payload});   
 };  
+
+export const toggleMenu = () => (dispatch, getState) => {
+  let menuIsOpen = getState().menuIsOpen;
+  menuIsOpen = menuIsOpen === "closed" ? "open" : "closed";
+  dispatch({type: 'TOGGLE_MENU', payload: menuIsOpen});
+};

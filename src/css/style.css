@@ -1,0 +1,34 @@
+body {
+  margin: 0px;
+}
+
+.nav__ul {
+  margin: 0px;
+  padding: 15px;
+}
+.nav__li {
+  display: block;
+}
+.nav__li:hover {
+  cursor: pointer;
+}
+.nav__li-img {
+  max-width: 100px;
+}
+.nav__li-h1 {
+  display: inline-block;
+}
+.nav__sub-ul--closed {
+  display: none;
+}
+.nav__sub-li {
+  display: block;
+}
+.nav__sub-li:hover {
+  cursor: pointer;
+}
+.nav__sub-li-img {
+  max-width: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */

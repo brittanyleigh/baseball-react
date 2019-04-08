@@ -7,7 +7,8 @@ import TodayGame from './TodayGame';
 import Standings from './Standings';
 import PlayerStats from './PlayerStats';
 import TeamNews from './TeamNews';
-import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews} from '../actions';
+import '../css/style.css';
+import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu} from '../actions';
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
@@ -25,6 +26,7 @@ class App extends React.Component {
     this.props.getStandings();
     this.props.getTeamNews();
     this.props.getPlayerStats(playerStats);
+    this.props.toggleMenu();
   }
   
   renderStats() {
@@ -74,5 +76,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, 
-  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu }
 )(App);
