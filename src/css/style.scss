@@ -1,14 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Lilita+One');
+$standard-font: 'Lato', sans-serif;
+$fancy-font: 'Lilita One', cursive;
+// Colors //
+$neutral: #ffffff;
+$gray: #d2d2d2;
+$dark: #000000;
+
+@mixin container(){
+  max-width: 1024px;
+  margin: 0 auto;
+  border-left: solid 3px $dark;
+  border-right: solid 3px $dark;
+}
+
+@mixin flex-center(){
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+          align-items: center;
+}
+
+@mixin first-letter() {
+  display: inline-block;
+  padding-left: 5px;
+  &::first-letter {
+    font-size: 1.3em;
+  }
+}
+
+$teams: (
+  'angels',
+  'astros',
+  'athletics',
+  'bluejays',
+  'braves',
+  'brewers',
+  'cardinals',
+  'cubs',
+  'diamondbacks',
+  'dodgers',
+  'giants',
+  'indians',
+  'mariners',
+  'marlins',
+  'mets',
+  'nationals',
+  'orioles',
+  'padres',
+  'phillies',
+  'pirates',
+  'rangers',
+  'rays',
+  'reds',
+  'redsox',
+  'rockies',
+  'royals',
+  'tigers',
+  'twins',
+  'whitesox',
+  'yankees'
+);
+
+$team-primary-colors: (
+  angels: #CA0000,
+  astros: #002863,
+  athletics: #00483a,
+  bluejays: #104490,
+  braves: #043164,
+  brewers: #08142e,
+  cardinals: #c42842,
+  cubs: #0e3386,
+  diamondbacks: #b91134,
+  dodgers: #005a9c,
+  giants: #272425,
+  indians: #233b62,
+  mariners: #004467,
+  marlins: #000000,
+  mets: #004784,
+  nationals: #ba0c2f,
+  orioles: #000000,
+  padres: #002d62,
+  phillies: #cd1040,
+  pirates: #ffc425,
+  rangers: #004286,
+  rays: #09275D,
+  reds: #ed174f,
+  redsox: #D60020,
+  rockies: #2b296f,
+  royals: #004687,
+  tigers: #002244,
+  twins: #0A2142,
+  whitesox: #27261F,
+  yankees: #142448
+);
+
+$team-secondary-colors: (
+  angels: #002E64,
+  astros: #FA5E00,
+  athletics: #fdc157,
+  bluejays: #EB0000,
+  braves: #bd1031,
+  brewers: #aa8138,
+  cardinals: #0A2141,
+  cubs: #cc3433,
+  diamondbacks: #000000,
+  dodgers: #ee3e42,
+  giants: #d9782d,
+  indians: #e2233f,
+  mariners: #006C5F,
+  marlins: #e65c2b,
+  mets: #f37937,
+  nationals: #041e42,
+  orioles: #FF0F00,
+  padres: #9EAAB3,
+  phillies: #00529b,
+  pirates: #27261F,
+  rangers: #DE0033,
+  rays: #88BBE9,
+  reds: #000000,
+  redsox: #0A2141,
+  rockies: #858a8d,
+  royals: #bf9a5b,
+  tigers: #f9461c,
+  twins: #CA001C,
+  whitesox: #898D8F,
+  yankees: #e3002b
+);
+
+@mixin team-colors($team) {
+  background: map-get($team-primary-colors, $team);
+}
+
+* {
+  font-family: $standard-font;
+}
+
+#root {
+  &:after {
+    content: "";
+    background: url('../img/baseball.jpg');
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    height: 100%;
+  }
+}
+
 body {
   margin: 0px;
+  position: relative;
+}
+
+h2 {
+  margin: 0px;
+}
+
+.heading {
+  @include container();
+}
+.container {
+  @include container();
+}
+
+@each $team in $teams{
+  .header--#{$team} {
+    background: transparentize(map-get($team-primary-colors, $team), .3);
+    .nav {
+      &__sub {
+        &-ul {
+          background: map-get($team-primary-colors, $team);
+        }
+        &-li {
+          &:hover {
+            background: desaturate(lighten(map-get($team-primary-colors, $team), 5%), 15%);
+          }
+        }
+      }
+      &__ul {
+        border-bottom: solid 10px map-get($team-primary-colors, $team);
+      }
+      &__li-h1 {
+        &--primary {
+          color: map-get($team-primary-colors, $team);
+          @include first-letter();
+        }
+        &--secondary {
+          color: map-get($team-secondary-colors, $team);
+          @include first-letter();
+        }
+      }
+    }
+  }
+  .main--#{$team} {
+    background: transparentize(map-get($team-primary-colors, $team), .3);
+  }
 }
 
 .nav {
   &__ul {
     margin: 0px;
-    padding: 15px;
+    padding: 0px;
+    background: $neutral;
   }
   &__li {
-    display: block;
+    @include flex-center();
+    padding: 15px;
+    
     &:hover {
       cursor: pointer;
     }
@@ -17,21 +222,50 @@ body {
     }
     &-h1 {
       display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0px 10px;
+      font-weight: 900;
+    }
+    &-icon {
+      max-width: 30px;
+      max-height: 30px;
+      fill: $gray;
+      margin-bottom: -5px;
     }
   }
   &__sub-ul {
+    padding: 0px;
+    color: $neutral;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    
+
     &--closed {
       display: none;
     }
   }
   &__sub-li {
-    display: block;
+    @include flex-center();
+    padding: 10px 15px;
+    
     &:hover {
       cursor: pointer;
     }
     
     &-img {
-      max-width: 50px;
+      max-width: 30px;
+      padding-right: 10px;
     }
   }
+}
+
+.container {
+  background: url('../img/bg.jpg');
+}
+
+.news img {
+  max-width: 100px;
 }

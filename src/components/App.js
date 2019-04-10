@@ -12,7 +12,16 @@ import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getSta
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
+
 class App extends React.Component {
+  
+  getTeamClass() {
+    if (this.props.selected_team.Name){
+      let teamName = this.props.selected_team.Name
+      return teamName.split(' ').join('').toLowerCase();      
+    }
+  }
+  
   
   componentDidMount() {
     this.props.fetchTeamData();
@@ -27,6 +36,8 @@ class App extends React.Component {
     this.props.getTeamNews();
     this.props.getPlayerStats(playerStats);
     this.props.toggleMenu();
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
   
   renderStats() {
@@ -45,23 +56,25 @@ class App extends React.Component {
   render(){
     return (
       <React.Fragment>
-        <header role="banner">
+        <header role="banner" className={`header header--${this.getTeamClass()}`}>
           <SelectTeam getAllStats={this.getAllStats}/>
         </header>
-        <main role="main" className="container">
-          <TeamDataContainer heading="Yesterday's Score" class="schedule">
-            <YesterdayScore/>
-          </TeamDataContainer>
-          <TeamDataContainer heading="Today's Game" class="schedule">
-            <TodayGame/>
-          </TeamDataContainer>
-          <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings">
-            <Standings/>
-          </TeamDataContainer>
-          {this.renderStats()}
-          <TeamDataContainer heading="News" class="news">
-            <TeamNews />
-          </TeamDataContainer>
+        <main role="main" className={`main main--${this.getTeamClass()}`}>
+          <div className="container">
+            <TeamDataContainer heading="Yesterday's Score" class="schedule">
+              <YesterdayScore/>
+            </TeamDataContainer>
+            <TeamDataContainer heading="Today's Game" class="schedule">
+              <TodayGame/>
+            </TeamDataContainer>
+            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings">
+              <Standings/>
+            </TeamDataContainer>
+            {this.renderStats()}
+            <TeamDataContainer heading="News" class="news">
+              <TeamNews />
+            </TeamDataContainer>
+          </div>
         </main>
       </React.Fragment>
     )    
@@ -72,6 +85,7 @@ const mapStateToProps = (state) => {
   return { 
     standings: state.standings,
     stats: state.stats,
+    selected_team: state.selected_team
   };
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, toggleMenu } from '../actions';
+import { ReactComponent as DownIcon } from '../img/down.svg';
+import { ReactComponent as UpIcon } from '../img/up.svg';
 
 class SelectTeam extends React.Component {
   
@@ -24,6 +26,14 @@ class SelectTeam extends React.Component {
     });
   }
   
+  renderIcon(){
+    if (this.props.menuIsOpen === 'open') {
+      return <UpIcon className="nav__li-icon"/>
+    } else {
+      return <DownIcon className="nav__li-icon"/>
+    }
+  }
+  
    render() {
      console.log(this.props);
      if (!this.props.selected_team.ID) {
@@ -40,7 +50,11 @@ class SelectTeam extends React.Component {
                    src={require(`../img/${this.props.selected_team.ID}.png`)} 
                    alt={`${this.props.selected_team.City} ${this.props.selected_team.Name} logo`}>
                  </img>
-                 <h1 className="nav__li-h1">{ this.props.selected_team.City } { this.props.selected_team.Name }</h1>
+                 <h1 className="nav__li-h1">
+                   <span className="nav__li-h1--secondary">{ this.props.selected_team.City } </span>
+                   <span className="nav__li-h1--primary">{ this.props.selected_team.Name }</span>
+                 </h1>
+                 {this.renderIcon()}
                </li>
                <ul className={`nav__sub-ul nav__sub-ul--${this.props.menuIsOpen}`}>
                  {this.renderList()}

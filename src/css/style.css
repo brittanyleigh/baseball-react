@@ -1,13 +1,1049 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Lilita+One");
+* {
+  font-family: "Lato", sans-serif;
+}
+
+#root:after {
+  content: "";
+  background: url("../img/baseball.jpg");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  height: 100%;
+}
+
 body {
   margin: 0px;
+  position: relative;
+}
+
+h2 {
+  margin: 0px;
+}
+
+.heading {
+  max-width: 1024px;
+  margin: 0 auto;
+  border-left: solid 3px #000000;
+  border-right: solid 3px #000000;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  border-left: solid 3px #000000;
+  border-right: solid 3px #000000;
+}
+
+.header--angels {
+  background: rgba(202, 0, 0, 0.7);
+}
+.header--angels .nav__sub-ul {
+  background: #CA0000;
+}
+.header--angels .nav__sub-li:hover {
+  background: #d21111;
+}
+.header--angels .nav__ul {
+  border-bottom: solid 10px #CA0000;
+}
+.header--angels .nav__li-h1--primary {
+  color: #CA0000;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--angels .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--angels .nav__li-h1--secondary {
+  color: #002E64;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--angels .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--angels {
+  background: rgba(202, 0, 0, 0.7);
+}
+
+.header--astros {
+  background: rgba(0, 40, 99, 0.7);
+}
+.header--astros .nav__sub-ul {
+  background: #002863;
+}
+.header--astros .nav__sub-li:hover {
+  background: #093473;
+}
+.header--astros .nav__ul {
+  border-bottom: solid 10px #002863;
+}
+.header--astros .nav__li-h1--primary {
+  color: #002863;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--astros .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--astros .nav__li-h1--secondary {
+  color: #FA5E00;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--astros .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--astros {
+  background: rgba(0, 40, 99, 0.7);
+}
+
+.header--athletics {
+  background: rgba(0, 72, 58, 0.7);
+}
+.header--athletics .nav__sub-ul {
+  background: #00483a;
+}
+.header--athletics .nav__sub-li:hover {
+  background: #075a4a;
+}
+.header--athletics .nav__ul {
+  border-bottom: solid 10px #00483a;
+}
+.header--athletics .nav__li-h1--primary {
+  color: #00483a;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--athletics .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--athletics .nav__li-h1--secondary {
+  color: #fdc157;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--athletics .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--athletics {
+  background: rgba(0, 72, 58, 0.7);
+}
+
+.header--bluejays {
+  background: rgba(16, 68, 144, 0.7);
+}
+.header--bluejays .nav__sub-ul {
+  background: #104490;
+}
+.header--bluejays .nav__sub-li:hover {
+  background: #205199;
+}
+.header--bluejays .nav__ul {
+  border-bottom: solid 10px #104490;
+}
+.header--bluejays .nav__li-h1--primary {
+  color: #104490;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--bluejays .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--bluejays .nav__li-h1--secondary {
+  color: #EB0000;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--bluejays .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--bluejays {
+  background: rgba(16, 68, 144, 0.7);
+}
+
+.header--braves {
+  background: rgba(4, 49, 100, 0.7);
+}
+.header--braves .nav__sub-ul {
+  background: #043164;
+}
+.header--braves .nav__sub-li:hover {
+  background: #0f3e73;
+}
+.header--braves .nav__ul {
+  border-bottom: solid 10px #043164;
+}
+.header--braves .nav__li-h1--primary {
+  color: #043164;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--braves .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--braves .nav__li-h1--secondary {
+  color: #bd1031;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--braves .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--braves {
+  background: rgba(4, 49, 100, 0.7);
+}
+
+.header--brewers {
+  background: rgba(8, 20, 46, 0.7);
+}
+.header--brewers .nav__sub-ul {
+  background: #08142e;
+}
+.header--brewers .nav__sub-li:hover {
+  background: #12203e;
+}
+.header--brewers .nav__ul {
+  border-bottom: solid 10px #08142e;
+}
+.header--brewers .nav__li-h1--primary {
+  color: #08142e;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--brewers .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--brewers .nav__li-h1--secondary {
+  color: #aa8138;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--brewers .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--brewers {
+  background: rgba(8, 20, 46, 0.7);
+}
+
+.header--cardinals {
+  background: rgba(196, 40, 66, 0.7);
+}
+.header--cardinals .nav__sub-ul {
+  background: #c42842;
+}
+.header--cardinals .nav__sub-li:hover {
+  background: #c24358;
+}
+.header--cardinals .nav__ul {
+  border-bottom: solid 10px #c42842;
+}
+.header--cardinals .nav__li-h1--primary {
+  color: #c42842;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--cardinals .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--cardinals .nav__li-h1--secondary {
+  color: #0A2141;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--cardinals .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--cardinals {
+  background: rgba(196, 40, 66, 0.7);
+}
+
+.header--cubs {
+  background: rgba(14, 51, 134, 0.7);
+}
+.header--cubs .nav__sub-ul {
+  background: #0e3386;
+}
+.header--cubs .nav__sub-li:hover {
+  background: #1d4190;
+}
+.header--cubs .nav__ul {
+  border-bottom: solid 10px #0e3386;
+}
+.header--cubs .nav__li-h1--primary {
+  color: #0e3386;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--cubs .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--cubs .nav__li-h1--secondary {
+  color: #cc3433;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--cubs .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--cubs {
+  background: rgba(14, 51, 134, 0.7);
+}
+
+.header--diamondbacks {
+  background: rgba(185, 17, 52, 0.7);
+}
+.header--diamondbacks .nav__sub-ul {
+  background: #b91134;
+}
+.header--diamondbacks .nav__sub-li:hover {
+  background: #bf2445;
+}
+.header--diamondbacks .nav__ul {
+  border-bottom: solid 10px #b91134;
+}
+.header--diamondbacks .nav__li-h1--primary {
+  color: #b91134;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--diamondbacks .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--diamondbacks .nav__li-h1--secondary {
+  color: #000000;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--diamondbacks .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--diamondbacks {
+  background: rgba(185, 17, 52, 0.7);
+}
+
+.header--dodgers {
+  background: rgba(0, 90, 156, 0.7);
+}
+.header--dodgers .nav__sub-ul {
+  background: #005a9c;
+}
+.header--dodgers .nav__sub-li:hover {
+  background: #0e67a8;
+}
+.header--dodgers .nav__ul {
+  border-bottom: solid 10px #005a9c;
+}
+.header--dodgers .nav__li-h1--primary {
+  color: #005a9c;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--dodgers .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--dodgers .nav__li-h1--secondary {
+  color: #ee3e42;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--dodgers .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--dodgers {
+  background: rgba(0, 90, 156, 0.7);
+}
+
+.header--giants {
+  background: rgba(39, 36, 37, 0.7);
+}
+.header--giants .nav__sub-ul {
+  background: #272425;
+}
+.header--giants .nav__sub-li:hover {
+  background: #323232;
+}
+.header--giants .nav__ul {
+  border-bottom: solid 10px #272425;
+}
+.header--giants .nav__li-h1--primary {
+  color: #272425;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--giants .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--giants .nav__li-h1--secondary {
+  color: #d9782d;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--giants .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--giants {
+  background: rgba(39, 36, 37, 0.7);
+}
+
+.header--indians {
+  background: rgba(35, 59, 98, 0.7);
+}
+.header--indians .nav__sub-ul {
+  background: #233b62;
+}
+.header--indians .nav__sub-li:hover {
+  background: #364969;
+}
+.header--indians .nav__ul {
+  border-bottom: solid 10px #233b62;
+}
+.header--indians .nav__li-h1--primary {
+  color: #233b62;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--indians .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--indians .nav__li-h1--secondary {
+  color: #e2233f;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--indians .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--indians {
+  background: rgba(35, 59, 98, 0.7);
+}
+
+.header--mariners {
+  background: rgba(0, 68, 103, 0.7);
+}
+.header--mariners .nav__sub-ul {
+  background: #004467;
+}
+.header--mariners .nav__sub-li:hover {
+  background: #0a5277;
+}
+.header--mariners .nav__ul {
+  border-bottom: solid 10px #004467;
+}
+.header--mariners .nav__li-h1--primary {
+  color: #004467;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--mariners .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--mariners .nav__li-h1--secondary {
+  color: #006C5F;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--mariners .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--mariners {
+  background: rgba(0, 68, 103, 0.7);
+}
+
+.header--marlins {
+  background: rgba(0, 0, 0, 0.7);
+}
+.header--marlins .nav__sub-ul {
+  background: #000000;
+}
+.header--marlins .nav__sub-li:hover {
+  background: #0d0d0d;
+}
+.header--marlins .nav__ul {
+  border-bottom: solid 10px #000000;
+}
+.header--marlins .nav__li-h1--primary {
+  color: #000000;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--marlins .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--marlins .nav__li-h1--secondary {
+  color: #e65c2b;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--marlins .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--marlins {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.header--mets {
+  background: rgba(0, 71, 132, 0.7);
+}
+.header--mets .nav__sub-ul {
+  background: #004784;
+}
+.header--mets .nav__sub-li:hover {
+  background: #0c5492;
+}
+.header--mets .nav__ul {
+  border-bottom: solid 10px #004784;
+}
+.header--mets .nav__li-h1--primary {
+  color: #004784;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--mets .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--mets .nav__li-h1--secondary {
+  color: #f37937;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--mets .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--mets {
+  background: rgba(0, 71, 132, 0.7);
+}
+
+.header--nationals {
+  background: rgba(186, 12, 47, 0.7);
+}
+.header--nationals .nav__sub-ul {
+  background: #ba0c2f;
+}
+.header--nationals .nav__sub-li:hover {
+  background: #c11e3f;
+}
+.header--nationals .nav__ul {
+  border-bottom: solid 10px #ba0c2f;
+}
+.header--nationals .nav__li-h1--primary {
+  color: #ba0c2f;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--nationals .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--nationals .nav__li-h1--secondary {
+  color: #041e42;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--nationals .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--nationals {
+  background: rgba(186, 12, 47, 0.7);
+}
+
+.header--orioles {
+  background: rgba(0, 0, 0, 0.7);
+}
+.header--orioles .nav__sub-ul {
+  background: #000000;
+}
+.header--orioles .nav__sub-li:hover {
+  background: #0d0d0d;
+}
+.header--orioles .nav__ul {
+  border-bottom: solid 10px #000000;
+}
+.header--orioles .nav__li-h1--primary {
+  color: #000000;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--orioles .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--orioles .nav__li-h1--secondary {
+  color: #FF0F00;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--orioles .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--orioles {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.header--padres {
+  background: rgba(0, 45, 98, 0.7);
+}
+.header--padres .nav__sub-ul {
+  background: #002d62;
+}
+.header--padres .nav__sub-li:hover {
+  background: #093972;
+}
+.header--padres .nav__ul {
+  border-bottom: solid 10px #002d62;
+}
+.header--padres .nav__li-h1--primary {
+  color: #002d62;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--padres .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--padres .nav__li-h1--secondary {
+  color: #9EAAB3;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--padres .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--padres {
+  background: rgba(0, 45, 98, 0.7);
+}
+
+.header--phillies {
+  background: rgba(205, 16, 64, 0.7);
+}
+.header--phillies .nav__sub-ul {
+  background: #cd1040;
+}
+.header--phillies .nav__sub-li:hover {
+  background: #d22450;
+}
+.header--phillies .nav__ul {
+  border-bottom: solid 10px #cd1040;
+}
+.header--phillies .nav__li-h1--primary {
+  color: #cd1040;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--phillies .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--phillies .nav__li-h1--secondary {
+  color: #00529b;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--phillies .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--phillies {
+  background: rgba(205, 16, 64, 0.7);
+}
+
+.header--pirates {
+  background: rgba(255, 196, 37, 0.7);
+}
+.header--pirates .nav__sub-ul {
+  background: #ffc425;
+}
+.header--pirates .nav__sub-li:hover {
+  background: #f1c44d;
+}
+.header--pirates .nav__ul {
+  border-bottom: solid 10px #ffc425;
+}
+.header--pirates .nav__li-h1--primary {
+  color: #ffc425;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--pirates .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--pirates .nav__li-h1--secondary {
+  color: #27261F;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--pirates .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--pirates {
+  background: rgba(255, 196, 37, 0.7);
+}
+
+.header--rangers {
+  background: rgba(0, 66, 134, 0.7);
+}
+.header--rangers .nav__sub-ul {
+  background: #004286;
+}
+.header--rangers .nav__sub-li:hover {
+  background: #0c4f94;
+}
+.header--rangers .nav__ul {
+  border-bottom: solid 10px #004286;
+}
+.header--rangers .nav__li-h1--primary {
+  color: #004286;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--rangers .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--rangers .nav__li-h1--secondary {
+  color: #DE0033;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--rangers .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--rangers {
+  background: rgba(0, 66, 134, 0.7);
+}
+
+.header--rays {
+  background: rgba(9, 39, 93, 0.7);
+}
+.header--rays .nav__sub-ul {
+  background: #09275D;
+}
+.header--rays .nav__sub-li:hover {
+  background: #15336b;
+}
+.header--rays .nav__ul {
+  border-bottom: solid 10px #09275D;
+}
+.header--rays .nav__li-h1--primary {
+  color: #09275D;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--rays .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--rays .nav__li-h1--secondary {
+  color: #88BBE9;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--rays .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--rays {
+  background: rgba(9, 39, 93, 0.7);
+}
+
+.header--reds {
+  background: rgba(237, 23, 79, 0.7);
+}
+.header--reds .nav__sub-ul {
+  background: #ed174f;
+}
+.header--reds .nav__sub-li:hover {
+  background: #de4069;
+}
+.header--reds .nav__ul {
+  border-bottom: solid 10px #ed174f;
+}
+.header--reds .nav__li-h1--primary {
+  color: #ed174f;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--reds .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--reds .nav__li-h1--secondary {
+  color: #000000;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--reds .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--reds {
+  background: rgba(237, 23, 79, 0.7);
+}
+
+.header--redsox {
+  background: rgba(214, 0, 32, 0.7);
+}
+.header--redsox .nav__sub-ul {
+  background: #D60020;
+}
+.header--redsox .nav__sub-li:hover {
+  background: #de1230;
+}
+.header--redsox .nav__ul {
+  border-bottom: solid 10px #D60020;
+}
+.header--redsox .nav__li-h1--primary {
+  color: #D60020;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--redsox .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--redsox .nav__li-h1--secondary {
+  color: #0A2141;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--redsox .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--redsox {
+  background: rgba(214, 0, 32, 0.7);
+}
+
+.header--rockies {
+  background: rgba(43, 41, 111, 0.7);
+}
+.header--rockies .nav__sub-ul {
+  background: #2b296f;
+}
+.header--rockies .nav__sub-li:hover {
+  background: #3f3d74;
+}
+.header--rockies .nav__ul {
+  border-bottom: solid 10px #2b296f;
+}
+.header--rockies .nav__li-h1--primary {
+  color: #2b296f;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--rockies .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--rockies .nav__li-h1--secondary {
+  color: #858a8d;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--rockies .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--rockies {
+  background: rgba(43, 41, 111, 0.7);
+}
+
+.header--royals {
+  background: rgba(0, 70, 135, 0.7);
+}
+.header--royals .nav__sub-ul {
+  background: #004687;
+}
+.header--royals .nav__sub-li:hover {
+  background: #0c5394;
+}
+.header--royals .nav__ul {
+  border-bottom: solid 10px #004687;
+}
+.header--royals .nav__li-h1--primary {
+  color: #004687;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--royals .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--royals .nav__li-h1--secondary {
+  color: #bf9a5b;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--royals .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--royals {
+  background: rgba(0, 70, 135, 0.7);
+}
+
+.header--tigers {
+  background: rgba(0, 34, 68, 0.7);
+}
+.header--tigers .nav__sub-ul {
+  background: #002244;
+}
+.header--tigers .nav__sub-li:hover {
+  background: #072f56;
+}
+.header--tigers .nav__ul {
+  border-bottom: solid 10px #002244;
+}
+.header--tigers .nav__li-h1--primary {
+  color: #002244;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--tigers .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--tigers .nav__li-h1--secondary {
+  color: #f9461c;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--tigers .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--tigers {
+  background: rgba(0, 34, 68, 0.7);
+}
+
+.header--twins {
+  background: rgba(10, 33, 66, 0.7);
+}
+.header--twins .nav__sub-ul {
+  background: #0A2142;
+}
+.header--twins .nav__sub-li:hover {
+  background: #152d51;
+}
+.header--twins .nav__ul {
+  border-bottom: solid 10px #0A2142;
+}
+.header--twins .nav__li-h1--primary {
+  color: #0A2142;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--twins .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--twins .nav__li-h1--secondary {
+  color: #CA001C;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--twins .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--twins {
+  background: rgba(10, 33, 66, 0.7);
+}
+
+.header--whitesox {
+  background: rgba(39, 38, 31, 0.7);
+}
+.header--whitesox .nav__sub-ul {
+  background: #27261F;
+}
+.header--whitesox .nav__sub-li:hover {
+  background: #303030;
+}
+.header--whitesox .nav__ul {
+  border-bottom: solid 10px #27261F;
+}
+.header--whitesox .nav__li-h1--primary {
+  color: #27261F;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--whitesox .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--whitesox .nav__li-h1--secondary {
+  color: #898D8F;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--whitesox .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--whitesox {
+  background: rgba(39, 38, 31, 0.7);
+}
+
+.header--yankees {
+  background: rgba(20, 36, 72, 0.7);
+}
+.header--yankees .nav__sub-ul {
+  background: #142448;
+}
+.header--yankees .nav__sub-li:hover {
+  background: #223153;
+}
+.header--yankees .nav__ul {
+  border-bottom: solid 10px #142448;
+}
+.header--yankees .nav__li-h1--primary {
+  color: #142448;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--yankees .nav__li-h1--primary::first-letter {
+  font-size: 1.3em;
+}
+.header--yankees .nav__li-h1--secondary {
+  color: #e3002b;
+  display: inline-block;
+  padding-left: 5px;
+}
+.header--yankees .nav__li-h1--secondary::first-letter {
+  font-size: 1.3em;
+}
+
+.main--yankees {
+  background: rgba(20, 36, 72, 0.7);
 }
 
 .nav__ul {
   margin: 0px;
-  padding: 15px;
+  padding: 0px;
+  background: #ffffff;
 }
 .nav__li {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px;
 }
 .nav__li:hover {
   cursor: pointer;
@@ -17,18 +1053,51 @@ body {
 }
 .nav__li-h1 {
   display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0px 10px;
+  font-weight: 900;
+}
+.nav__li-icon {
+  max-width: 30px;
+  max-height: 30px;
+  fill: #d2d2d2;
+  margin-bottom: -5px;
+}
+.nav__sub-ul {
+  padding: 0px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 .nav__sub-ul--closed {
   display: none;
 }
 .nav__sub-li {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px 15px;
 }
 .nav__sub-li:hover {
   cursor: pointer;
 }
 .nav__sub-li-img {
-  max-width: 50px;
+  max-width: 30px;
+  padding-right: 10px;
+}
+
+.container {
+  background: url("../img/bg.jpg");
+}
+
+.news img {
+  max-width: 100px;
 }
 
 /*# sourceMappingURL=style.css.map */
