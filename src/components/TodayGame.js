@@ -8,8 +8,8 @@ class TodayGame extends React.Component {
       let awayTeam, homeTeam;
       
       if (game.scheduleStatus){
-        awayTeam = <div className="game__away-team">{game.awayTeam.Name} @</div>;
-        homeTeam = <div className="game__home-team">{game.homeTeam.Name} </div>;
+        awayTeam = <div className="game__team game__team--away">{game.awayTeam.Name} @</div>;
+        homeTeam = <div className="game__team game__team--home">{game.homeTeam.Name} </div>;
       }
       return (
         <div className="game" key={game.id}>

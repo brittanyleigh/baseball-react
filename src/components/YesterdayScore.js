@@ -21,8 +21,8 @@ class YesterdayScore extends React.Component {
       }
       
       if (game.isUnplayed === "false") {
-        awayTeam = <div className="game__away-team">{game.game.awayTeam.Name}: { game.awayScore }</div>;
-        homeTeam = <div className="game__home-team">{game.game.homeTeam.Name}: { game.homeScore }</div>;
+        awayTeam = <div className="game__team game__team--away">{game.game.awayTeam.Name}: { game.awayScore }</div>;
+        homeTeam = <div className="game__team game__team--home">{game.game.homeTeam.Name}: { game.homeScore }</div>;
       }
       
       if (game.game.ID) {
@@ -32,7 +32,7 @@ class YesterdayScore extends React.Component {
       }
       
       return (
-        <div className="game" key={key}>
+        <div className="game game--yesterday" key={key}>
           <div className="game__detail">{ outcome }</div>
             { awayTeam }
             { homeTeam }

@@ -6,12 +6,14 @@ $fancy-font: 'Lilita One', cursive;
 $neutral: #ffffff;
 $gray: #d2d2d2;
 $dark: #000000;
+$dark_gray: #3c3c3c;
+
+// Breakpoints //
+$small: 500px;
 
 @mixin container(){
-  max-width: 1024px;
+  max-width: 825px;
   margin: 0 auto;
-  border-left: solid 3px $dark;
-  border-right: solid 3px $dark;
 }
 
 @mixin flex-center(){
@@ -29,6 +31,10 @@ $dark: #000000;
   &::first-letter {
     font-size: 1.3em;
   }
+}
+
+@mixin team-background($team) {
+  background: transparentize(darken(map-get($team-primary-colors, $team), 10), .5);
 }
 
 $teams: (
@@ -136,6 +142,7 @@ $team-secondary-colors: (
 
 * {
   font-family: $standard-font;
+  letter-spacing: 1px;
 }
 
 #root {
@@ -159,20 +166,19 @@ body {
   position: relative;
 }
 
-h2 {
-  margin: 0px;
-}
-
 .heading {
   @include container();
 }
 .container {
   @include container();
+  background: url('../img/bg.jpg');
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
 }
 
 @each $team in $teams{
   .header--#{$team} {
-    background: transparentize(map-get($team-primary-colors, $team), .3);
+    @include team-background($team);
     .nav {
       &__sub {
         &-ul {
@@ -200,7 +206,10 @@ h2 {
     }
   }
   .main--#{$team} {
-    background: transparentize(map-get($team-primary-colors, $team), .3);
+    @include team-background($team);
+    .team_data_container__heading {
+      background: map-get($team-primary-colors, $team);
+    }
   }
 }
 
@@ -212,20 +221,27 @@ h2 {
   }
   &__li {
     @include flex-center();
+    justify-content: center;
     padding: 15px;
-    
+  
     &:hover {
       cursor: pointer;
     }
     &-img {
       max-width: 100px;
+      
+      @media screen and (max-width: $small) {
+        max-width: 75px;
+      }
     }
     &-h1 {
       display: inline-block;
       text-transform: uppercase;
-      letter-spacing: 1px;
       padding: 0px 10px;
       font-weight: 900;
+      @media screen and (max-width: $small) {
+        font-size: 1em;
+      }
     }
     &-icon {
       max-width: 30px;
@@ -238,9 +254,8 @@ h2 {
     padding: 0px;
     color: $neutral;
     text-transform: uppercase;
-    letter-spacing: 1px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     
 
     &--closed {
@@ -250,6 +265,7 @@ h2 {
   &__sub-li {
     @include flex-center();
     padding: 10px 15px;
+    font-size: 14px;
     
     &:hover {
       cursor: pointer;
@@ -262,10 +278,61 @@ h2 {
   }
 }
 
-.container {
-  background: url('../img/bg.jpg');
-}
-
 .news img {
   max-width: 100px;
+}
+
+.team_data_container {
+  background-color: $neutral;
+  border: solid 1px $gray;
+  margin: 25px;
+  color: $dark_gray;
+  
+  &--standings {
+    grid-column: 1/-1;
+  }
+  &__heading {
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+}
+
+.game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  min-height: 70px;
+  
+  &--yesterday {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  &__detail {
+    grid-row: 1/span 2;
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    @media screen and (max-width: $small){
+      font-size: 1.5em;
+    }
+    &:only-child {
+      grid-column: 1 / -1;
+    }
+  }
+  &__team {
+    padding: 5px;
+    font-weight: 700;
+    font-size: 1.2em;
+    @media screen and (max-width: $small){
+      font-size: 1em;
+    }
+    &--away {
+      border-bottom: solid 2px $gray;
+      padding-bottom: 10px;
+    }
+  }
 }
