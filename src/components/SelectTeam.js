@@ -18,7 +18,7 @@ class SelectTeam extends React.Component {
   renderList(){
     return this.props.teams.map((team) => {
       return (
-          <li className="nav__sub-li" key={team.ID} onClick={() => this.updateAllData(team)}>
+          <li className={`nav__sub-li nav__sub-li--${this.props.team}`} key={team.ID} onClick={() => this.updateAllData(team)}>
             <img className="nav__sub-li-img" src={require(`../img/${team.ID}.png`)} alt={`${team.City} ${team.Name} logo`}></img>
             <span className="nav__sub-span">{team.City} {team.Name}</span>
           </li>
@@ -43,7 +43,7 @@ class SelectTeam extends React.Component {
        <React.Fragment>
          <div className="heading">
            <nav className="nav">
-             <ul className="nav__ul">
+             <ul className={`nav__ul nav__ul--${this.props.team}`}>
                <li className="nav__li" onClick={() => this.toggleMenu()}>
                  <img 
                    className="nav__li-img" 
@@ -51,12 +51,12 @@ class SelectTeam extends React.Component {
                    alt={`${this.props.selected_team.City} ${this.props.selected_team.Name} logo`}>
                  </img>
                  <h1 className="nav__li-h1">
-                   <span className="nav__li-h1--secondary">{ this.props.selected_team.City } </span>
-                   <span className="nav__li-h1--primary">{ this.props.selected_team.Name }</span>
+                   <span className={`nav__li-span nav__li-span--secondary-${this.props.team}`}>{ this.props.selected_team.City } </span>
+                   <span className={`nav__li-span nav__li-span--primary-${this.props.team}`}>{ this.props.selected_team.Name }</span>
                  </h1>
                  {this.renderIcon()}
                </li>
-               <ul className={`nav__sub-ul nav__sub-ul--${this.props.menuIsOpen}`}>
+               <ul className={`nav__sub-ul nav__sub-ul--${this.props.menuIsOpen} nav__sub-ul--${this.props.team}`}>
                  {this.renderList()}
                </ul>
              </ul>

@@ -34,1086 +34,849 @@ body {
   margin: 0 auto;
   background: url("../img/bg.jpg");
   display: grid;
+  box-sizing: border-box;
+  grid-gap: 20px;
+  padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
 }
 
 .header--angels {
   background: rgba(151, 0, 0, 0.5);
 }
-.header--angels .nav__sub-ul {
-  background: #CA0000;
-}
-.header--angels .nav__sub-li:hover {
-  background: #d21111;
-}
-.header--angels .nav__ul {
+
+.nav__ul--angels {
   border-bottom: solid 10px #CA0000;
 }
-.header--angels .nav__li-h1--primary {
+.nav__li-span--primary-angels {
   color: #CA0000;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--angels .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--angels .nav__li-h1--secondary {
+.nav__li-span--secondary-angels {
   color: #002E64;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--angels .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--angels {
+  background: #CA0000;
+}
+.nav__sub-li--angels:hover {
+  background: #d21111;
 }
 
 .main--angels {
   background: rgba(151, 0, 0, 0.5);
 }
-.main--angels .team_data_container__heading {
+
+.team_data_container__heading--angels {
   background: #CA0000;
 }
 
 .header--astros {
   background: rgba(0, 19, 48, 0.5);
 }
-.header--astros .nav__sub-ul {
-  background: #002863;
-}
-.header--astros .nav__sub-li:hover {
-  background: #093473;
-}
-.header--astros .nav__ul {
+
+.nav__ul--astros {
   border-bottom: solid 10px #002863;
 }
-.header--astros .nav__li-h1--primary {
+.nav__li-span--primary-astros {
   color: #002863;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--astros .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--astros .nav__li-h1--secondary {
+.nav__li-span--secondary-astros {
   color: #FA5E00;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--astros .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--astros {
+  background: #002863;
+}
+.nav__sub-li--astros:hover {
+  background: #093473;
 }
 
 .main--astros {
   background: rgba(0, 19, 48, 0.5);
 }
-.main--astros .team_data_container__heading {
+
+.team_data_container__heading--astros {
   background: #002863;
 }
 
 .header--athletics {
   background: rgba(0, 21, 17, 0.5);
 }
-.header--athletics .nav__sub-ul {
-  background: #00483a;
-}
-.header--athletics .nav__sub-li:hover {
-  background: #075a4a;
-}
-.header--athletics .nav__ul {
+
+.nav__ul--athletics {
   border-bottom: solid 10px #00483a;
 }
-.header--athletics .nav__li-h1--primary {
+.nav__li-span--primary-athletics {
   color: #00483a;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--athletics .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--athletics .nav__li-h1--secondary {
+.nav__li-span--secondary-athletics {
   color: #fdc157;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--athletics .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--athletics {
+  background: #00483a;
+}
+.nav__sub-li--athletics:hover {
+  background: #075a4a;
 }
 
 .main--athletics {
   background: rgba(0, 21, 17, 0.5);
 }
-.main--athletics .team_data_container__heading {
+
+.team_data_container__heading--athletics {
   background: #00483a;
 }
 
 .header--bluejays {
   background: rgba(11, 46, 98, 0.5);
 }
-.header--bluejays .nav__sub-ul {
-  background: #104490;
-}
-.header--bluejays .nav__sub-li:hover {
-  background: #205199;
-}
-.header--bluejays .nav__ul {
+
+.nav__ul--bluejays {
   border-bottom: solid 10px #104490;
 }
-.header--bluejays .nav__li-h1--primary {
+.nav__li-span--primary-bluejays {
   color: #104490;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--bluejays .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--bluejays .nav__li-h1--secondary {
+.nav__li-span--secondary-bluejays {
   color: #EB0000;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--bluejays .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--bluejays {
+  background: #104490;
+}
+.nav__sub-li--bluejays:hover {
+  background: #205199;
 }
 
 .main--bluejays {
   background: rgba(11, 46, 98, 0.5);
 }
-.main--bluejays .team_data_container__heading {
+
+.team_data_container__heading--bluejays {
   background: #104490;
 }
 
 .header--braves {
   background: rgba(2, 25, 51, 0.5);
 }
-.header--braves .nav__sub-ul {
-  background: #043164;
-}
-.header--braves .nav__sub-li:hover {
-  background: #0f3e73;
-}
-.header--braves .nav__ul {
+
+.nav__ul--braves {
   border-bottom: solid 10px #043164;
 }
-.header--braves .nav__li-h1--primary {
+.nav__li-span--primary-braves {
   color: #043164;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--braves .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--braves .nav__li-h1--secondary {
+.nav__li-span--secondary-braves {
   color: #bd1031;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--braves .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--braves {
+  background: #043164;
+}
+.nav__sub-li--braves:hover {
+  background: #0f3e73;
 }
 
 .main--braves {
   background: rgba(2, 25, 51, 0.5);
 }
-.main--braves .team_data_container__heading {
+
+.team_data_container__heading--braves {
   background: #043164;
 }
 
 .header--brewers {
   background: rgba(0, 1, 3, 0.5);
 }
-.header--brewers .nav__sub-ul {
-  background: #08142e;
-}
-.header--brewers .nav__sub-li:hover {
-  background: #12203e;
-}
-.header--brewers .nav__ul {
+
+.nav__ul--brewers {
   border-bottom: solid 10px #08142e;
 }
-.header--brewers .nav__li-h1--primary {
+.nav__li-span--primary-brewers {
   color: #08142e;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--brewers .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--brewers .nav__li-h1--secondary {
+.nav__li-span--secondary-brewers {
   color: #aa8138;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--brewers .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--brewers {
+  background: #08142e;
+}
+.nav__sub-li--brewers:hover {
+  background: #12203e;
 }
 
 .main--brewers {
   background: rgba(0, 1, 3, 0.5);
 }
-.main--brewers .team_data_container__heading {
+
+.team_data_container__heading--brewers {
   background: #08142e;
 }
 
 .header--cardinals {
   background: rgba(154, 31, 52, 0.5);
 }
-.header--cardinals .nav__sub-ul {
-  background: #c42842;
-}
-.header--cardinals .nav__sub-li:hover {
-  background: #c24358;
-}
-.header--cardinals .nav__ul {
+
+.nav__ul--cardinals {
   border-bottom: solid 10px #c42842;
 }
-.header--cardinals .nav__li-h1--primary {
+.nav__li-span--primary-cardinals {
   color: #c42842;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--cardinals .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--cardinals .nav__li-h1--secondary {
+.nav__li-span--secondary-cardinals {
   color: #0A2141;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--cardinals .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--cardinals {
+  background: #c42842;
+}
+.nav__sub-li--cardinals:hover {
+  background: #c24358;
 }
 
 .main--cardinals {
   background: rgba(154, 31, 52, 0.5);
 }
-.main--cardinals .team_data_container__heading {
+
+.team_data_container__heading--cardinals {
   background: #c42842;
 }
 
 .header--cubs {
   background: rgba(9, 33, 88, 0.5);
 }
-.header--cubs .nav__sub-ul {
-  background: #0e3386;
-}
-.header--cubs .nav__sub-li:hover {
-  background: #1d4190;
-}
-.header--cubs .nav__ul {
+
+.nav__ul--cubs {
   border-bottom: solid 10px #0e3386;
 }
-.header--cubs .nav__li-h1--primary {
+.nav__li-span--primary-cubs {
   color: #0e3386;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--cubs .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--cubs .nav__li-h1--secondary {
+.nav__li-span--secondary-cubs {
   color: #cc3433;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--cubs .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--cubs {
+  background: #0e3386;
+}
+.nav__sub-li--cubs:hover {
+  background: #1d4190;
 }
 
 .main--cubs {
   background: rgba(9, 33, 88, 0.5);
 }
-.main--cubs .team_data_container__heading {
+
+.team_data_container__heading--cubs {
   background: #0e3386;
 }
 
 .header--diamondbacks {
   background: rgba(138, 13, 39, 0.5);
 }
-.header--diamondbacks .nav__sub-ul {
-  background: #b91134;
-}
-.header--diamondbacks .nav__sub-li:hover {
-  background: #bf2445;
-}
-.header--diamondbacks .nav__ul {
+
+.nav__ul--diamondbacks {
   border-bottom: solid 10px #b91134;
 }
-.header--diamondbacks .nav__li-h1--primary {
+.nav__li-span--primary-diamondbacks {
   color: #b91134;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--diamondbacks .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--diamondbacks .nav__li-h1--secondary {
+.nav__li-span--secondary-diamondbacks {
   color: #000000;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--diamondbacks .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--diamondbacks {
+  background: #b91134;
+}
+.nav__sub-li--diamondbacks:hover {
+  background: #bf2445;
 }
 
 .main--diamondbacks {
   background: rgba(138, 13, 39, 0.5);
 }
-.main--diamondbacks .team_data_container__heading {
+
+.team_data_container__heading--diamondbacks {
   background: #b91134;
 }
 
 .header--dodgers {
   background: rgba(0, 61, 105, 0.5);
 }
-.header--dodgers .nav__sub-ul {
-  background: #005a9c;
-}
-.header--dodgers .nav__sub-li:hover {
-  background: #0e67a8;
-}
-.header--dodgers .nav__ul {
+
+.nav__ul--dodgers {
   border-bottom: solid 10px #005a9c;
 }
-.header--dodgers .nav__li-h1--primary {
+.nav__li-span--primary-dodgers {
   color: #005a9c;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--dodgers .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--dodgers .nav__li-h1--secondary {
+.nav__li-span--secondary-dodgers {
   color: #ee3e42;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--dodgers .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--dodgers {
+  background: #005a9c;
+}
+.nav__sub-li--dodgers:hover {
+  background: #0e67a8;
 }
 
 .main--dodgers {
   background: rgba(0, 61, 105, 0.5);
 }
-.main--dodgers .team_data_container__heading {
+
+.team_data_container__heading--dodgers {
   background: #005a9c;
 }
 
 .header--giants {
   background: rgba(12, 12, 12, 0.5);
 }
-.header--giants .nav__sub-ul {
-  background: #272425;
-}
-.header--giants .nav__sub-li:hover {
-  background: #323232;
-}
-.header--giants .nav__ul {
+
+.nav__ul--giants {
   border-bottom: solid 10px #272425;
 }
-.header--giants .nav__li-h1--primary {
+.nav__li-span--primary-giants {
   color: #272425;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--giants .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--giants .nav__li-h1--secondary {
+.nav__li-span--secondary-giants {
   color: #d9782d;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--giants .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--giants {
+  background: #272425;
+}
+.nav__sub-li--giants:hover {
+  background: #323232;
 }
 
 .main--giants {
   background: rgba(12, 12, 12, 0.5);
 }
-.main--giants .team_data_container__heading {
+
+.team_data_container__heading--giants {
   background: #272425;
 }
 
 .header--indians {
   background: rgba(22, 36, 60, 0.5);
 }
-.header--indians .nav__sub-ul {
-  background: #233b62;
-}
-.header--indians .nav__sub-li:hover {
-  background: #364969;
-}
-.header--indians .nav__ul {
+
+.nav__ul--indians {
   border-bottom: solid 10px #233b62;
 }
-.header--indians .nav__li-h1--primary {
+.nav__li-span--primary-indians {
   color: #233b62;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--indians .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--indians .nav__li-h1--secondary {
+.nav__li-span--secondary-indians {
   color: #e2233f;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--indians .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--indians {
+  background: #233b62;
+}
+.nav__sub-li--indians:hover {
+  background: #364969;
 }
 
 .main--indians {
   background: rgba(22, 36, 60, 0.5);
 }
-.main--indians .team_data_container__heading {
+
+.team_data_container__heading--indians {
   background: #233b62;
 }
 
 .header--mariners {
   background: rgba(0, 34, 52, 0.5);
 }
-.header--mariners .nav__sub-ul {
-  background: #004467;
-}
-.header--mariners .nav__sub-li:hover {
-  background: #0a5277;
-}
-.header--mariners .nav__ul {
+
+.nav__ul--mariners {
   border-bottom: solid 10px #004467;
 }
-.header--mariners .nav__li-h1--primary {
+.nav__li-span--primary-mariners {
   color: #004467;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--mariners .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--mariners .nav__li-h1--secondary {
+.nav__li-span--secondary-mariners {
   color: #006C5F;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--mariners .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--mariners {
+  background: #004467;
+}
+.nav__sub-li--mariners:hover {
+  background: #0a5277;
 }
 
 .main--mariners {
   background: rgba(0, 34, 52, 0.5);
 }
-.main--mariners .team_data_container__heading {
+
+.team_data_container__heading--mariners {
   background: #004467;
 }
 
 .header--marlins {
   background: rgba(0, 0, 0, 0.5);
 }
-.header--marlins .nav__sub-ul {
-  background: #000000;
-}
-.header--marlins .nav__sub-li:hover {
-  background: #0d0d0d;
-}
-.header--marlins .nav__ul {
+
+.nav__ul--marlins {
   border-bottom: solid 10px #000000;
 }
-.header--marlins .nav__li-h1--primary {
+.nav__li-span--primary-marlins {
   color: #000000;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--marlins .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--marlins .nav__li-h1--secondary {
+.nav__li-span--secondary-marlins {
   color: #e65c2b;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--marlins .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--marlins {
+  background: #000000;
+}
+.nav__sub-li--marlins:hover {
+  background: #0d0d0d;
 }
 
 .main--marlins {
   background: rgba(0, 0, 0, 0.5);
 }
-.main--marlins .team_data_container__heading {
+
+.team_data_container__heading--marlins {
   background: #000000;
 }
 
 .header--mets {
   background: rgba(0, 44, 81, 0.5);
 }
-.header--mets .nav__sub-ul {
-  background: #004784;
-}
-.header--mets .nav__sub-li:hover {
-  background: #0c5492;
-}
-.header--mets .nav__ul {
+
+.nav__ul--mets {
   border-bottom: solid 10px #004784;
 }
-.header--mets .nav__li-h1--primary {
+.nav__li-span--primary-mets {
   color: #004784;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--mets .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--mets .nav__li-h1--secondary {
+.nav__li-span--secondary-mets {
   color: #f37937;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--mets .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--mets {
+  background: #004784;
+}
+.nav__sub-li--mets:hover {
+  background: #0c5492;
 }
 
 .main--mets {
   background: rgba(0, 44, 81, 0.5);
 }
-.main--mets .team_data_container__heading {
+
+.team_data_container__heading--mets {
   background: #004784;
 }
 
 .header--nationals {
   background: rgba(138, 9, 35, 0.5);
 }
-.header--nationals .nav__sub-ul {
-  background: #ba0c2f;
-}
-.header--nationals .nav__sub-li:hover {
-  background: #c11e3f;
-}
-.header--nationals .nav__ul {
+
+.nav__ul--nationals {
   border-bottom: solid 10px #ba0c2f;
 }
-.header--nationals .nav__li-h1--primary {
+.nav__li-span--primary-nationals {
   color: #ba0c2f;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--nationals .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--nationals .nav__li-h1--secondary {
+.nav__li-span--secondary-nationals {
   color: #041e42;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--nationals .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--nationals {
+  background: #ba0c2f;
+}
+.nav__sub-li--nationals:hover {
+  background: #c11e3f;
 }
 
 .main--nationals {
   background: rgba(138, 9, 35, 0.5);
 }
-.main--nationals .team_data_container__heading {
+
+.team_data_container__heading--nationals {
   background: #ba0c2f;
 }
 
 .header--orioles {
   background: rgba(0, 0, 0, 0.5);
 }
-.header--orioles .nav__sub-ul {
-  background: #000000;
-}
-.header--orioles .nav__sub-li:hover {
-  background: #0d0d0d;
-}
-.header--orioles .nav__ul {
+
+.nav__ul--orioles {
   border-bottom: solid 10px #000000;
 }
-.header--orioles .nav__li-h1--primary {
+.nav__li-span--primary-orioles {
   color: #000000;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--orioles .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--orioles .nav__li-h1--secondary {
+.nav__li-span--secondary-orioles {
   color: #FF0F00;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--orioles .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--orioles {
+  background: #000000;
+}
+.nav__sub-li--orioles:hover {
+  background: #0d0d0d;
 }
 
 .main--orioles {
   background: rgba(0, 0, 0, 0.5);
 }
-.main--orioles .team_data_container__heading {
+
+.team_data_container__heading--orioles {
   background: #000000;
 }
 
 .header--padres {
   background: rgba(0, 22, 47, 0.5);
 }
-.header--padres .nav__sub-ul {
-  background: #002d62;
-}
-.header--padres .nav__sub-li:hover {
-  background: #093972;
-}
-.header--padres .nav__ul {
+
+.nav__ul--padres {
   border-bottom: solid 10px #002d62;
 }
-.header--padres .nav__li-h1--primary {
+.nav__li-span--primary-padres {
   color: #002d62;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--padres .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--padres .nav__li-h1--secondary {
+.nav__li-span--secondary-padres {
   color: #9EAAB3;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--padres .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--padres {
+  background: #002d62;
+}
+.nav__sub-li--padres:hover {
+  background: #093972;
 }
 
 .main--padres {
   background: rgba(0, 22, 47, 0.5);
 }
-.main--padres .team_data_container__heading {
+
+.team_data_container__heading--padres {
   background: #002d62;
 }
 
 .header--phillies {
   background: rgba(158, 12, 49, 0.5);
 }
-.header--phillies .nav__sub-ul {
-  background: #cd1040;
-}
-.header--phillies .nav__sub-li:hover {
-  background: #d22450;
-}
-.header--phillies .nav__ul {
+
+.nav__ul--phillies {
   border-bottom: solid 10px #cd1040;
 }
-.header--phillies .nav__li-h1--primary {
+.nav__li-span--primary-phillies {
   color: #cd1040;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--phillies .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--phillies .nav__li-h1--secondary {
+.nav__li-span--secondary-phillies {
   color: #00529b;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--phillies .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--phillies {
+  background: #cd1040;
+}
+.nav__sub-li--phillies:hover {
+  background: #d22450;
 }
 
 .main--phillies {
   background: rgba(158, 12, 49, 0.5);
 }
-.main--phillies .team_data_container__heading {
+
+.team_data_container__heading--phillies {
   background: #cd1040;
 }
 
 .header--pirates {
   background: rgba(241, 176, 0, 0.5);
 }
-.header--pirates .nav__sub-ul {
-  background: #ffc425;
-}
-.header--pirates .nav__sub-li:hover {
-  background: #f1c44d;
-}
-.header--pirates .nav__ul {
+
+.nav__ul--pirates {
   border-bottom: solid 10px #ffc425;
 }
-.header--pirates .nav__li-h1--primary {
+.nav__li-span--primary-pirates {
   color: #ffc425;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--pirates .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--pirates .nav__li-h1--secondary {
+.nav__li-span--secondary-pirates {
   color: #27261F;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--pirates .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--pirates {
+  background: #ffc425;
+}
+.nav__sub-li--pirates:hover {
+  background: #f1c44d;
 }
 
 .main--pirates {
   background: rgba(241, 176, 0, 0.5);
 }
-.main--pirates .team_data_container__heading {
+
+.team_data_container__heading--pirates {
   background: #ffc425;
 }
 
 .header--rangers {
   background: rgba(0, 41, 83, 0.5);
 }
-.header--rangers .nav__sub-ul {
-  background: #004286;
-}
-.header--rangers .nav__sub-li:hover {
-  background: #0c4f94;
-}
-.header--rangers .nav__ul {
+
+.nav__ul--rangers {
   border-bottom: solid 10px #004286;
 }
-.header--rangers .nav__li-h1--primary {
+.nav__li-span--primary-rangers {
   color: #004286;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--rangers .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--rangers .nav__li-h1--secondary {
+.nav__li-span--secondary-rangers {
   color: #DE0033;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--rangers .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--rangers {
+  background: #004286;
+}
+.nav__sub-li--rangers:hover {
+  background: #0c4f94;
 }
 
 .main--rangers {
   background: rgba(0, 41, 83, 0.5);
 }
-.main--rangers .team_data_container__heading {
+
+.team_data_container__heading--rangers {
   background: #004286;
 }
 
 .header--rays {
   background: rgba(5, 20, 47, 0.5);
 }
-.header--rays .nav__sub-ul {
-  background: #09275D;
-}
-.header--rays .nav__sub-li:hover {
-  background: #15336b;
-}
-.header--rays .nav__ul {
+
+.nav__ul--rays {
   border-bottom: solid 10px #09275D;
 }
-.header--rays .nav__li-h1--primary {
+.nav__li-span--primary-rays {
   color: #09275D;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--rays .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--rays .nav__li-h1--secondary {
+.nav__li-span--secondary-rays {
   color: #88BBE9;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--rays .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--rays {
+  background: #09275D;
+}
+.nav__sub-li--rays:hover {
+  background: #15336b;
 }
 
 .main--rays {
   background: rgba(5, 20, 47, 0.5);
 }
-.main--rays .team_data_container__heading {
+
+.team_data_container__heading--rays {
   background: #09275D;
 }
 
 .header--reds {
   background: rgba(194, 15, 62, 0.5);
 }
-.header--reds .nav__sub-ul {
-  background: #ed174f;
-}
-.header--reds .nav__sub-li:hover {
-  background: #de4069;
-}
-.header--reds .nav__ul {
+
+.nav__ul--reds {
   border-bottom: solid 10px #ed174f;
 }
-.header--reds .nav__li-h1--primary {
+.nav__li-span--primary-reds {
   color: #ed174f;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--reds .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--reds .nav__li-h1--secondary {
+.nav__li-span--secondary-reds {
   color: #000000;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--reds .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--reds {
+  background: #ed174f;
+}
+.nav__sub-li--reds:hover {
+  background: #de4069;
 }
 
 .main--reds {
   background: rgba(194, 15, 62, 0.5);
 }
-.main--reds .team_data_container__heading {
+
+.team_data_container__heading--reds {
   background: #ed174f;
 }
 
 .header--redsox {
   background: rgba(163, 0, 24, 0.5);
 }
-.header--redsox .nav__sub-ul {
-  background: #D60020;
-}
-.header--redsox .nav__sub-li:hover {
-  background: #de1230;
-}
-.header--redsox .nav__ul {
+
+.nav__ul--redsox {
   border-bottom: solid 10px #D60020;
 }
-.header--redsox .nav__li-h1--primary {
+.nav__li-span--primary-redsox {
   color: #D60020;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--redsox .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--redsox .nav__li-h1--secondary {
+.nav__li-span--secondary-redsox {
   color: #0A2141;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--redsox .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--redsox {
+  background: #D60020;
+}
+.nav__sub-li--redsox:hover {
+  background: #de1230;
 }
 
 .main--redsox {
   background: rgba(163, 0, 24, 0.5);
 }
-.main--redsox .team_data_container__heading {
+
+.team_data_container__heading--redsox {
   background: #D60020;
 }
 
 .header--rockies {
   background: rgba(29, 27, 74, 0.5);
 }
-.header--rockies .nav__sub-ul {
-  background: #2b296f;
-}
-.header--rockies .nav__sub-li:hover {
-  background: #3f3d74;
-}
-.header--rockies .nav__ul {
+
+.nav__ul--rockies {
   border-bottom: solid 10px #2b296f;
 }
-.header--rockies .nav__li-h1--primary {
+.nav__li-span--primary-rockies {
   color: #2b296f;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--rockies .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--rockies .nav__li-h1--secondary {
+.nav__li-span--secondary-rockies {
   color: #858a8d;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--rockies .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--rockies {
+  background: #2b296f;
+}
+.nav__sub-li--rockies:hover {
+  background: #3f3d74;
 }
 
 .main--rockies {
   background: rgba(29, 27, 74, 0.5);
 }
-.main--rockies .team_data_container__heading {
+
+.team_data_container__heading--rockies {
   background: #2b296f;
 }
 
 .header--royals {
   background: rgba(0, 44, 84, 0.5);
 }
-.header--royals .nav__sub-ul {
-  background: #004687;
-}
-.header--royals .nav__sub-li:hover {
-  background: #0c5394;
-}
-.header--royals .nav__ul {
+
+.nav__ul--royals {
   border-bottom: solid 10px #004687;
 }
-.header--royals .nav__li-h1--primary {
+.nav__li-span--primary-royals {
   color: #004687;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--royals .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--royals .nav__li-h1--secondary {
+.nav__li-span--secondary-royals {
   color: #bf9a5b;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--royals .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--royals {
+  background: #004687;
+}
+.nav__sub-li--royals:hover {
+  background: #0c5394;
 }
 
 .main--royals {
   background: rgba(0, 44, 84, 0.5);
 }
-.main--royals .team_data_container__heading {
+
+.team_data_container__heading--royals {
   background: #004687;
 }
 
 .header--tigers {
   background: rgba(0, 9, 17, 0.5);
 }
-.header--tigers .nav__sub-ul {
-  background: #002244;
-}
-.header--tigers .nav__sub-li:hover {
-  background: #072f56;
-}
-.header--tigers .nav__ul {
+
+.nav__ul--tigers {
   border-bottom: solid 10px #002244;
 }
-.header--tigers .nav__li-h1--primary {
+.nav__li-span--primary-tigers {
   color: #002244;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--tigers .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--tigers .nav__li-h1--secondary {
+.nav__li-span--secondary-tigers {
   color: #f9461c;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--tigers .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--tigers {
+  background: #002244;
+}
+.nav__sub-li--tigers:hover {
+  background: #072f56;
 }
 
 .main--tigers {
   background: rgba(0, 9, 17, 0.5);
 }
-.main--tigers .team_data_container__heading {
+
+.team_data_container__heading--tigers {
   background: #002244;
 }
 
 .header--twins {
   background: rgba(3, 11, 22, 0.5);
 }
-.header--twins .nav__sub-ul {
-  background: #0A2142;
-}
-.header--twins .nav__sub-li:hover {
-  background: #152d51;
-}
-.header--twins .nav__ul {
+
+.nav__ul--twins {
   border-bottom: solid 10px #0A2142;
 }
-.header--twins .nav__li-h1--primary {
+.nav__li-span--primary-twins {
   color: #0A2142;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--twins .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--twins .nav__li-h1--secondary {
+.nav__li-span--secondary-twins {
   color: #CA001C;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--twins .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--twins {
+  background: #0A2142;
+}
+.nav__sub-li--twins:hover {
+  background: #152d51;
 }
 
 .main--twins {
   background: rgba(3, 11, 22, 0.5);
 }
-.main--twins .team_data_container__heading {
+
+.team_data_container__heading--twins {
   background: #0A2142;
 }
 
 .header--whitesox {
   background: rgba(11, 10, 8, 0.5);
 }
-.header--whitesox .nav__sub-ul {
-  background: #27261F;
-}
-.header--whitesox .nav__sub-li:hover {
-  background: #303030;
-}
-.header--whitesox .nav__ul {
+
+.nav__ul--whitesox {
   border-bottom: solid 10px #27261F;
 }
-.header--whitesox .nav__li-h1--primary {
+.nav__li-span--primary-whitesox {
   color: #27261F;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--whitesox .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--whitesox .nav__li-h1--secondary {
+.nav__li-span--secondary-whitesox {
   color: #898D8F;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--whitesox .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--whitesox {
+  background: #27261F;
+}
+.nav__sub-li--whitesox:hover {
+  background: #303030;
 }
 
 .main--whitesox {
   background: rgba(11, 10, 8, 0.5);
 }
-.main--whitesox .team_data_container__heading {
+
+.team_data_container__heading--whitesox {
   background: #27261F;
 }
 
 .header--yankees {
   background: rgba(9, 16, 32, 0.5);
 }
-.header--yankees .nav__sub-ul {
-  background: #142448;
-}
-.header--yankees .nav__sub-li:hover {
-  background: #223153;
-}
-.header--yankees .nav__ul {
+
+.nav__ul--yankees {
   border-bottom: solid 10px #142448;
 }
-.header--yankees .nav__li-h1--primary {
+.nav__li-span--primary-yankees {
   color: #142448;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--yankees .nav__li-h1--primary::first-letter {
-  font-size: 1.3em;
-}
-.header--yankees .nav__li-h1--secondary {
+.nav__li-span--secondary-yankees {
   color: #e3002b;
-  display: inline-block;
-  padding-left: 5px;
 }
-.header--yankees .nav__li-h1--secondary::first-letter {
-  font-size: 1.3em;
+.nav__sub-ul--yankees {
+  background: #142448;
+}
+.nav__sub-li--yankees:hover {
+  background: #223153;
 }
 
 .main--yankees {
   background: rgba(9, 16, 32, 0.5);
 }
-.main--yankees .team_data_container__heading {
+
+.team_data_container__heading--yankees {
   background: #142448;
 }
 
@@ -1153,6 +916,13 @@ body {
   .nav__li-h1 {
     font-size: 1em;
   }
+}
+.nav__li-span {
+  display: inline-block;
+  padding-left: 5px;
+}
+.nav__li-span::first-letter {
+  font-size: 1.3em;
 }
 .nav__li-icon {
   max-width: 30px;
@@ -1195,7 +965,6 @@ body {
 .team_data_container {
   background-color: #ffffff;
   border: solid 1px #d2d2d2;
-  margin: 25px;
   color: #3c3c3c;
 }
 .team_data_container--standings {

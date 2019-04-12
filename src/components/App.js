@@ -43,7 +43,7 @@ class App extends React.Component {
     if (this.props.stats){
       return playerStats.map((stat) => {
         return (
-          <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat}>
+          <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat} team={this.getTeamClass()}>
             <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
           </TeamDataContainer>
         );
@@ -56,21 +56,21 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <header role="banner" className={`header header--${this.getTeamClass()}`}>
-          <SelectTeam getAllStats={this.getAllStats}/>
+          <SelectTeam getAllStats={this.getAllStats} team={this.getTeamClass()}/>
         </header>
         <main role="main" className={`main main--${this.getTeamClass()}`}>
           <div className="container">
-            <TeamDataContainer heading="Yesterday's Score" class="schedule">
+            <TeamDataContainer heading="Yesterday's Score" class="schedule" team={this.getTeamClass()}>
               <YesterdayScore/>
             </TeamDataContainer>
-            <TeamDataContainer heading="Today's Game" class="schedule">
+            <TeamDataContainer heading="Today's Game" class="schedule" team={this.getTeamClass()}>
               <TodayGame/>
             </TeamDataContainer>
-            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings">
+            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings" team={this.getTeamClass()}>
               <Standings/>
             </TeamDataContainer>
             {this.renderStats()}
-            <TeamDataContainer heading="News" class="news">
+            <TeamDataContainer heading="News" class="news" team={this.getTeamClass()}>
               <TeamNews />
             </TeamDataContainer>
           </div>

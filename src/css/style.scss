@@ -33,7 +33,7 @@ $small: 500px;
   }
 }
 
-@mixin team-background($team) {
+@mixin transparent-team-background($team) {
   background: transparentize(darken(map-get($team-primary-colors, $team), 10), .5);
 }
 
@@ -173,43 +173,44 @@ body {
   @include container();
   background: url('../img/bg.jpg');
   display: grid;
+  box-sizing: border-box;
+  grid-gap: 20px;
+  padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
 }
 
 @each $team in $teams{
   .header--#{$team} {
-    @include team-background($team);
-    .nav {
-      &__sub {
-        &-ul {
-          background: map-get($team-primary-colors, $team);
-        }
-        &-li {
-          &:hover {
-            background: desaturate(lighten(map-get($team-primary-colors, $team), 5%), 15%);
-          }
-        }
+    @include transparent-team-background($team);
+  }
+  .nav {
+    &__ul--#{$team} {
+      border-bottom: solid 10px map-get($team-primary-colors, $team);
+    }
+    &__li-span {
+      &--primary-#{$team} {
+        color: map-get($team-primary-colors, $team);
       }
-      &__ul {
-        border-bottom: solid 10px map-get($team-primary-colors, $team);
+      &--secondary-#{$team} {
+        color: map-get($team-secondary-colors, $team);
       }
-      &__li-h1 {
-        &--primary {
-          color: map-get($team-primary-colors, $team);
-          @include first-letter();
-        }
-        &--secondary {
-          color: map-get($team-secondary-colors, $team);
-          @include first-letter();
+    }
+    &__sub {
+      &-ul--#{$team} {
+        background: map-get($team-primary-colors, $team);
+      }
+      &-li--#{$team} {
+        &:hover {
+          background: desaturate(lighten(map-get($team-primary-colors, $team), 5%), 15%);
         }
       }
     }
   }
   .main--#{$team} {
-    @include team-background($team);
-    .team_data_container__heading {
-      background: map-get($team-primary-colors, $team);
-    }
+    @include transparent-team-background($team);
+  }
+  .team_data_container__heading--#{$team} {
+    background: map-get($team-primary-colors, $team);
   }
 }
 
@@ -242,6 +243,9 @@ body {
       @media screen and (max-width: $small) {
         font-size: 1em;
       }
+    }
+    &-span {
+      @include first-letter();
     }
     &-icon {
       max-width: 30px;
@@ -285,7 +289,6 @@ body {
 .team_data_container {
   background-color: $neutral;
   border: solid 1px $gray;
-  margin: 25px;
   color: $dark_gray;
   
   &--standings {
