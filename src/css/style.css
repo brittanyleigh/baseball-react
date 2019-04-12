@@ -37,7 +37,7 @@ body {
   box-sizing: border-box;
   grid-gap: 20px;
   padding: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .header--angels {
@@ -966,9 +966,14 @@ body {
   background-color: #ffffff;
   border: solid 1px #d2d2d2;
   color: #3c3c3c;
+  box-shadow: 5px 5px 15px -10px #929292;
 }
 .team_data_container--standings {
   grid-column: 1/-1;
+}
+.team_data_container__table {
+  width: 100%;
+  border-collapse: collapse;
 }
 .team_data_container__heading {
   margin: 0px;
@@ -977,25 +982,30 @@ body {
   color: white;
 }
 .team_data_container__row {
-  padding: 5px 10px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  padding: 5px 10px;
 }
 .team_data_container__row:not(:last-child) {
   border-bottom: solid 1px #d2d2d2;
 }
-.team_data_container__row-heading {
-  justify-content: flex-end;
+.team_data_container__tr {
+  padding: 5px 10px;
+}
+.team_data_container__tr:not(:last-child) {
+  border-bottom: solid 1px #d2d2d2;
+}
+.team_data_container__tr-heading {
   font-size: 11px;
   color: #d2d2d2;
   min-height: 10px;
+  text-align: center;
 }
-.team_data_container__span {
-  padding: 0px 5px;
+.team_data_container__item {
+  padding: 5px;
 }
-.team_data_container__span--grow {
-  flex-grow: 1;
+.team_data_container__item--grow {
+  width: 100%;
 }
 
 .game {
@@ -1034,20 +1044,19 @@ body {
   }
 }
 .game__team--away {
-  border-bottom: solid 2px #d2d2d2;
+  border-bottom: solid 1px #d2d2d2;
   padding-bottom: 10px;
 }
 
-.standings {
-  position: relative;
+@media screen and (max-width: 500px) {
+  .standings__team-name {
+    display: none;
+  }
 }
-.standings--winslosses-1:before {
-  content: "W-L";
-  position: absolute;
-  top: 0;
-  margin-top: -18px;
-  color: #d2d2d2;
-  font-size: 11px;
+@media screen and (min-width: 500px) {
+  .standings__team-abbreviation {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

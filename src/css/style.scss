@@ -33,6 +33,13 @@ $small: 500px;
   }
 }
 
+@mixin data-container-items() {
+  padding: 5px 10px;
+  &:not(:last-child){
+    border-bottom: solid 1px $gray;
+  }
+}
+
 @mixin transparent-team-background($team) {
   background: transparentize(darken(map-get($team-primary-colors, $team), 10), .5);
 }
@@ -176,7 +183,7 @@ body {
   box-sizing: border-box;
   grid-gap: 20px;
   padding: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 @each $team in $teams{
@@ -290,9 +297,14 @@ body {
   background-color: $neutral;
   border: solid 1px $gray;
   color: $dark_gray;
+  box-shadow: 5px 5px 15px -10px darken($gray, 25%);
   
   &--standings {
     grid-column: 1/-1;
+  }
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
   }
   &__heading {
     margin: 0px;
@@ -301,24 +313,23 @@ body {
     color: white;
   }
   &__row {
-    padding: 5px 10px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    &:not(:last-child){
-      border-bottom: solid 1px $gray;
-    }
+    @include data-container-items();
+  }
+  &__tr {
+    @include data-container-items();
     &-heading {
-      justify-content: flex-end;
       font-size: 11px;
       color: $gray;
       min-height: 10px;
+      text-align: center;
     }
   }
-  &__span {
-    padding: 0px 5px;
+  &__item {
+    padding: 5px;
     &--grow {
-      flex-grow: 1;
+      width: 100%;
     }
   }
 }
@@ -355,22 +366,23 @@ body {
       font-size: 1em;
     }
     &--away {
-      border-bottom: solid 2px $gray;
+      border-bottom: solid 1px $gray;
       padding-bottom: 10px;
     }
   }
 }
 
 .standings {
-  position: relative;
-  &--winslosses-1 {
-      &:before {
-        content: 'W-L';
-        position: absolute;
-        top: 0;
-        margin-top: -18px;
-        color: $gray;
-        font-size: 11px;
-      }    
+  &__team {
+    &-name {
+      @media screen and (max-width: $small){
+        display: none;
+      }
     }
+    &-abbreviation {
+      @media screen and (min-width: $small) {
+        display: none;
+      }
+    }
+  }
 }
