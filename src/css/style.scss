@@ -300,6 +300,27 @@ body {
     text-align: center;
     color: white;
   }
+  &__row {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:not(:last-child){
+      border-bottom: solid 1px $gray;
+    }
+    &-heading {
+      justify-content: flex-end;
+      font-size: 11px;
+      color: $gray;
+      min-height: 10px;
+    }
+  }
+  &__span {
+    padding: 0px 5px;
+    &--grow {
+      flex-grow: 1;
+    }
+  }
 }
 
 .game {
@@ -338,4 +359,18 @@ body {
       padding-bottom: 10px;
     }
   }
+}
+
+.standings {
+  position: relative;
+  &--winslosses-1 {
+      &:before {
+        content: 'W-L';
+        position: absolute;
+        top: 0;
+        margin-top: -18px;
+        color: $gray;
+        font-size: 11px;
+      }    
+    }
 }

@@ -17,8 +17,9 @@ class PlayerStats extends React.Component {
       }
       return this.props.statData.map((player) => {      
         return (
-          <div key={player.player.ID}>
-            <div>{player.player.FirstName} {player.player.LastName} {player.stats[statKey]['#text']}</div>
+          <div className={` ${this.props.parentClass}__row`} key={player.player.ID}>
+            <span className={` ${this.props.parentClass}__span`}>{player.player.FirstName} {player.player.LastName}</span>
+            <span className={` ${this.props.parentClass}__span`}>{player.stats[statKey]['#text']}</span> 
           </div>
         );
       });       
