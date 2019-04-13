@@ -35,7 +35,6 @@ class SelectTeam extends React.Component {
   }
   
    render() {
-     console.log(this.props);
      if (!this.props.selected_team.ID) {
        return null;
      }
@@ -71,10 +70,6 @@ const mapStateToProps = (state) => {
   return { 
     teams: state.teams,
     selected_team: state.selected_team,
-    standings: state.standings,
-    stats: state.stats,
-    yesterday: state.yesterday,
-    news: state.news,
     menuIsOpen: state.menuIsOpen
    };
 }

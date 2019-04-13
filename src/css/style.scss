@@ -219,7 +219,7 @@ body {
   .main--#{$team} {
     @include transparent-team-background($team);
   }
-  .team_data_container__heading--#{$team} {
+  .team_container__heading--#{$team} {
     @include team-background($team);
   }
   
@@ -325,7 +325,7 @@ body {
 }
 
 
-.team_data_container {
+.team_container {
   background-color: $neutral;
   color: $dark_gray;
   -webkit-box-shadow: 5px 5px 15px -10px darken($gray, 25%);

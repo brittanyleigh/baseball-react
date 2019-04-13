@@ -33,7 +33,6 @@ class PlayerStats extends React.Component {
 const mapStateToProps = (state) => {
   return { 
     stats: state.stats,
-    avg: state.stats.AVG
   }
 };
 
