@@ -1346,4 +1346,12 @@ body {
   font-size: 0.8em;
 }
 
+.text-block {
+  box-sizing: border-box;
+  padding: 10px;
+}
+.text-row {
+  width: 100% !important;
+}
+
 /*# sourceMappingURL=style.css.map */

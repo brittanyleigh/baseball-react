@@ -9,6 +9,8 @@ import PlayerStats from './PlayerStats';
 import TeamNews from './TeamNews';
 import '../css/style.css';
 import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu} from '../actions';
+import ReactPlaceholder from 'react-placeholder';
+import "react-placeholder/lib/reactPlaceholder.css";
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
@@ -41,15 +43,25 @@ class App extends React.Component {
   
   renderStats() {
     if (this.props.stats){
+      console.log(this.props);
       return playerStats.map((stat) => {
         return (
           <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat} team={this.getTeamClass()}>
-            <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
+            <ReactPlaceholder type="text" rows={3} color="#eeeeee">
+              <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
+            </ReactPlaceholder>
           </TeamDataContainer>
         );
       });
     }
-
+  }
+  
+  divisionName() {
+    if (this.props.standings["@name"]){
+      return this.props.standings["@name"];
+    } else {
+      return '';
+    }
   }
   
   render(){
@@ -61,13 +73,19 @@ class App extends React.Component {
         <main role="main" className={`main main--${this.getTeamClass()}`}>
           <div className="container">
             <TeamDataContainer heading="Yesterday's Score" class="schedule" team={this.getTeamClass()}>
-              <YesterdayScore/>
+              <ReactPlaceholder type="text" ready={this.props.ready} rows={2} color="#eeeeee">
+                <YesterdayScore/>
+              </ReactPlaceholder>
             </TeamDataContainer>
             <TeamDataContainer heading="Today's Game" class="schedule" team={this.getTeamClass()}>
-              <TodayGame/>
+              <ReactPlaceholder type="text" rows={2} color="#eeeeee">
+                <TodayGame/>
+              </ReactPlaceholder>
             </TeamDataContainer>
-            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="full" team={this.getTeamClass()}>
-              <Standings/>
+            <TeamDataContainer heading={`${this.divisionName()} Standings`} class="full" team={this.getTeamClass()}>
+              <ReactPlaceholder type="text" rows={5} color="#eeeeee">
+                <Standings/>
+              </ReactPlaceholder>
             </TeamDataContainer>
             {this.renderStats()}
             <TeamDataContainer heading="News" subheading="by newsapi.org" class="full" team={this.getTeamClass()}>

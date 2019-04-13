@@ -444,3 +444,13 @@ body {
     font-size: .8em;
   }
 }
+
+.text {
+  &-block {
+    box-sizing: border-box;
+    padding: $item-padding;
+  }
+  &-row {
+    width: 100%!important;
+  }
+}
