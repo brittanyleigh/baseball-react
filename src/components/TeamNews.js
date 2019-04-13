@@ -1,26 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 class News extends React.Component {
-  render() {
-
+  
+  renderNews() {
     if (this.props.news) {
       return this.props.news.map((article) => {      
         return (
-          <div className="news" key={article.title}>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              <img src={article.urlToImage} alt={article.title}/>
+          <React.Fragment key={article.title}>
+            <img src={article.urlToImage} alt={article.title} />
+            <a href={article.url} target="_blank" rel="noopener noreferrer" className={`legend legend--${this.props.team}`}>
+              <span className="span--bold span--large">{article.title}</span><br></br>
+              <span className="span--italic span--transparent"> --{article.source.name} </span>
             </a>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              <span className="news__title">{article.title}</span>
-              <span className="news__source">{article.source.name} </span>
-            </a>
-          </div>
+          </React.Fragment>
         );
       });       
     } else {
       return null;
-    }
+    }  
+  }
+  render() {
+    return (
+      <Carousel showThumbs={false} showStatus={false}>
+          {this.renderNews()}
+      </Carousel>
+    
+    )
   }
 }
 

@@ -66,12 +66,12 @@ class App extends React.Component {
             <TeamDataContainer heading="Today's Game" class="schedule" team={this.getTeamClass()}>
               <TodayGame/>
             </TeamDataContainer>
-            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="standings" team={this.getTeamClass()}>
+            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="full" team={this.getTeamClass()}>
               <Standings/>
             </TeamDataContainer>
             {this.renderStats()}
-            <TeamDataContainer heading="News" class="news" team={this.getTeamClass()}>
-              <TeamNews />
+            <TeamDataContainer heading="News" subheading="by newsapi.org" class="full" team={this.getTeamClass()}>
+              <TeamNews team={this.getTeamClass()}/>
             </TeamDataContainer>
           </div>
         </main>

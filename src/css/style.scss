@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
-@import url('https://fonts.googleapis.com/css?family=Lilita+One');
 $standard-font: 'Lato', sans-serif;
-$fancy-font: 'Lilita One', cursive;
 // Colors //
 $neutral: #ffffff;
 $gray: #d2d2d2;
@@ -11,38 +9,7 @@ $dark_gray: #3c3c3c;
 // Breakpoints //
 $small: 500px;
 
-@mixin container(){
-  max-width: 825px;
-  margin: 0 auto;
-}
-
-@mixin flex-center(){
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-          align-items: center;
-}
-
-@mixin first-letter() {
-  display: inline-block;
-  padding-left: 5px;
-  &::first-letter {
-    font-size: 1.3em;
-  }
-}
-
-@mixin data-container-items() {
-  padding: 5px 10px;
-  &:not(:last-child){
-    border-bottom: solid 1px $gray;
-  }
-}
-
-@mixin transparent-team-background($team) {
-  background: transparentize(darken(map-get($team-primary-colors, $team), 10), .5);
-}
+$item-padding: 10px;
 
 $teams: (
   'angels',
@@ -78,7 +45,7 @@ $teams: (
 );
 
 $team-primary-colors: (
-  angels: #CA0000,
+  angels: #BA0021,
   astros: #002863,
   athletics: #00483a,
   bluejays: #104490,
@@ -87,7 +54,7 @@ $team-primary-colors: (
   cardinals: #c42842,
   cubs: #0e3386,
   diamondbacks: #b91134,
-  dodgers: #005a9c,
+  dodgers: #005A9C,
   giants: #272425,
   indians: #233b62,
   mariners: #004467,
@@ -97,11 +64,11 @@ $team-primary-colors: (
   orioles: #000000,
   padres: #002d62,
   phillies: #cd1040,
-  pirates: #ffc425,
+  pirates: #27261F,
   rangers: #004286,
   rays: #09275D,
-  reds: #ed174f,
-  redsox: #D60020,
+  reds: #C6001E,
+  redsox: #BC3039,
   rockies: #2b296f,
   royals: #004687,
   tigers: #002244,
@@ -120,7 +87,7 @@ $team-secondary-colors: (
   cardinals: #0A2141,
   cubs: #cc3433,
   diamondbacks: #000000,
-  dodgers: #ee3e42,
+  dodgers: #004680,
   giants: #d9782d,
   indians: #e2233f,
   mariners: #006C5F,
@@ -130,7 +97,7 @@ $team-secondary-colors: (
   orioles: #FF0F00,
   padres: #9EAAB3,
   phillies: #00529b,
-  pirates: #27261F,
+  pirates: #ffc425,
   rangers: #DE0033,
   rays: #88BBE9,
   reds: #000000,
@@ -143,7 +110,42 @@ $team-secondary-colors: (
   yankees: #e3002b
 );
 
-@mixin team-colors($team) {
+@mixin container(){
+  max-width: 825px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 30px 35px 2px rgba(0,0,0,0.75);
+          box-shadow: 0px 30px 35px 2px rgba(0,0,0,0.75);
+}
+
+@mixin flex-center(){
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+          align-items: center;
+}
+
+@mixin first-letter() {
+  display: inline-block;
+  padding-left: 5px;
+  &::first-letter {
+    font-size: 1.3em;
+  }
+}
+
+@mixin data-container-items() {
+  padding: $item-padding;
+  &:not(:last-child){
+    border-bottom: solid 1px $gray;
+  }
+}
+
+@mixin transparent-team-background($team) {
+  background: transparentize(darken(map-get($team-primary-colors, $team), 10), .5);
+}
+
+@mixin team-background($team) {
   background: map-get($team-primary-colors, $team);
 }
 
@@ -180,7 +182,8 @@ body {
   @include container();
   background: url('../img/bg.jpg');
   display: grid;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   grid-gap: 20px;
   padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -204,7 +207,7 @@ body {
     }
     &__sub {
       &-ul--#{$team} {
-        background: map-get($team-primary-colors, $team);
+        @include team-background($team);
       }
       &-li--#{$team} {
         &:hover {
@@ -217,7 +220,15 @@ body {
     @include transparent-team-background($team);
   }
   .team_data_container__heading--#{$team} {
-    background: map-get($team-primary-colors, $team);
+    @include team-background($team);
+  }
+  
+  .carousel .slide .legend--#{$team} {
+    @include team-background($team);
+    border: solid 1px darken(map-get($team-primary-colors, $team), 10%);
+    &:hover {
+      background: darken(map-get($team-primary-colors, $team), 5%);
+    }
   }
 }
 
@@ -229,7 +240,9 @@ body {
   }
   &__li {
     @include flex-center();
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 15px;
   
     &:hover {
@@ -289,17 +302,36 @@ body {
   }
 }
 
-.news img {
-  max-width: 100px;
+.carousel {
+  .slide {
+    max-height: 350px; 
+    
+    @media screen and (max-width: $small) {
+      max-height: 250px;
+    }
+    & img {
+      height: 100%;
+      -o-object-fit: cover;    
+      object-fit: cover;
+      object-position: top;
+    }
+    .legend {
+      opacity: 1;
+      border-radius: 0px;
+      text-decoration: none;
+      box-shadow: 5px 5px 15px -10px #000000;
+    }
+  }  
 }
+
 
 .team_data_container {
   background-color: $neutral;
-  border: solid 1px $gray;
   color: $dark_gray;
-  box-shadow: 5px 5px 15px -10px darken($gray, 25%);
+  -webkit-box-shadow: 5px 5px 15px -10px darken($gray, 25%);
+          box-shadow: 5px 5px 15px -10px darken($gray, 25%);
   
-  &--standings {
+  &--full {
     grid-column: 1/-1;
   }
   &__table {
@@ -308,26 +340,32 @@ body {
   }
   &__heading {
     margin: 0px;
-    padding: 10px;
+    padding: 7px 10px;
     text-align: center;
-    color: white;
+    color: $neutral;
+    font-size: .9em;
   }
   &__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     @include data-container-items();
   }
   &__tr {
     @include data-container-items();
     &-heading {
       font-size: 11px;
-      color: $gray;
+      color: darken($gray, 20%);
       min-height: 10px;
       text-align: center;
+      border-bottom: solid 1px $gray;
     }
   }
   &__item {
-    padding: 5px;
+    padding: $item-padding;
     &--grow {
       width: 100%;
     }
@@ -337,9 +375,11 @@ body {
 .game {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
-  padding: 10px;
+  padding: $item-padding;
   min-height: 70px;
   
   &--yesterday {
@@ -384,5 +424,23 @@ body {
         display: none;
       }
     }
+  }
+}
+
+.span {
+  &--bold {
+    font-weight: bold;
+  }
+  &--transparent {
+    opacity: .75;
+  }
+  &--italic {
+    font-style: italic;
+  }
+  &--large {
+    font-size: 1.1em;
+  }
+  &--small {
+    font-size: .8em;
   }
 }
