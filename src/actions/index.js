@@ -31,11 +31,11 @@ export const getPreviousTeam = () => async (dispatch, getState) => {
     } catch (e) {
       // 
     }
+    dispatch({
+      type: 'TEAM_SELECTED',
+      payload: previous_team
+    });
   } 
-  dispatch({
-    type: 'TEAM_SELECTED',
-    payload: previous_team
-  });
 };
 
 export const getYesterdayScore = () => async (dispatch, getState) => { 
