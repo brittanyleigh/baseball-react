@@ -28,23 +28,26 @@ class Standings extends React.Component {
   }
   
   render() {
-    return (
-      <table className={`${this.props.parentClass}__table`}>
-        <thead>
-          <tr className={`${this.props.parentClass}__tr ${this.props.parentClass}__tr-heading `}>
-            <td></td>
-            <td></td>
-            <td className={`${this.props.parentClass}__tr-heading-item`}>W-L</td>
-            <td className={`${this.props.parentClass}__tr-heading-item`}>AVG</td>
-            <td className={`${this.props.parentClass}__tr-heading-item`}>GB</td>
-          </tr>
-        </thead>
-        <tbody>
-          {this.renderTeams()}  
-        </tbody>
-      </table>  
-    )
-
+    if (this.props.standings.teamentry) {
+      return (
+        <table className={`${this.props.parentClass}__table`}>
+          <thead>
+            <tr className={`${this.props.parentClass}__tr ${this.props.parentClass}__tr-heading `}>
+              <td></td>
+              <td></td>
+              <td className={`${this.props.parentClass}__tr-heading-item`}>W-L</td>
+              <td className={`${this.props.parentClass}__tr-heading-item`}>AVG</td>
+              <td className={`${this.props.parentClass}__tr-heading-item`}>GB</td>
+            </tr>
+          </thead>
+          <tbody>
+            {this.renderTeams()}  
+          </tbody>
+        </table>  
+      )      
+    } else {
+      return null;
+    }
 
   }
 }

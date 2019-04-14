@@ -370,6 +370,11 @@ body {
       width: 100%;
     }
   }
+  &--news {
+    .text-row {
+      height: 6em!important;
+    }
+  }
 }
 
 .game {
@@ -442,5 +447,16 @@ body {
   }
   &--small {
     font-size: .8em;
+  }
+}
+
+.text {
+  &-block {
+    box-sizing: border-box;
+    padding: $item-padding;
+  }
+  &-row {
+    width: 100%!important;
+    height: 2em!important;
   }
 }

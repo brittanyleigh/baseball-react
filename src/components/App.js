@@ -43,13 +43,27 @@ class App extends React.Component {
     if (this.props.stats){
       return playerStats.map((stat) => {
         return (
-          <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat} team={this.getTeamClass()}>
+          <TeamDataContainer 
+            heading={`${stat} Leaders`} 
+            class="stats" 
+            key={stat} 
+            team={this.getTeamClass()}
+            ready={this.props.stats.ready}
+            placeholderRows={3}
+            >
             <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
           </TeamDataContainer>
         );
       });
     }
-
+  }
+  
+  divisionName() {
+    if (this.props.standings["@name"]){
+      return this.props.standings["@name"];
+    } else {
+      return '';
+    }
   }
   
   render(){
@@ -60,17 +74,47 @@ class App extends React.Component {
         </header>
         <main role="main" className={`main main--${this.getTeamClass()}`}>
           <div className="container">
-            <TeamDataContainer heading="Yesterday's Score" class="schedule" team={this.getTeamClass()}>
+            <TeamDataContainer 
+              heading="Yesterday's Score" 
+              class="schedule" 
+              team={this.getTeamClass()}
+              ready={this.props.yesterday.ready}
+              placeholderRows={2}
+              >
               <YesterdayScore/>
             </TeamDataContainer>
-            <TeamDataContainer heading="Today's Game" class="schedule" team={this.getTeamClass()}>
+            
+            <TeamDataContainer 
+              heading="Today's Game" 
+              class="schedule" 
+              team={this.getTeamClass()}
+              ready={this.props.today.ready}
+              placeholderRows={2}
+              >
               <TodayGame/>
             </TeamDataContainer>
-            <TeamDataContainer heading={`${this.props.standings["@name"]} Standings`} class="full" team={this.getTeamClass()}>
+            
+            <TeamDataContainer 
+              heading={`${this.divisionName()} Standings`} 
+              class="full" 
+              team={this.getTeamClass()} 
+              ready={this.props.standings.ready}
+              placeholderRows={5}
+              >
               <Standings/>
             </TeamDataContainer>
+            
             {this.renderStats()}
-            <TeamDataContainer heading="News" subheading="by newsapi.org" class="full" team={this.getTeamClass()}>
+            
+            <TeamDataContainer 
+              heading="News" 
+              subheading="by newsapi.org" 
+              class="full" 
+              class2="news" 
+              team={this.getTeamClass()}
+              ready={this.props.news.ready}
+              placeholderRows={1}
+              >
               <TeamNews team={this.getTeamClass()}/>
             </TeamDataContainer>
           </div>
@@ -84,7 +128,10 @@ const mapStateToProps = (state) => {
   return { 
     standings: state.standings,
     stats: state.stats,
-    selected_team: state.selected_team
+    selected_team: state.selected_team,
+    today: state.today,
+    yesterday: state.yesterday,
+    news: state.news
   };
 }
 
