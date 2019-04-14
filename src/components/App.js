@@ -9,8 +9,6 @@ import PlayerStats from './PlayerStats';
 import TeamNews from './TeamNews';
 import '../css/style.css';
 import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu} from '../actions';
-import ReactPlaceholder from 'react-placeholder';
-import "react-placeholder/lib/reactPlaceholder.css";
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
@@ -43,13 +41,17 @@ class App extends React.Component {
   
   renderStats() {
     if (this.props.stats){
-      console.log(this.props);
       return playerStats.map((stat) => {
         return (
-          <TeamDataContainer heading={`${stat} Leaders`} class="stats" key={stat} team={this.getTeamClass()}>
-            <ReactPlaceholder type="text" rows={3} color="#eeeeee">
-              <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
-            </ReactPlaceholder>
+          <TeamDataContainer 
+            heading={`${stat} Leaders`} 
+            class="stats" 
+            key={stat} 
+            team={this.getTeamClass()}
+            ready={this.props.stats.ready}
+            placeholderRows={3}
+            >
+            <PlayerStats statData={this.props.stats[stat]} stat={stat}/>
           </TeamDataContainer>
         );
       });
@@ -72,23 +74,47 @@ class App extends React.Component {
         </header>
         <main role="main" className={`main main--${this.getTeamClass()}`}>
           <div className="container">
-            <TeamDataContainer heading="Yesterday's Score" class="schedule" team={this.getTeamClass()}>
-              <ReactPlaceholder type="text" ready={this.props.ready} rows={2} color="#eeeeee">
-                <YesterdayScore/>
-              </ReactPlaceholder>
+            <TeamDataContainer 
+              heading="Yesterday's Score" 
+              class="schedule" 
+              team={this.getTeamClass()}
+              ready={this.props.yesterday.ready}
+              placeholderRows={2}
+              >
+              <YesterdayScore/>
             </TeamDataContainer>
-            <TeamDataContainer heading="Today's Game" class="schedule" team={this.getTeamClass()}>
-              <ReactPlaceholder type="text" rows={2} color="#eeeeee">
-                <TodayGame/>
-              </ReactPlaceholder>
+            
+            <TeamDataContainer 
+              heading="Today's Game" 
+              class="schedule" 
+              team={this.getTeamClass()}
+              ready={this.props.today.ready}
+              placeholderRows={2}
+              >
+              <TodayGame/>
             </TeamDataContainer>
-            <TeamDataContainer heading={`${this.divisionName()} Standings`} class="full" team={this.getTeamClass()}>
-              <ReactPlaceholder type="text" rows={5} color="#eeeeee">
-                <Standings/>
-              </ReactPlaceholder>
+            
+            <TeamDataContainer 
+              heading={`${this.divisionName()} Standings`} 
+              class="full" 
+              team={this.getTeamClass()} 
+              ready={this.props.standings.ready}
+              placeholderRows={5}
+              >
+              <Standings/>
             </TeamDataContainer>
+            
             {this.renderStats()}
-            <TeamDataContainer heading="News" subheading="by newsapi.org" class="full" team={this.getTeamClass()}>
+            
+            <TeamDataContainer 
+              heading="News" 
+              subheading="by newsapi.org" 
+              class="full" 
+              class2="news" 
+              team={this.getTeamClass()}
+              ready={this.props.news.ready}
+              placeholderRows={1}
+              >
               <TeamNews team={this.getTeamClass()}/>
             </TeamDataContainer>
           </div>
@@ -102,7 +128,10 @@ const mapStateToProps = (state) => {
   return { 
     standings: state.standings,
     stats: state.stats,
-    selected_team: state.selected_team
+    selected_team: state.selected_team,
+    today: state.today,
+    yesterday: state.yesterday,
+    news: state.news
   };
 }
 

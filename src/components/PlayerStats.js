@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 class PlayerStats extends React.Component {
   
   render() {

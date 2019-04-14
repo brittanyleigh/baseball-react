@@ -370,6 +370,11 @@ body {
       width: 100%;
     }
   }
+  &--news {
+    .text-row {
+      height: 6em!important;
+    }
+  }
 }
 
 .game {
@@ -452,5 +457,6 @@ body {
   }
   &-row {
     width: 100%!important;
+    height: 2em!important;
   }
 }

@@ -1276,6 +1276,9 @@ body {
 .team_container__item--grow {
   width: 100%;
 }
+.team_container--news .text-row {
+  height: 6em !important;
+}
 
 .game {
   display: grid;
@@ -1352,6 +1355,7 @@ body {
 }
 .text-row {
   width: 100% !important;
+  height: 2em !important;
 }
 
 /*# sourceMappingURL=style.css.map */
