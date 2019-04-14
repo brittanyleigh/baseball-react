@@ -25,7 +25,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchTeamData();
     this.props.getPreviousTeam();
-    this.getAllStats();
+    //this.getAllStats();
   }
   
   getAllStats = () => {
@@ -67,6 +67,7 @@ class App extends React.Component {
   }
   
   render(){
+    console.log(this.props);
     return (
       <React.Fragment>
         <header role="banner" className={`header header--${this.getTeamClass()}`}>
@@ -131,7 +132,8 @@ const mapStateToProps = (state) => {
     selected_team: state.selected_team,
     today: state.today,
     yesterday: state.yesterday,
-    news: state.news
+    news: state.news,
+    teams: state.teams
   };
 }
 

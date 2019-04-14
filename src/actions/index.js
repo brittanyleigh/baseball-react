@@ -2,6 +2,7 @@ import sports from '../apis/sportsfeed';
 import news from '../apis/news';
 
 export const fetchTeamData = () => async (dispatch, getState) => { 
+  try {
     const response = await sports.get('/overall_team_standings.json');
     const team_list = response.data.overallteamstandings.teamstandingsentry.map( function(team) {
        return team.team;
@@ -14,8 +15,11 @@ export const fetchTeamData = () => async (dispatch, getState) => {
       if (!localStorage.hasOwnProperty('selected_team')) {
         localStorage.setItem('selected_team', JSON.stringify(team_list[0]));
       }
-    dispatch({type: 'TEAM_LIST', payload: team_list});
-  };
+    dispatch({type: 'TEAM_LIST', payload: response});    
+  } catch (error) {
+    dispatch({type: 'TEAM_LIST', payload: 'error'})
+  }
+};
 
 export const selectTeam = (team) => (dispatch, getState) => {
   localStorage.setItem('selected_team', JSON.stringify(team));
