@@ -110,8 +110,11 @@ export const getPlayerStats = (stats) => async (dispatch, getState) => {
 export const getTeamNews = () => async (dispatch, getState) => { 
   const team = getState().selected_team;
   const team_search = encodeURIComponent(team.City + ' ' + team.Name);
-  const response = await news.get('everything?q=' + team_search + '&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=10');
-  let payload = response.data.articles ? response.data.articles : null;
+  const response = await news.get('everything?q=' + team_search + '&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40');
+  const team_news = response.data.articles.filter( article => {
+     return (article.title.includes(team.Name));
+   });
+  let payload = response.data.articles ? team_news.slice(0, 7) : null;
   dispatch({type: 'TEAM_NEWS', payload: payload});   
 };  
 
