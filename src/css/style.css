@@ -4,6 +4,16 @@
   letter-spacing: 1px;
 }
 
+#root {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
 #root:after {
   content: "";
   background: url("../img/baseball.jpg");
@@ -42,6 +52,10 @@ body {
   grid-gap: 20px;
   padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.main {
+  flex-grow: 1;
 }
 
 .header--angels {
@@ -1124,6 +1138,42 @@ body {
   background: #0e1a34;
 }
 
+.header--mlb {
+  background: rgba(3, 1, 81, 0.5);
+}
+
+.nav__ul--mlb {
+  border-bottom: solid 10px #050184;
+}
+.nav__li-span--primary-mlb {
+  color: #050184;
+}
+.nav__li-span--secondary-mlb {
+  color: #C60000;
+}
+.nav__sub-ul--mlb {
+  background: #050184;
+}
+.nav__sub-li--mlb:hover {
+  background: #110d91;
+}
+
+.main--mlb {
+  background: rgba(3, 1, 81, 0.5);
+}
+
+.team_container__heading--mlb {
+  background: #050184;
+}
+
+.carousel .slide .legend--mlb {
+  background: #050184;
+  border: solid 1px #030151;
+}
+.carousel .slide .legend--mlb:hover {
+  background: #04016b;
+}
+
 .nav__ul {
   margin: 0px;
   padding: 0px;
@@ -1356,6 +1406,10 @@ body {
 .text-row {
   width: 100% !important;
   height: 2em !important;
+}
+
+.center-text {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Error from './Error';
 class PlayerStats extends React.Component {
   
   render() {

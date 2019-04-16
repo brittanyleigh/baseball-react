@@ -41,7 +41,8 @@ $teams: (
   'tigers',
   'twins',
   'whitesox',
-  'yankees'
+  'yankees',
+  'mlb'
 );
 
 $team-primary-colors: (
@@ -74,7 +75,8 @@ $team-primary-colors: (
   tigers: #002244,
   twins: #0A2142,
   whitesox: #27261F,
-  yankees: #142448
+  yankees: #142448,
+  mlb: #050184
 );
 
 $team-secondary-colors: (
@@ -107,7 +109,8 @@ $team-secondary-colors: (
   tigers: #f9461c,
   twins: #CA001C,
   whitesox: #898D8F,
-  yankees: #e3002b
+  yankees: #e3002b,
+  mlb: #C60000
 );
 
 @mixin container(){
@@ -155,6 +158,15 @@ $team-secondary-colors: (
 }
 
 #root {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+          flex-direction: column;
+  
   &:after {
     content: "";
     background: url('../img/baseball.jpg');
@@ -187,6 +199,9 @@ body {
   grid-gap: 20px;
   padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.main {
+  flex-grow: 1;
 }
 
 @each $team in $teams{
@@ -459,4 +474,8 @@ body {
     width: 100%!important;
     height: 2em!important;
   }
+}
+
+.center-text {
+  text-align: center;
 }

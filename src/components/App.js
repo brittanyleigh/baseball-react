@@ -7,6 +7,7 @@ import TodayGame from './TodayGame';
 import Standings from './Standings';
 import PlayerStats from './PlayerStats';
 import TeamNews from './TeamNews';
+import Error from './Error';
 import '../css/style.css';
 import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu} from '../actions';
 
@@ -25,7 +26,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.fetchTeamData();
     this.props.getPreviousTeam();
-    //this.getAllStats();
+    this.getAllStats();
   }
   
   getAllStats = () => {
@@ -68,6 +69,28 @@ class App extends React.Component {
   
   render(){
     console.log(this.props);
+    if (this.props.teams === 'error') {
+      return (
+        <React.Fragment>
+          <header role="banner" className="header header--mlb">
+            <SelectTeam error={true} team="mlb"></SelectTeam>
+          </header>
+          <main role="main" className={`main main--${this.getTeamClass()}`}>
+            <div className="container">
+              <TeamDataContainer 
+                heading="Error"
+                class="full"
+                team="mlb"
+                ready={true}
+                placeholderRows={1}
+              >
+              <Error />
+            </TeamDataContainer>
+            </div>
+          </main>
+        </React.Fragment>
+      )
+    } else {
     return (
       <React.Fragment>
         <header role="banner" className={`header header--${this.getTeamClass()}`}>
@@ -121,7 +144,8 @@ class App extends React.Component {
           </div>
         </main>
       </React.Fragment>
-    )    
+    )  
+  }  
   }
 }
 

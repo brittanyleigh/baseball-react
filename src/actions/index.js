@@ -15,7 +15,7 @@ export const fetchTeamData = () => async (dispatch, getState) => {
       if (!localStorage.hasOwnProperty('selected_team')) {
         localStorage.setItem('selected_team', JSON.stringify(team_list[0]));
       }
-    dispatch({type: 'TEAM_LIST', payload: response});    
+    dispatch({type: 'TEAM_LIST', payload: team_list});    
   } catch (error) {
     dispatch({type: 'TEAM_LIST', payload: 'error'})
   }

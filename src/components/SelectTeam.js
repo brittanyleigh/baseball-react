@@ -34,6 +34,39 @@ class SelectTeam extends React.Component {
     }
   }
   
+  renderMenu(){
+    if (this.props.error){
+      return (
+        <li className="nav__li">
+          <img 
+            className="nav__li-img" 
+            src={require(`../img/mlb.png`)} 
+            alt="mlb logo">
+          </img>
+        </li>
+      )
+    }
+    return (
+      <React.Fragment>
+        <li className="nav__li" onClick={() => this.toggleMenu()}>
+          <img 
+            className="nav__li-img" 
+            src={require(`../img/${this.props.selected_team.ID}.png`)} 
+            alt={`${this.props.selected_team.City} ${this.props.selected_team.Name} logo`}>
+          </img>
+          <h1 className="nav__li-h1">
+            <span className={`nav__li-span nav__li-span--secondary-${this.props.team}`}>{ this.props.selected_team.City } </span>
+            <span className={`nav__li-span nav__li-span--primary-${this.props.team}`}>{ this.props.selected_team.Name }</span>
+          </h1>
+          {this.renderIcon()}
+        </li>
+        <ul className={`nav__sub-ul nav__sub-ul--${this.props.menuIsOpen} nav__sub-ul--${this.props.team}`}>
+          {this.renderList()}
+        </ul>
+      </React.Fragment>
+    )
+  }
+  
    render() {
      if (!this.props.selected_team.ID) {
        return null;
@@ -43,21 +76,7 @@ class SelectTeam extends React.Component {
          <div className="heading">
            <nav className="nav">
              <ul className={`nav__ul nav__ul--${this.props.team}`}>
-               <li className="nav__li" onClick={() => this.toggleMenu()}>
-                 <img 
-                   className="nav__li-img" 
-                   src={require(`../img/${this.props.selected_team.ID}.png`)} 
-                   alt={`${this.props.selected_team.City} ${this.props.selected_team.Name} logo`}>
-                 </img>
-                 <h1 className="nav__li-h1">
-                   <span className={`nav__li-span nav__li-span--secondary-${this.props.team}`}>{ this.props.selected_team.City } </span>
-                   <span className={`nav__li-span nav__li-span--primary-${this.props.team}`}>{ this.props.selected_team.Name }</span>
-                 </h1>
-                 {this.renderIcon()}
-               </li>
-               <ul className={`nav__sub-ul nav__sub-ul--${this.props.menuIsOpen} nav__sub-ul--${this.props.team}`}>
-                 {this.renderList()}
-               </ul>
+               {this.renderMenu()}
              </ul>
            </nav>
          </div>
