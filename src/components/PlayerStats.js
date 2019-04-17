@@ -4,7 +4,10 @@ import Error from './Error';
 class PlayerStats extends React.Component {
   
   render() {
-    if (this.props.statData) {
+    if (this.props.statData.error){
+      return <Error />
+    }
+    else if (this.props.statData) {
       let statKey;
       if (this.props.stat === 'AVG'){
         statKey = 'BattingAvg';
@@ -26,7 +29,6 @@ class PlayerStats extends React.Component {
     } else {
       return null;
     }
-
   }
 }
 

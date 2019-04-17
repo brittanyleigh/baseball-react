@@ -69,7 +69,7 @@ class App extends React.Component {
   
   render(){
     console.log(this.props);
-    if (this.props.teams === 'error') {
+    if (this.props.teams.error) {
       return (
         <React.Fragment>
           <header role="banner" className="header header--mlb">

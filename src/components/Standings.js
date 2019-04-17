@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Error from './Error';
 
 class Standings extends React.Component {
   formatAVG(average){
@@ -45,8 +46,10 @@ class Standings extends React.Component {
           </tbody>
         </table>  
       )      
-    } else {
-      return null;
+    } else if (this.props.standings.error){
+      return (
+        <Error />
+      )
     }
 
   }
