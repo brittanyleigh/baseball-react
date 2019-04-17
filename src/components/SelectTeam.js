@@ -11,14 +11,26 @@ class SelectTeam extends React.Component {
     this.props.getAllStats();
   }
   
+  updateAllDataOnEnter(event, team){
+    if (event.keyCode === 13) {
+      this.updateAllData(team);
+    }
+  }
+  
   toggleMenu() {
     this.props.toggleMenu();
+  }
+  
+  toggleMenuOnEnter(event) {
+    if (event.keyCode === 13) {
+      this.props.toggleMenu();
+    }
   }
   
   renderList(){
     return this.props.teams.map((team) => {
       return (
-          <li className={`nav__sub-li nav__sub-li--${this.props.team}`} key={team.ID} onClick={() => this.updateAllData(team)}>
+          <li className={`nav__sub-li nav__sub-li--${this.props.team}`} key={team.ID} tabIndex="0" onClick={() => this.updateAllData(team)} onKeyUp={(event) => this.updateAllDataOnEnter(event, team)}>
             <img className="nav__sub-li-img" src={require(`../img/${team.ID}.png`)} alt={`${team.City} ${team.Name} logo`}></img>
             <span className="nav__sub-span">{team.City} {team.Name}</span>
           </li>
@@ -48,7 +60,7 @@ class SelectTeam extends React.Component {
     }
     return (
       <React.Fragment>
-        <li className="nav__li" onClick={() => this.toggleMenu()}>
+        <li className="nav__li" tabIndex="0" onClick={() => this.toggleMenu()} onKeyUp={(event) => this.toggleMenuOnEnter(event)}>
           <img 
             className="nav__li-img" 
             src={require(`../img/${this.props.selected_team.ID}.png`)} 
@@ -74,7 +86,7 @@ class SelectTeam extends React.Component {
      return (
        <React.Fragment>
          <div className="heading">
-           <nav className="nav">
+           <nav className="nav" role="navigation">
              <ul className={`nav__ul nav__ul--${this.props.team}`}>
                {this.renderMenu()}
              </ul>

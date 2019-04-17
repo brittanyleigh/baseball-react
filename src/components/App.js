@@ -143,6 +143,11 @@ class App extends React.Component {
             </TeamDataContainer>
           </div>
         </main>
+        <footer role="contentinfo" className={`footer footer--${this.getTeamClass()}`}>
+          <div className={`footer__content footer__content--${this.getTeamClass()} text--right`}>
+            <a className="footer__a" href="https://www.brittanyisenberg.com" target="_blank" rel="noopener noreferrer">By Brittany Isenberg</a>
+          </div>
+        </footer>
       </React.Fragment>
     )  
   }  

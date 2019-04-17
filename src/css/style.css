@@ -58,8 +58,12 @@ body {
   flex-grow: 1;
 }
 
-.header--angels {
+.header--angels, .footer--angels {
   background: rgba(135, 0, 24, 0.5);
+}
+
+.footer__content--angels {
+  background: #BA0021;
 }
 
 .nav__ul--angels {
@@ -94,8 +98,12 @@ body {
   background: #a1001c;
 }
 
-.header--astros {
+.header--astros, .footer--astros {
   background: rgba(0, 19, 48, 0.5);
+}
+
+.footer__content--astros {
+  background: #002863;
 }
 
 .nav__ul--astros {
@@ -130,8 +138,12 @@ body {
   background: #001e4a;
 }
 
-.header--athletics {
+.header--athletics, .footer--athletics {
   background: rgba(0, 21, 17, 0.5);
+}
+
+.footer__content--athletics {
+  background: #00483a;
 }
 
 .nav__ul--athletics {
@@ -166,8 +178,12 @@ body {
   background: #002f25;
 }
 
-.header--bluejays {
+.header--bluejays, .footer--bluejays {
   background: rgba(11, 46, 98, 0.5);
+}
+
+.footer__content--bluejays {
+  background: #104490;
 }
 
 .nav__ul--bluejays {
@@ -202,8 +218,12 @@ body {
   background: #0d3979;
 }
 
-.header--braves {
+.header--braves, .footer--braves {
   background: rgba(2, 25, 51, 0.5);
+}
+
+.footer__content--braves {
+  background: #043164;
 }
 
 .nav__ul--braves {
@@ -238,8 +258,12 @@ body {
   background: #03254b;
 }
 
-.header--brewers {
+.header--brewers, .footer--brewers {
   background: rgba(0, 1, 3, 0.5);
+}
+
+.footer__content--brewers {
+  background: #08142e;
 }
 
 .nav__ul--brewers {
@@ -274,8 +298,12 @@ body {
   background: #040b18;
 }
 
-.header--cardinals {
+.header--cardinals, .footer--cardinals {
   background: rgba(154, 31, 52, 0.5);
+}
+
+.footer__content--cardinals {
+  background: #c42842;
 }
 
 .nav__ul--cardinals {
@@ -310,8 +338,12 @@ body {
   background: #af243b;
 }
 
-.header--cubs {
+.header--cubs, .footer--cubs {
   background: rgba(9, 33, 88, 0.5);
+}
+
+.footer__content--cubs {
+  background: #0e3386;
 }
 
 .nav__ul--cubs {
@@ -346,8 +378,12 @@ body {
   background: #0c2a6f;
 }
 
-.header--diamondbacks {
+.header--diamondbacks, .footer--diamondbacks {
   background: rgba(138, 13, 39, 0.5);
+}
+
+.footer__content--diamondbacks {
+  background: #b91134;
 }
 
 .nav__ul--diamondbacks {
@@ -382,8 +418,12 @@ body {
   background: #a20f2d;
 }
 
-.header--dodgers {
+.header--dodgers, .footer--dodgers {
   background: rgba(0, 61, 105, 0.5);
+}
+
+.footer__content--dodgers {
+  background: #005A9C;
 }
 
 .nav__ul--dodgers {
@@ -418,8 +458,12 @@ body {
   background: #004b83;
 }
 
-.header--giants {
+.header--giants, .footer--giants {
   background: rgba(12, 12, 12, 0.5);
+}
+
+.footer__content--giants {
+  background: #272425;
 }
 
 .nav__ul--giants {
@@ -454,8 +498,12 @@ body {
   background: #1a1818;
 }
 
-.header--indians {
+.header--indians, .footer--indians {
   background: rgba(22, 36, 60, 0.5);
+}
+
+.footer__content--indians {
+  background: #233b62;
 }
 
 .nav__ul--indians {
@@ -490,8 +538,12 @@ body {
   background: #1c304f;
 }
 
-.header--mariners {
+.header--mariners, .footer--mariners {
   background: rgba(0, 34, 52, 0.5);
+}
+
+.footer__content--mariners {
+  background: #004467;
 }
 
 .nav__ul--mariners {
@@ -526,8 +578,12 @@ body {
   background: #00334e;
 }
 
-.header--marlins {
+.header--marlins, .footer--marlins {
   background: rgba(0, 0, 0, 0.5);
+}
+
+.footer__content--marlins {
+  background: #000000;
 }
 
 .nav__ul--marlins {
@@ -562,8 +618,12 @@ body {
   background: black;
 }
 
-.header--mets {
+.header--mets, .footer--mets {
   background: rgba(0, 44, 81, 0.5);
+}
+
+.footer__content--mets {
+  background: #004784;
 }
 
 .nav__ul--mets {
@@ -598,8 +658,12 @@ body {
   background: #00396b;
 }
 
-.header--nationals {
+.header--nationals, .footer--nationals {
   background: rgba(138, 9, 35, 0.5);
+}
+
+.footer__content--nationals {
+  background: #ba0c2f;
 }
 
 .nav__ul--nationals {
@@ -634,8 +698,12 @@ body {
   background: #a20a29;
 }
 
-.header--orioles {
+.header--orioles, .footer--orioles {
   background: rgba(0, 0, 0, 0.5);
+}
+
+.footer__content--orioles {
+  background: #000000;
 }
 
 .nav__ul--orioles {
@@ -670,8 +738,12 @@ body {
   background: black;
 }
 
-.header--padres {
+.header--padres, .footer--padres {
   background: rgba(0, 22, 47, 0.5);
+}
+
+.footer__content--padres {
+  background: #002d62;
 }
 
 .nav__ul--padres {
@@ -706,8 +778,12 @@ body {
   background: #002149;
 }
 
-.header--phillies {
+.header--phillies, .footer--phillies {
   background: rgba(158, 12, 49, 0.5);
+}
+
+.footer__content--phillies {
+  background: #cd1040;
 }
 
 .nav__ul--phillies {
@@ -742,8 +818,12 @@ body {
   background: #b50e39;
 }
 
-.header--pirates {
+.header--pirates, .footer--pirates {
   background: rgba(11, 10, 8, 0.5);
+}
+
+.footer__content--pirates {
+  background: #27261F;
 }
 
 .nav__ul--pirates {
@@ -778,8 +858,12 @@ body {
   background: #191814;
 }
 
-.header--rangers {
+.header--rangers, .footer--rangers {
   background: rgba(0, 41, 83, 0.5);
+}
+
+.footer__content--rangers {
+  background: #004286;
 }
 
 .nav__ul--rangers {
@@ -814,8 +898,12 @@ body {
   background: #00356d;
 }
 
-.header--rays {
+.header--rays, .footer--rays {
   background: rgba(5, 20, 47, 0.5);
+}
+
+.footer__content--rays {
+  background: #09275D;
 }
 
 .nav__ul--rays {
@@ -850,8 +938,12 @@ body {
   background: #071d46;
 }
 
-.header--reds {
+.header--reds, .footer--reds {
   background: rgba(147, 0, 22, 0.5);
+}
+
+.footer__content--reds {
+  background: #C6001E;
 }
 
 .nav__ul--reds {
@@ -886,8 +978,12 @@ body {
   background: #ad001a;
 }
 
-.header--redsox {
+.header--redsox, .footer--redsox {
   background: rgba(147, 38, 45, 0.5);
+}
+
+.footer__content--redsox {
+  background: #BC3039;
 }
 
 .nav__ul--redsox {
@@ -922,8 +1018,12 @@ body {
   background: #a82b33;
 }
 
-.header--rockies {
+.header--rockies, .footer--rockies {
   background: rgba(29, 27, 74, 0.5);
+}
+
+.footer__content--rockies {
+  background: #2b296f;
 }
 
 .nav__ul--rockies {
@@ -958,8 +1058,12 @@ body {
   background: #24225c;
 }
 
-.header--royals {
+.header--royals, .footer--royals {
   background: rgba(0, 44, 84, 0.5);
+}
+
+.footer__content--royals {
+  background: #004687;
 }
 
 .nav__ul--royals {
@@ -994,8 +1098,12 @@ body {
   background: #00396e;
 }
 
-.header--tigers {
+.header--tigers, .footer--tigers {
   background: rgba(0, 9, 17, 0.5);
+}
+
+.footer__content--tigers {
+  background: #002244;
 }
 
 .nav__ul--tigers {
@@ -1030,8 +1138,12 @@ body {
   background: #00152b;
 }
 
-.header--twins {
+.header--twins, .footer--twins {
   background: rgba(3, 11, 22, 0.5);
+}
+
+.footer__content--twins {
+  background: #0A2142;
 }
 
 .nav__ul--twins {
@@ -1066,8 +1178,12 @@ body {
   background: #07162c;
 }
 
-.header--whitesox {
+.header--whitesox, .footer--whitesox {
   background: rgba(11, 10, 8, 0.5);
+}
+
+.footer__content--whitesox {
+  background: #27261F;
 }
 
 .nav__ul--whitesox {
@@ -1102,8 +1218,12 @@ body {
   background: #191814;
 }
 
-.header--yankees {
+.header--yankees, .footer--yankees {
   background: rgba(9, 16, 32, 0.5);
+}
+
+.footer__content--yankees {
+  background: #142448;
 }
 
 .nav__ul--yankees {
@@ -1138,8 +1258,12 @@ body {
   background: #0e1a34;
 }
 
-.header--mlb {
+.header--mlb, .footer--mlb {
   background: rgba(3, 1, 81, 0.5);
+}
+
+.footer__content--mlb {
+  background: #050184;
 }
 
 .nav__ul--mlb {
@@ -1193,6 +1317,9 @@ body {
 }
 .nav__li:hover {
   cursor: pointer;
+}
+.nav__li:focus {
+  outline: 5px auto -webkit-focus-ring-color;
 }
 .nav__li-img {
   max-width: 100px;
@@ -1408,8 +1535,30 @@ body {
   height: 2em !important;
 }
 
-.center-text {
+.text--center {
   text-align: center;
+}
+.text--right {
+  text-align: right;
+}
+
+.footer__content {
+  max-width: 825px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
+  padding: 5px;
+  box-sizing: border-box;
+}
+.footer__a {
+  color: #ffffff;
+  font-size: 0.7em;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  opacity: 0.5;
+}
+.footer__a:hover, .footer__a:focus {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

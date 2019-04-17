@@ -205,8 +205,11 @@ body {
 }
 
 @each $team in $teams{
-  .header--#{$team} {
+  .header--#{$team}, .footer--#{$team} {
     @include transparent-team-background($team);
+  }
+  .footer__content--#{$team}{
+    @include team-background($team);
   }
   .nav {
     &__ul--#{$team} {
@@ -262,6 +265,9 @@ body {
   
     &:hover {
       cursor: pointer;
+    }
+    &:focus {
+      outline: 5px auto -webkit-focus-ring-color;
     }
     &-img {
       max-width: 100px;
@@ -476,6 +482,29 @@ body {
   }
 }
 
-.center-text {
-  text-align: center;
+.text {
+  &--center {
+    text-align: center;
+  }
+  &--right {
+    text-align: right;
+  }
+}
+
+.footer {
+  &__content {
+    @include container();
+    padding: $item-padding / 2;
+    box-sizing: border-box;
+  }
+  &__a {
+    color: $neutral;
+    font-size: .7em;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    opacity: .5;
+    &:hover, &:focus {
+      font-weight: bold;
+    }
+  }
 }
