@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import Error from './Error';
 
 class News extends React.Component {
   
@@ -23,12 +24,17 @@ class News extends React.Component {
     }  
   }
   render() {
-    return (
-      <Carousel showThumbs={false} showStatus={false}>
-          {this.renderNews()}
-      </Carousel>
-    
-    )
+    if (this.props.news.error) {
+      return (
+        <Error />
+      )
+    } else {
+      return (
+        <Carousel showThumbs={false} showStatus={false}>
+            {this.renderNews()}
+        </Carousel>
+      )      
+    }
   }
 }
 
