@@ -23,9 +23,9 @@ class App extends React.Component {
     }
   }
   
-  componentDidMount() {
-    this.props.fetchTeamData();
-    this.props.getPreviousTeam();
+  async componentDidMount() {
+    await this.props.fetchTeamData();
+    await this.props.getPreviousTeam();
     this.getAllStats();
   }
   
