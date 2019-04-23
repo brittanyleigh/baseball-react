@@ -152,6 +152,15 @@ $team-secondary-colors: (
   background: map-get($team-primary-colors, $team);
 }
 
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
 * {
   font-family: $standard-font;
   letter-spacing: 1px;
@@ -506,5 +515,23 @@ body {
     &:hover, &:focus {
       font-weight: bold;
     }
+  }
+}
+
+.loader {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+          justify-content: center;
+  &__img {
+    animation-name: spin;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
   }
 }

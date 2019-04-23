@@ -89,67 +89,73 @@ class App extends React.Component {
           </main>
         </React.Fragment>
       )
+    } else if (this.props.teams.ready) {
+      return (
+        <React.Fragment>
+          <header role="banner" className={`header header--${this.getTeamClass()}`}>
+            <SelectTeam getAllStats={this.getAllStats} team={this.getTeamClass()}/>
+          </header>
+          <main role="main" className={`main main--${this.getTeamClass()}`}>
+            <div className="container">
+              <TeamDataContainer 
+                heading="Yesterday's Score" 
+                class="schedule" 
+                team={this.getTeamClass()}
+                ready={this.props.yesterday.ready}
+                placeholderRows={2}
+                >
+                <YesterdayScore/>
+              </TeamDataContainer>
+              
+              <TeamDataContainer 
+                heading="Today's Game" 
+                class="schedule" 
+                team={this.getTeamClass()}
+                ready={this.props.today.ready}
+                placeholderRows={2}
+                >
+                <TodayGame/>
+              </TeamDataContainer>
+              
+              <TeamDataContainer 
+                heading={`${this.divisionName()} Standings`} 
+                class="full" 
+                team={this.getTeamClass()} 
+                ready={this.props.standings.ready}
+                placeholderRows={5}
+                >
+                <Standings/>
+              </TeamDataContainer>
+              
+              {this.renderStats()}
+              
+              <TeamDataContainer 
+                heading="News" 
+                subheading="by newsapi.org" 
+                class="full" 
+                class2="news" 
+                team={this.getTeamClass()}
+                ready={this.props.news.ready}
+                placeholderRows={1}
+                >
+                <TeamNews team={this.getTeamClass()}/>
+              </TeamDataContainer>
+            </div>
+          </main>
+          <footer role="contentinfo" className={`footer footer--${this.getTeamClass()}`}>
+            <div className={`footer__content footer__content--${this.getTeamClass()} text--right`}>
+              <a className="footer__a" href="https://www.brittanyisenberg.com" target="_blank" rel="noopener noreferrer">By Brittany Isenberg</a>
+            </div>
+          </footer>
+            </React.Fragment>
+      )  
     } else {
-    return (
-      <React.Fragment>
-        <header role="banner" className={`header header--${this.getTeamClass()}`}>
-          <SelectTeam getAllStats={this.getAllStats} team={this.getTeamClass()}/>
-        </header>
-        <main role="main" className={`main main--${this.getTeamClass()}`}>
-          <div className="container">
-            <TeamDataContainer 
-              heading="Yesterday's Score" 
-              class="schedule" 
-              team={this.getTeamClass()}
-              ready={this.props.yesterday.ready}
-              placeholderRows={2}
-              >
-              <YesterdayScore/>
-            </TeamDataContainer>
-            
-            <TeamDataContainer 
-              heading="Today's Game" 
-              class="schedule" 
-              team={this.getTeamClass()}
-              ready={this.props.today.ready}
-              placeholderRows={2}
-              >
-              <TodayGame/>
-            </TeamDataContainer>
-            
-            <TeamDataContainer 
-              heading={`${this.divisionName()} Standings`} 
-              class="full" 
-              team={this.getTeamClass()} 
-              ready={this.props.standings.ready}
-              placeholderRows={5}
-              >
-              <Standings/>
-            </TeamDataContainer>
-            
-            {this.renderStats()}
-            
-            <TeamDataContainer 
-              heading="News" 
-              subheading="by newsapi.org" 
-              class="full" 
-              class2="news" 
-              team={this.getTeamClass()}
-              ready={this.props.news.ready}
-              placeholderRows={1}
-              >
-              <TeamNews team={this.getTeamClass()}/>
-            </TeamDataContainer>
-          </div>
-        </main>
-        <footer role="contentinfo" className={`footer footer--${this.getTeamClass()}`}>
-          <div className={`footer__content footer__content--${this.getTeamClass()} text--right`}>
-            <a className="footer__a" href="https://www.brittanyisenberg.com" target="_blank" rel="noopener noreferrer">By Brittany Isenberg</a>
-          </div>
-        </footer>
-      </React.Fragment>
-    )  
-  }  
+      return (
+        <div className="loader">
+          <img className="loader__img" src={require(`../img/baseball.svg`)} alt="spinning baseball loader icon"></img>
+        </div>
+      )
+    }
   }
 }
 

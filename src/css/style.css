@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 * {
   font-family: "Lato", sans-serif;
   letter-spacing: 1px;
@@ -1559,6 +1567,24 @@ body {
 }
 .footer__a:hover, .footer__a:focus {
   font-weight: bold;
+}
+
+.loader {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.loader__img {
+  animation-name: spin;
+  animation-duration: 2500ms;
+  animation-iteration-count: infinite;
 }
 
 /*# sourceMappingURL=style.css.map */
