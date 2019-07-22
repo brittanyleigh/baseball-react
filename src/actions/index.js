@@ -1,6 +1,6 @@
 import sports from '../apis/sportsfeed';
 import news from '../apis/news';
-
+//
 export const fetchTeamData = () => async (dispatch, getState) => {
   let payload; 
   try {
