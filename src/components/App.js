@@ -9,7 +9,12 @@ import PlayerStats from './PlayerStats';
 import TeamNews from './TeamNews';
 import Error from './Error';
 import '../css/style.css';
-import { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu} from '../actions';
+import { getPreviousTeam, getStandings,  getTeamNews, toggleMenu} from '../actions';
+import { fetchTeamData } from '../ducks/teams';
+import { getDivisionStandings } from '../ducks/standings';
+import { getYesterdayScore } from '../ducks/yesterday';
+import { getTodayGame } from '../ducks/today';
+import { getPlayerStats } from '../ducks/stats';
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
@@ -25,8 +30,11 @@ class App extends React.Component {
 
   async componentDidMount() {
     await this.props.fetchTeamData();
+    await this.props.getDivisionStandings();
+    await this.props.getYesterdayScore();
+    await this.props.getTodayGame();
+    await this.props.getPlayerStats();
     await this.props.getPreviousTeam();
-    this.props.getYesterdayScore();
     //this.getAllStats();
   }
 
@@ -160,12 +168,12 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.props.stats);
     return (
       <p>Testing</p>
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
@@ -180,5 +188,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,
-  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getPlayerStats, getTeamNews, toggleMenu, getDivisionStandings }
 )(App);
