@@ -15,20 +15,21 @@ const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
 
 class App extends React.Component {
-  
+
   getTeamClass() {
     if (this.props.selected_team.Name){
       let teamName = this.props.selected_team.Name
-      return teamName.split(' ').join('').toLowerCase();      
+      return teamName.split(' ').join('').toLowerCase();
     }
   }
-  
+
   async componentDidMount() {
     await this.props.fetchTeamData();
     await this.props.getPreviousTeam();
-    this.getAllStats();
+    this.props.getYesterdayScore();
+    //this.getAllStats();
   }
-  
+
   getAllStats = () => {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
@@ -39,15 +40,15 @@ class App extends React.Component {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
-  
+
   renderStats() {
     if (this.props.stats){
       return playerStats.map((stat) => {
         return (
-          <TeamDataContainer 
-            heading={`${stat} Leaders`} 
-            class="stats" 
-            key={stat} 
+          <TeamDataContainer
+            heading={`${stat} Leaders`}
+            class="stats"
+            key={stat}
             team={this.getTeamClass()}
             ready={this.props.stats.ready}
             placeholderRows={3}
@@ -58,7 +59,7 @@ class App extends React.Component {
       });
     }
   }
-  
+
   divisionName() {
     if (this.props.standings["@name"]){
       return this.props.standings["@name"];
@@ -66,8 +67,8 @@ class App extends React.Component {
       return '';
     }
   }
-  
-  render(){
+
+  renderOld(){
     if (this.props.teams.error) {
       return (
         <React.Fragment>
@@ -76,7 +77,7 @@ class App extends React.Component {
           </header>
           <main role="main" className={`main main--${this.getTeamClass()}`}>
             <div className="container">
-              <TeamDataContainer 
+              <TeamDataContainer
                 heading="Error"
                 class="full"
                 team="mlb"
@@ -97,43 +98,43 @@ class App extends React.Component {
           </header>
           <main role="main" className={`main main--${this.getTeamClass()}`}>
             <div className="container">
-              <TeamDataContainer 
-                heading="Yesterday's Score" 
-                class="schedule" 
+              <TeamDataContainer
+                heading="Yesterday's Score"
+                class="schedule"
                 team={this.getTeamClass()}
                 ready={this.props.yesterday.ready}
                 placeholderRows={2}
                 >
                 <YesterdayScore/>
               </TeamDataContainer>
-              
-              <TeamDataContainer 
-                heading="Today's Game" 
-                class="schedule" 
+
+              <TeamDataContainer
+                heading="Today's Game"
+                class="schedule"
                 team={this.getTeamClass()}
                 ready={this.props.today.ready}
                 placeholderRows={2}
                 >
                 <TodayGame/>
               </TeamDataContainer>
-              
-              <TeamDataContainer 
-                heading={`${this.divisionName()} Standings`} 
-                class="full" 
-                team={this.getTeamClass()} 
+
+              <TeamDataContainer
+                heading={`${this.divisionName()} Standings`}
+                class="full"
+                team={this.getTeamClass()}
                 ready={this.props.standings.ready}
                 placeholderRows={5}
                 >
                 <Standings/>
               </TeamDataContainer>
-              
+
               {this.renderStats()}
-              
-              <TeamDataContainer 
-                heading="News" 
-                subheading="by newsapi.org" 
-                class="full" 
-                class2="news" 
+
+              <TeamDataContainer
+                heading="News"
+                subheading="by newsapi.org"
+                class="full"
+                class2="news"
                 team={this.getTeamClass()}
                 ready={this.props.news.ready}
                 placeholderRows={1}
@@ -148,7 +149,7 @@ class App extends React.Component {
             </div>
           </footer>
             </React.Fragment>
-      )  
+      )
     } else {
       return (
         <div className="loader">
@@ -157,10 +158,17 @@ class App extends React.Component {
       )
     }
   }
+
+  render() {
+    return (
+      <p>Testing</p>
+    )
+  }
 }
 
+
 const mapStateToProps = (state) => {
-  return { 
+  return {
     standings: state.standings,
     stats: state.stats,
     selected_team: state.selected_team,
@@ -171,6 +179,6 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, 
+export default connect(mapStateToProps,
   { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getStandings, getPlayerStats, getTeamNews, toggleMenu }
 )(App);
