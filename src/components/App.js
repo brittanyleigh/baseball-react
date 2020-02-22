@@ -14,7 +14,8 @@ import { fetchTeamData } from '../ducks/teams';
 import { getDivisionStandings } from '../ducks/standings';
 import { getYesterdayScore } from '../ducks/yesterday';
 import { getTodayGame } from '../ducks/today';
-import { getPlayerStats } from '../ducks/stats';
+import { getHitterStats } from '../ducks/hitterStats';
+import { getPitcherStats } from '../ducks/pitcherStats';
 
 const playerStats = ['HR', 'AVG', 'RBI', 'OPS'];
 
@@ -33,7 +34,8 @@ class App extends React.Component {
     await this.props.getDivisionStandings();
     await this.props.getYesterdayScore();
     await this.props.getTodayGame();
-    await this.props.getPlayerStats();
+    await this.props.getHitterStats();
+    await this.props.getPitcherStats();
     await this.props.getPreviousTeam();
     //this.getAllStats();
   }
@@ -43,7 +45,7 @@ class App extends React.Component {
     this.props.getTodayGame();
     this.props.getStandings();
     this.props.getTeamNews();
-    this.props.getPlayerStats(playerStats);
+    this.props.getHitterStats(playerStats);
     this.props.toggleMenu();
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -168,7 +170,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props.stats);
     return (
       <p>Testing</p>
     )
@@ -179,6 +180,8 @@ const mapStateToProps = (state) => {
   return {
     standings: state.standings,
     stats: state.stats,
+    hitterStats: state.hitterStats,
+    pitcherStats: state.pitcherStats,
     selected_team: state.selected_team,
     today: state.today,
     yesterday: state.yesterday,
@@ -188,5 +191,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,
-  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getPlayerStats, getTeamNews, toggleMenu, getDivisionStandings }
+  { fetchTeamData, getPreviousTeam, getYesterdayScore, getTodayGame, getHitterStats, getPitcherStats, getTeamNews, toggleMenu, getDivisionStandings }
 )(App);

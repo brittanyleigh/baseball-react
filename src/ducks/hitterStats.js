@@ -1,8 +1,8 @@
 import mlbStats from "../apis/mlbStats";
 
-const REQUEST = "mlbStats/stats/REQUEST";
-const SUCCESS = "mlbStats/stats/SUCCESS";
-const FAILURE = "mlbStats/stats/FAILURE";
+const REQUEST = "mlbStats/hitterStats/REQUEST";
+const SUCCESS = "mlbStats/hitterStats/SUCCESS";
+const FAILURE = "mlbStats/hitterStats/FAILURE";
 
 const initialState = { data: [] };
 export default function reducer(state = initialState, action = {}) {
@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getPlayerStats = (teamId) => async (dispatch) => {
+export const getHitterStats = (teamId) => async (dispatch) => {
   // TODO: use teamId
   const team = '112';
   dispatch({ type: REQUEST});
@@ -39,13 +39,13 @@ export const getPlayerStats = (teamId) => async (dispatch) => {
     }
   })
   .then((results) => {
-    let hittingLeaders = {};
+    let statLeaders = {};
     results.data.teamLeaders.forEach((record, i) => {
       if (record.statGroup == "hitting") {
-        hittingLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
+        statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
       }
     });
-    dispatch({ type: SUCCESS, payload: hittingLeaders})
+    dispatch({ type: SUCCESS, payload: statLeaders})
   })
   .catch((error) => dispatch({ type: FAILURE, payload: true}))
 }
