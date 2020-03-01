@@ -20,7 +20,7 @@ $teams: (
   'brewers',
   'cardinals',
   'cubs',
-  'diamondbacks',
+  'd-backs',
   'dodgers',
   'giants',
   'indians',
@@ -54,7 +54,7 @@ $team-primary-colors: (
   brewers: #08142e,
   cardinals: #c42842,
   cubs: #0e3386,
-  diamondbacks: #b91134,
+  d-backs: #b91134,
   dodgers: #005A9C,
   giants: #272425,
   indians: #233b62,
@@ -88,7 +88,7 @@ $team-secondary-colors: (
   brewers: #aa8138,
   cardinals: #0A2141,
   cubs: #cc3433,
-  diamondbacks: #000000,
+  d-backs: #000000,
   dodgers: #004680,
   giants: #d9782d,
   indians: #e2233f,
@@ -152,12 +152,25 @@ $team-secondary-colors: (
   background: map-get($team-primary-colors, $team);
 }
 
-@keyframes spin {
+@-webkit-keyframes spin {
   from {
-    transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
   }
   to {
-    transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+            transform:rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+  }
+  to {
+    -webkit-transform:rotate(360deg);
+            transform:rotate(360deg);
   }
 }
 
@@ -175,7 +188,7 @@ $team-secondary-colors: (
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
           flex-direction: column;
-  
+
   &:after {
     content: "";
     background: url('../img/baseball.jpg');
@@ -210,7 +223,9 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 .main {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 @each $team in $teams{
@@ -249,7 +264,7 @@ body {
   .team_container__heading--#{$team} {
     @include team-background($team);
   }
-  
+
   .carousel .slide .legend--#{$team} {
     @include team-background($team);
     border: solid 1px darken(map-get($team-primary-colors, $team), 10%);
@@ -271,7 +286,7 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
     padding: 15px;
-  
+
     &:hover {
       cursor: pointer;
     }
@@ -280,7 +295,7 @@ body {
     }
     &-img {
       max-width: 100px;
-      
+
       @media screen and (max-width: $small) {
         max-width: 75px;
       }
@@ -310,7 +325,7 @@ body {
     text-transform: uppercase;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    
+
 
     &--closed {
       display: none;
@@ -320,11 +335,11 @@ body {
     @include flex-center();
     padding: 10px 15px;
     font-size: 14px;
-    
+
     &:hover {
       cursor: pointer;
     }
-    
+
     &-img {
       max-width: 30px;
       padding-right: 10px;
@@ -334,24 +349,26 @@ body {
 
 .carousel {
   .slide {
-    max-height: 350px; 
-    
+    max-height: 350px;
+
     @media screen and (max-width: $small) {
       max-height: 250px;
     }
     & img {
       height: 100%;
-      -o-object-fit: cover;    
+      -o-object-fit: cover;
       object-fit: cover;
-      object-position: top;
+      -o-object-position: top;
+         object-position: top;
     }
     .legend {
       opacity: 1;
       border-radius: 0px;
       text-decoration: none;
-      box-shadow: 5px 5px 15px -10px #000000;
+      -webkit-box-shadow: 5px 5px 15px -10px #000000;
+              box-shadow: 5px 5px 15px -10px #000000;
     }
-  }  
+  }
 }
 
 
@@ -360,7 +377,7 @@ body {
   color: $dark_gray;
   -webkit-box-shadow: 5px 5px 15px -10px darken($gray, 25%);
           box-shadow: 5px 5px 15px -10px darken($gray, 25%);
-  
+
   &--full {
     grid-column: 1/-1;
   }
@@ -416,11 +433,11 @@ body {
   text-align: center;
   padding: $item-padding;
   min-height: 70px;
-  
+
   &--yesterday {
     grid-template-columns: 1fr 2fr;
   }
-  
+
   &__detail {
     grid-row: 1/span 2;
     font-size: 36px;
@@ -482,7 +499,8 @@ body {
 
 .text {
   &-block {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: $item-padding;
   }
   &-row {
@@ -504,7 +522,8 @@ body {
   &__content {
     @include container();
     padding: $item-padding / 2;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
   &__a {
     color: $neutral;
@@ -530,8 +549,11 @@ body {
   -ms-flex-pack: center;
           justify-content: center;
   &__img {
-    animation-name: spin;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
+    -webkit-animation-name: spin;
+            animation-name: spin;
+    -webkit-animation-duration: 2500ms;
+            animation-duration: 2500ms;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
   }
 }

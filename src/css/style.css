@@ -1,16 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,900");
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 @keyframes spin {
   from {
-    transform: rotate(0deg);
-  }
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
   to {
-    transform: rotate(360deg);
-  }
-}
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 * {
   font-family: "Lato", sans-serif;
-  letter-spacing: 1px;
-}
+  letter-spacing: 1px; }
 
 #root {
   min-height: 100vh;
@@ -20,33 +25,29 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
-}
-#root:after {
-  content: "";
-  background: url("../img/baseball.jpg");
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  background-size: cover;
-  height: 100%;
-}
+  flex-direction: column; }
+  #root:after {
+    content: "";
+    background: url("../img/baseball.jpg");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    height: 100%; }
 
 body {
   margin: 0px;
-  position: relative;
-}
+  position: relative; }
 
 .heading {
   max-width: 825px;
   margin: 0 auto;
   -webkit-box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
-}
+  box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75); }
 
 .container {
   max-width: 825px;
@@ -59,1258 +60,916 @@ body {
   box-sizing: border-box;
   grid-gap: 20px;
   padding: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 
 .main {
-  flex-grow: 1;
-}
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1; }
 
 .header--angels, .footer--angels {
-  background: rgba(135, 0, 24, 0.5);
-}
+  background: rgba(135, 0, 24, 0.5); }
 
 .footer__content--angels {
-  background: #BA0021;
-}
+  background: #BA0021; }
 
 .nav__ul--angels {
-  border-bottom: solid 10px #BA0021;
-}
+  border-bottom: solid 10px #BA0021; }
 .nav__li-span--primary-angels {
-  color: #BA0021;
-}
+  color: #BA0021; }
 .nav__li-span--secondary-angels {
-  color: #002E64;
-}
+  color: #002E64; }
 .nav__sub-ul--angels {
-  background: #BA0021;
-}
+  background: #BA0021; }
 .nav__sub-li--angels:hover {
-  background: #c41030;
-}
+  background: #c41030; }
 
 .main--angels {
-  background: rgba(135, 0, 24, 0.5);
-}
+  background: rgba(135, 0, 24, 0.5); }
 
 .team_container__heading--angels {
-  background: #BA0021;
-}
+  background: #BA0021; }
 
 .carousel .slide .legend--angels {
   background: #BA0021;
-  border: solid 1px #870018;
-}
-.carousel .slide .legend--angels:hover {
-  background: #a1001c;
-}
+  border: solid 1px #870018; }
+  .carousel .slide .legend--angels:hover {
+    background: #a1001c; }
 
 .header--astros, .footer--astros {
-  background: rgba(0, 19, 48, 0.5);
-}
+  background: rgba(0, 19, 48, 0.5); }
 
 .footer__content--astros {
-  background: #002863;
-}
+  background: #002863; }
 
 .nav__ul--astros {
-  border-bottom: solid 10px #002863;
-}
+  border-bottom: solid 10px #002863; }
 .nav__li-span--primary-astros {
-  color: #002863;
-}
+  color: #002863; }
 .nav__li-span--secondary-astros {
-  color: #FA5E00;
-}
+  color: #FA5E00; }
 .nav__sub-ul--astros {
-  background: #002863;
-}
+  background: #002863; }
 .nav__sub-li--astros:hover {
-  background: #093473;
-}
+  background: #093473; }
 
 .main--astros {
-  background: rgba(0, 19, 48, 0.5);
-}
+  background: rgba(0, 19, 48, 0.5); }
 
 .team_container__heading--astros {
-  background: #002863;
-}
+  background: #002863; }
 
 .carousel .slide .legend--astros {
   background: #002863;
-  border: solid 1px #001330;
-}
-.carousel .slide .legend--astros:hover {
-  background: #001e4a;
-}
+  border: solid 1px #001330; }
+  .carousel .slide .legend--astros:hover {
+    background: #001e4a; }
 
 .header--athletics, .footer--athletics {
-  background: rgba(0, 21, 17, 0.5);
-}
+  background: rgba(0, 21, 17, 0.5); }
 
 .footer__content--athletics {
-  background: #00483a;
-}
+  background: #00483a; }
 
 .nav__ul--athletics {
-  border-bottom: solid 10px #00483a;
-}
+  border-bottom: solid 10px #00483a; }
 .nav__li-span--primary-athletics {
-  color: #00483a;
-}
+  color: #00483a; }
 .nav__li-span--secondary-athletics {
-  color: #fdc157;
-}
+  color: #fdc157; }
 .nav__sub-ul--athletics {
-  background: #00483a;
-}
+  background: #00483a; }
 .nav__sub-li--athletics:hover {
-  background: #075a4a;
-}
+  background: #075a4a; }
 
 .main--athletics {
-  background: rgba(0, 21, 17, 0.5);
-}
+  background: rgba(0, 21, 17, 0.5); }
 
 .team_container__heading--athletics {
-  background: #00483a;
-}
+  background: #00483a; }
 
 .carousel .slide .legend--athletics {
   background: #00483a;
-  border: solid 1px #001511;
-}
-.carousel .slide .legend--athletics:hover {
-  background: #002f25;
-}
+  border: solid 1px #001511; }
+  .carousel .slide .legend--athletics:hover {
+    background: #002f25; }
 
 .header--bluejays, .footer--bluejays {
-  background: rgba(11, 46, 98, 0.5);
-}
+  background: rgba(11, 46, 98, 0.5); }
 
 .footer__content--bluejays {
-  background: #104490;
-}
+  background: #104490; }
 
 .nav__ul--bluejays {
-  border-bottom: solid 10px #104490;
-}
+  border-bottom: solid 10px #104490; }
 .nav__li-span--primary-bluejays {
-  color: #104490;
-}
+  color: #104490; }
 .nav__li-span--secondary-bluejays {
-  color: #EB0000;
-}
+  color: #EB0000; }
 .nav__sub-ul--bluejays {
-  background: #104490;
-}
+  background: #104490; }
 .nav__sub-li--bluejays:hover {
-  background: #205199;
-}
+  background: #205199; }
 
 .main--bluejays {
-  background: rgba(11, 46, 98, 0.5);
-}
+  background: rgba(11, 46, 98, 0.5); }
 
 .team_container__heading--bluejays {
-  background: #104490;
-}
+  background: #104490; }
 
 .carousel .slide .legend--bluejays {
   background: #104490;
-  border: solid 1px #0b2e62;
-}
-.carousel .slide .legend--bluejays:hover {
-  background: #0d3979;
-}
+  border: solid 1px #0b2e62; }
+  .carousel .slide .legend--bluejays:hover {
+    background: #0d3979; }
 
 .header--braves, .footer--braves {
-  background: rgba(2, 25, 51, 0.5);
-}
+  background: rgba(2, 25, 51, 0.5); }
 
 .footer__content--braves {
-  background: #043164;
-}
+  background: #043164; }
 
 .nav__ul--braves {
-  border-bottom: solid 10px #043164;
-}
+  border-bottom: solid 10px #043164; }
 .nav__li-span--primary-braves {
-  color: #043164;
-}
+  color: #043164; }
 .nav__li-span--secondary-braves {
-  color: #bd1031;
-}
+  color: #bd1031; }
 .nav__sub-ul--braves {
-  background: #043164;
-}
+  background: #043164; }
 .nav__sub-li--braves:hover {
-  background: #0f3e73;
-}
+  background: #0f3e73; }
 
 .main--braves {
-  background: rgba(2, 25, 51, 0.5);
-}
+  background: rgba(2, 25, 51, 0.5); }
 
 .team_container__heading--braves {
-  background: #043164;
-}
+  background: #043164; }
 
 .carousel .slide .legend--braves {
   background: #043164;
-  border: solid 1px #021933;
-}
-.carousel .slide .legend--braves:hover {
-  background: #03254b;
-}
+  border: solid 1px #021933; }
+  .carousel .slide .legend--braves:hover {
+    background: #03254b; }
 
 .header--brewers, .footer--brewers {
-  background: rgba(0, 1, 3, 0.5);
-}
+  background: rgba(0, 1, 3, 0.5); }
 
 .footer__content--brewers {
-  background: #08142e;
-}
+  background: #08142e; }
 
 .nav__ul--brewers {
-  border-bottom: solid 10px #08142e;
-}
+  border-bottom: solid 10px #08142e; }
 .nav__li-span--primary-brewers {
-  color: #08142e;
-}
+  color: #08142e; }
 .nav__li-span--secondary-brewers {
-  color: #aa8138;
-}
+  color: #aa8138; }
 .nav__sub-ul--brewers {
-  background: #08142e;
-}
+  background: #08142e; }
 .nav__sub-li--brewers:hover {
-  background: #12203e;
-}
+  background: #12203e; }
 
 .main--brewers {
-  background: rgba(0, 1, 3, 0.5);
-}
+  background: rgba(0, 1, 3, 0.5); }
 
 .team_container__heading--brewers {
-  background: #08142e;
-}
+  background: #08142e; }
 
 .carousel .slide .legend--brewers {
   background: #08142e;
-  border: solid 1px #000103;
-}
-.carousel .slide .legend--brewers:hover {
-  background: #040b18;
-}
+  border: solid 1px #000103; }
+  .carousel .slide .legend--brewers:hover {
+    background: #040b18; }
 
 .header--cardinals, .footer--cardinals {
-  background: rgba(154, 31, 52, 0.5);
-}
+  background: rgba(154, 31, 52, 0.5); }
 
 .footer__content--cardinals {
-  background: #c42842;
-}
+  background: #c42842; }
 
 .nav__ul--cardinals {
-  border-bottom: solid 10px #c42842;
-}
+  border-bottom: solid 10px #c42842; }
 .nav__li-span--primary-cardinals {
-  color: #c42842;
-}
+  color: #c42842; }
 .nav__li-span--secondary-cardinals {
-  color: #0A2141;
-}
+  color: #0A2141; }
 .nav__sub-ul--cardinals {
-  background: #c42842;
-}
+  background: #c42842; }
 .nav__sub-li--cardinals:hover {
-  background: #c24358;
-}
+  background: #c24358; }
 
 .main--cardinals {
-  background: rgba(154, 31, 52, 0.5);
-}
+  background: rgba(154, 31, 52, 0.5); }
 
 .team_container__heading--cardinals {
-  background: #c42842;
-}
+  background: #c42842; }
 
 .carousel .slide .legend--cardinals {
   background: #c42842;
-  border: solid 1px #9a1f34;
-}
-.carousel .slide .legend--cardinals:hover {
-  background: #af243b;
-}
+  border: solid 1px #9a1f34; }
+  .carousel .slide .legend--cardinals:hover {
+    background: #af243b; }
 
 .header--cubs, .footer--cubs {
-  background: rgba(9, 33, 88, 0.5);
-}
+  background: rgba(9, 33, 88, 0.5); }
 
 .footer__content--cubs {
-  background: #0e3386;
-}
+  background: #0e3386; }
 
 .nav__ul--cubs {
-  border-bottom: solid 10px #0e3386;
-}
+  border-bottom: solid 10px #0e3386; }
 .nav__li-span--primary-cubs {
-  color: #0e3386;
-}
+  color: #0e3386; }
 .nav__li-span--secondary-cubs {
-  color: #cc3433;
-}
+  color: #cc3433; }
 .nav__sub-ul--cubs {
-  background: #0e3386;
-}
+  background: #0e3386; }
 .nav__sub-li--cubs:hover {
-  background: #1d4190;
-}
+  background: #1d4190; }
 
 .main--cubs {
-  background: rgba(9, 33, 88, 0.5);
-}
+  background: rgba(9, 33, 88, 0.5); }
 
 .team_container__heading--cubs {
-  background: #0e3386;
-}
+  background: #0e3386; }
 
 .carousel .slide .legend--cubs {
   background: #0e3386;
-  border: solid 1px #092158;
-}
-.carousel .slide .legend--cubs:hover {
-  background: #0c2a6f;
-}
+  border: solid 1px #092158; }
+  .carousel .slide .legend--cubs:hover {
+    background: #0c2a6f; }
 
-.header--diamondbacks, .footer--diamondbacks {
-  background: rgba(138, 13, 39, 0.5);
-}
+.header--d-backs, .footer--d-backs {
+  background: rgba(138, 13, 39, 0.5); }
 
-.footer__content--diamondbacks {
+.footer__content--d-backs {
+  background: #b91134; }
+
+.nav__ul--d-backs {
+  border-bottom: solid 10px #b91134; }
+.nav__li-span--primary-d-backs {
+  color: #b91134; }
+.nav__li-span--secondary-d-backs {
+  color: #000000; }
+.nav__sub-ul--d-backs {
+  background: #b91134; }
+.nav__sub-li--d-backs:hover {
+  background: #bf2445; }
+
+.main--d-backs {
+  background: rgba(138, 13, 39, 0.5); }
+
+.team_container__heading--d-backs {
+  background: #b91134; }
+
+.carousel .slide .legend--d-backs {
   background: #b91134;
-}
-
-.nav__ul--diamondbacks {
-  border-bottom: solid 10px #b91134;
-}
-.nav__li-span--primary-diamondbacks {
-  color: #b91134;
-}
-.nav__li-span--secondary-diamondbacks {
-  color: #000000;
-}
-.nav__sub-ul--diamondbacks {
-  background: #b91134;
-}
-.nav__sub-li--diamondbacks:hover {
-  background: #bf2445;
-}
-
-.main--diamondbacks {
-  background: rgba(138, 13, 39, 0.5);
-}
-
-.team_container__heading--diamondbacks {
-  background: #b91134;
-}
-
-.carousel .slide .legend--diamondbacks {
-  background: #b91134;
-  border: solid 1px #8a0d27;
-}
-.carousel .slide .legend--diamondbacks:hover {
-  background: #a20f2d;
-}
+  border: solid 1px #8a0d27; }
+  .carousel .slide .legend--d-backs:hover {
+    background: #a20f2d; }
 
 .header--dodgers, .footer--dodgers {
-  background: rgba(0, 61, 105, 0.5);
-}
+  background: rgba(0, 61, 105, 0.5); }
 
 .footer__content--dodgers {
-  background: #005A9C;
-}
+  background: #005A9C; }
 
 .nav__ul--dodgers {
-  border-bottom: solid 10px #005A9C;
-}
+  border-bottom: solid 10px #005A9C; }
 .nav__li-span--primary-dodgers {
-  color: #005A9C;
-}
+  color: #005A9C; }
 .nav__li-span--secondary-dodgers {
-  color: #004680;
-}
+  color: #004680; }
 .nav__sub-ul--dodgers {
-  background: #005A9C;
-}
+  background: #005A9C; }
 .nav__sub-li--dodgers:hover {
-  background: #0e67a8;
-}
+  background: #0e67a8; }
 
 .main--dodgers {
-  background: rgba(0, 61, 105, 0.5);
-}
+  background: rgba(0, 61, 105, 0.5); }
 
 .team_container__heading--dodgers {
-  background: #005A9C;
-}
+  background: #005A9C; }
 
 .carousel .slide .legend--dodgers {
   background: #005A9C;
-  border: solid 1px #003d69;
-}
-.carousel .slide .legend--dodgers:hover {
-  background: #004b83;
-}
+  border: solid 1px #003d69; }
+  .carousel .slide .legend--dodgers:hover {
+    background: #004b83; }
 
 .header--giants, .footer--giants {
-  background: rgba(12, 12, 12, 0.5);
-}
+  background: rgba(12, 12, 12, 0.5); }
 
 .footer__content--giants {
-  background: #272425;
-}
+  background: #272425; }
 
 .nav__ul--giants {
-  border-bottom: solid 10px #272425;
-}
+  border-bottom: solid 10px #272425; }
 .nav__li-span--primary-giants {
-  color: #272425;
-}
+  color: #272425; }
 .nav__li-span--secondary-giants {
-  color: #d9782d;
-}
+  color: #d9782d; }
 .nav__sub-ul--giants {
-  background: #272425;
-}
+  background: #272425; }
 .nav__sub-li--giants:hover {
-  background: #323232;
-}
+  background: #323232; }
 
 .main--giants {
-  background: rgba(12, 12, 12, 0.5);
-}
+  background: rgba(12, 12, 12, 0.5); }
 
 .team_container__heading--giants {
-  background: #272425;
-}
+  background: #272425; }
 
 .carousel .slide .legend--giants {
   background: #272425;
-  border: solid 1px #0c0c0c;
-}
-.carousel .slide .legend--giants:hover {
-  background: #1a1818;
-}
+  border: solid 1px #0c0c0c; }
+  .carousel .slide .legend--giants:hover {
+    background: #1a1818; }
 
 .header--indians, .footer--indians {
-  background: rgba(22, 36, 60, 0.5);
-}
+  background: rgba(22, 36, 60, 0.5); }
 
 .footer__content--indians {
-  background: #233b62;
-}
+  background: #233b62; }
 
 .nav__ul--indians {
-  border-bottom: solid 10px #233b62;
-}
+  border-bottom: solid 10px #233b62; }
 .nav__li-span--primary-indians {
-  color: #233b62;
-}
+  color: #233b62; }
 .nav__li-span--secondary-indians {
-  color: #e2233f;
-}
+  color: #e2233f; }
 .nav__sub-ul--indians {
-  background: #233b62;
-}
+  background: #233b62; }
 .nav__sub-li--indians:hover {
-  background: #364969;
-}
+  background: #364969; }
 
 .main--indians {
-  background: rgba(22, 36, 60, 0.5);
-}
+  background: rgba(22, 36, 60, 0.5); }
 
 .team_container__heading--indians {
-  background: #233b62;
-}
+  background: #233b62; }
 
 .carousel .slide .legend--indians {
   background: #233b62;
-  border: solid 1px #16243c;
-}
-.carousel .slide .legend--indians:hover {
-  background: #1c304f;
-}
+  border: solid 1px #16243c; }
+  .carousel .slide .legend--indians:hover {
+    background: #1c304f; }
 
 .header--mariners, .footer--mariners {
-  background: rgba(0, 34, 52, 0.5);
-}
+  background: rgba(0, 34, 52, 0.5); }
 
 .footer__content--mariners {
-  background: #004467;
-}
+  background: #004467; }
 
 .nav__ul--mariners {
-  border-bottom: solid 10px #004467;
-}
+  border-bottom: solid 10px #004467; }
 .nav__li-span--primary-mariners {
-  color: #004467;
-}
+  color: #004467; }
 .nav__li-span--secondary-mariners {
-  color: #006C5F;
-}
+  color: #006C5F; }
 .nav__sub-ul--mariners {
-  background: #004467;
-}
+  background: #004467; }
 .nav__sub-li--mariners:hover {
-  background: #0a5277;
-}
+  background: #0a5277; }
 
 .main--mariners {
-  background: rgba(0, 34, 52, 0.5);
-}
+  background: rgba(0, 34, 52, 0.5); }
 
 .team_container__heading--mariners {
-  background: #004467;
-}
+  background: #004467; }
 
 .carousel .slide .legend--mariners {
   background: #004467;
-  border: solid 1px #002234;
-}
-.carousel .slide .legend--mariners:hover {
-  background: #00334e;
-}
+  border: solid 1px #002234; }
+  .carousel .slide .legend--mariners:hover {
+    background: #00334e; }
 
 .header--marlins, .footer--marlins {
-  background: rgba(0, 0, 0, 0.5);
-}
+  background: rgba(0, 0, 0, 0.5); }
 
 .footer__content--marlins {
-  background: #000000;
-}
+  background: #000000; }
 
 .nav__ul--marlins {
-  border-bottom: solid 10px #000000;
-}
+  border-bottom: solid 10px #000000; }
 .nav__li-span--primary-marlins {
-  color: #000000;
-}
+  color: #000000; }
 .nav__li-span--secondary-marlins {
-  color: #e65c2b;
-}
+  color: #e65c2b; }
 .nav__sub-ul--marlins {
-  background: #000000;
-}
+  background: #000000; }
 .nav__sub-li--marlins:hover {
-  background: #0d0d0d;
-}
+  background: #0d0d0d; }
 
 .main--marlins {
-  background: rgba(0, 0, 0, 0.5);
-}
+  background: rgba(0, 0, 0, 0.5); }
 
 .team_container__heading--marlins {
-  background: #000000;
-}
+  background: #000000; }
 
 .carousel .slide .legend--marlins {
   background: #000000;
-  border: solid 1px black;
-}
-.carousel .slide .legend--marlins:hover {
-  background: black;
-}
+  border: solid 1px black; }
+  .carousel .slide .legend--marlins:hover {
+    background: black; }
 
 .header--mets, .footer--mets {
-  background: rgba(0, 44, 81, 0.5);
-}
+  background: rgba(0, 44, 81, 0.5); }
 
 .footer__content--mets {
-  background: #004784;
-}
+  background: #004784; }
 
 .nav__ul--mets {
-  border-bottom: solid 10px #004784;
-}
+  border-bottom: solid 10px #004784; }
 .nav__li-span--primary-mets {
-  color: #004784;
-}
+  color: #004784; }
 .nav__li-span--secondary-mets {
-  color: #f37937;
-}
+  color: #f37937; }
 .nav__sub-ul--mets {
-  background: #004784;
-}
+  background: #004784; }
 .nav__sub-li--mets:hover {
-  background: #0c5492;
-}
+  background: #0c5492; }
 
 .main--mets {
-  background: rgba(0, 44, 81, 0.5);
-}
+  background: rgba(0, 44, 81, 0.5); }
 
 .team_container__heading--mets {
-  background: #004784;
-}
+  background: #004784; }
 
 .carousel .slide .legend--mets {
   background: #004784;
-  border: solid 1px #002c51;
-}
-.carousel .slide .legend--mets:hover {
-  background: #00396b;
-}
+  border: solid 1px #002c51; }
+  .carousel .slide .legend--mets:hover {
+    background: #00396b; }
 
 .header--nationals, .footer--nationals {
-  background: rgba(138, 9, 35, 0.5);
-}
+  background: rgba(138, 9, 35, 0.5); }
 
 .footer__content--nationals {
-  background: #ba0c2f;
-}
+  background: #ba0c2f; }
 
 .nav__ul--nationals {
-  border-bottom: solid 10px #ba0c2f;
-}
+  border-bottom: solid 10px #ba0c2f; }
 .nav__li-span--primary-nationals {
-  color: #ba0c2f;
-}
+  color: #ba0c2f; }
 .nav__li-span--secondary-nationals {
-  color: #041e42;
-}
+  color: #041e42; }
 .nav__sub-ul--nationals {
-  background: #ba0c2f;
-}
+  background: #ba0c2f; }
 .nav__sub-li--nationals:hover {
-  background: #c11e3f;
-}
+  background: #c11e3f; }
 
 .main--nationals {
-  background: rgba(138, 9, 35, 0.5);
-}
+  background: rgba(138, 9, 35, 0.5); }
 
 .team_container__heading--nationals {
-  background: #ba0c2f;
-}
+  background: #ba0c2f; }
 
 .carousel .slide .legend--nationals {
   background: #ba0c2f;
-  border: solid 1px #8a0923;
-}
-.carousel .slide .legend--nationals:hover {
-  background: #a20a29;
-}
+  border: solid 1px #8a0923; }
+  .carousel .slide .legend--nationals:hover {
+    background: #a20a29; }
 
 .header--orioles, .footer--orioles {
-  background: rgba(0, 0, 0, 0.5);
-}
+  background: rgba(0, 0, 0, 0.5); }
 
 .footer__content--orioles {
-  background: #000000;
-}
+  background: #000000; }
 
 .nav__ul--orioles {
-  border-bottom: solid 10px #000000;
-}
+  border-bottom: solid 10px #000000; }
 .nav__li-span--primary-orioles {
-  color: #000000;
-}
+  color: #000000; }
 .nav__li-span--secondary-orioles {
-  color: #FF0F00;
-}
+  color: #FF0F00; }
 .nav__sub-ul--orioles {
-  background: #000000;
-}
+  background: #000000; }
 .nav__sub-li--orioles:hover {
-  background: #0d0d0d;
-}
+  background: #0d0d0d; }
 
 .main--orioles {
-  background: rgba(0, 0, 0, 0.5);
-}
+  background: rgba(0, 0, 0, 0.5); }
 
 .team_container__heading--orioles {
-  background: #000000;
-}
+  background: #000000; }
 
 .carousel .slide .legend--orioles {
   background: #000000;
-  border: solid 1px black;
-}
-.carousel .slide .legend--orioles:hover {
-  background: black;
-}
+  border: solid 1px black; }
+  .carousel .slide .legend--orioles:hover {
+    background: black; }
 
 .header--padres, .footer--padres {
-  background: rgba(0, 22, 47, 0.5);
-}
+  background: rgba(0, 22, 47, 0.5); }
 
 .footer__content--padres {
-  background: #002d62;
-}
+  background: #002d62; }
 
 .nav__ul--padres {
-  border-bottom: solid 10px #002d62;
-}
+  border-bottom: solid 10px #002d62; }
 .nav__li-span--primary-padres {
-  color: #002d62;
-}
+  color: #002d62; }
 .nav__li-span--secondary-padres {
-  color: #9EAAB3;
-}
+  color: #9EAAB3; }
 .nav__sub-ul--padres {
-  background: #002d62;
-}
+  background: #002d62; }
 .nav__sub-li--padres:hover {
-  background: #093972;
-}
+  background: #093972; }
 
 .main--padres {
-  background: rgba(0, 22, 47, 0.5);
-}
+  background: rgba(0, 22, 47, 0.5); }
 
 .team_container__heading--padres {
-  background: #002d62;
-}
+  background: #002d62; }
 
 .carousel .slide .legend--padres {
   background: #002d62;
-  border: solid 1px #00162f;
-}
-.carousel .slide .legend--padres:hover {
-  background: #002149;
-}
+  border: solid 1px #00162f; }
+  .carousel .slide .legend--padres:hover {
+    background: #002149; }
 
 .header--phillies, .footer--phillies {
-  background: rgba(158, 12, 49, 0.5);
-}
+  background: rgba(158, 12, 49, 0.5); }
 
 .footer__content--phillies {
-  background: #cd1040;
-}
+  background: #cd1040; }
 
 .nav__ul--phillies {
-  border-bottom: solid 10px #cd1040;
-}
+  border-bottom: solid 10px #cd1040; }
 .nav__li-span--primary-phillies {
-  color: #cd1040;
-}
+  color: #cd1040; }
 .nav__li-span--secondary-phillies {
-  color: #00529b;
-}
+  color: #00529b; }
 .nav__sub-ul--phillies {
-  background: #cd1040;
-}
+  background: #cd1040; }
 .nav__sub-li--phillies:hover {
-  background: #d22450;
-}
+  background: #d22450; }
 
 .main--phillies {
-  background: rgba(158, 12, 49, 0.5);
-}
+  background: rgba(158, 12, 49, 0.5); }
 
 .team_container__heading--phillies {
-  background: #cd1040;
-}
+  background: #cd1040; }
 
 .carousel .slide .legend--phillies {
   background: #cd1040;
-  border: solid 1px #9e0c31;
-}
-.carousel .slide .legend--phillies:hover {
-  background: #b50e39;
-}
+  border: solid 1px #9e0c31; }
+  .carousel .slide .legend--phillies:hover {
+    background: #b50e39; }
 
 .header--pirates, .footer--pirates {
-  background: rgba(11, 10, 8, 0.5);
-}
+  background: rgba(11, 10, 8, 0.5); }
 
 .footer__content--pirates {
-  background: #27261F;
-}
+  background: #27261F; }
 
 .nav__ul--pirates {
-  border-bottom: solid 10px #27261F;
-}
+  border-bottom: solid 10px #27261F; }
 .nav__li-span--primary-pirates {
-  color: #27261F;
-}
+  color: #27261F; }
 .nav__li-span--secondary-pirates {
-  color: #ffc425;
-}
+  color: #ffc425; }
 .nav__sub-ul--pirates {
-  background: #27261F;
-}
+  background: #27261F; }
 .nav__sub-li--pirates:hover {
-  background: #303030;
-}
+  background: #303030; }
 
 .main--pirates {
-  background: rgba(11, 10, 8, 0.5);
-}
+  background: rgba(11, 10, 8, 0.5); }
 
 .team_container__heading--pirates {
-  background: #27261F;
-}
+  background: #27261F; }
 
 .carousel .slide .legend--pirates {
   background: #27261F;
-  border: solid 1px #0b0a08;
-}
-.carousel .slide .legend--pirates:hover {
-  background: #191814;
-}
+  border: solid 1px #0b0a08; }
+  .carousel .slide .legend--pirates:hover {
+    background: #191814; }
 
 .header--rangers, .footer--rangers {
-  background: rgba(0, 41, 83, 0.5);
-}
+  background: rgba(0, 41, 83, 0.5); }
 
 .footer__content--rangers {
-  background: #004286;
-}
+  background: #004286; }
 
 .nav__ul--rangers {
-  border-bottom: solid 10px #004286;
-}
+  border-bottom: solid 10px #004286; }
 .nav__li-span--primary-rangers {
-  color: #004286;
-}
+  color: #004286; }
 .nav__li-span--secondary-rangers {
-  color: #DE0033;
-}
+  color: #DE0033; }
 .nav__sub-ul--rangers {
-  background: #004286;
-}
+  background: #004286; }
 .nav__sub-li--rangers:hover {
-  background: #0c4f94;
-}
+  background: #0c4f94; }
 
 .main--rangers {
-  background: rgba(0, 41, 83, 0.5);
-}
+  background: rgba(0, 41, 83, 0.5); }
 
 .team_container__heading--rangers {
-  background: #004286;
-}
+  background: #004286; }
 
 .carousel .slide .legend--rangers {
   background: #004286;
-  border: solid 1px #002953;
-}
-.carousel .slide .legend--rangers:hover {
-  background: #00356d;
-}
+  border: solid 1px #002953; }
+  .carousel .slide .legend--rangers:hover {
+    background: #00356d; }
 
 .header--rays, .footer--rays {
-  background: rgba(5, 20, 47, 0.5);
-}
+  background: rgba(5, 20, 47, 0.5); }
 
 .footer__content--rays {
-  background: #09275D;
-}
+  background: #09275D; }
 
 .nav__ul--rays {
-  border-bottom: solid 10px #09275D;
-}
+  border-bottom: solid 10px #09275D; }
 .nav__li-span--primary-rays {
-  color: #09275D;
-}
+  color: #09275D; }
 .nav__li-span--secondary-rays {
-  color: #88BBE9;
-}
+  color: #88BBE9; }
 .nav__sub-ul--rays {
-  background: #09275D;
-}
+  background: #09275D; }
 .nav__sub-li--rays:hover {
-  background: #15336b;
-}
+  background: #15336b; }
 
 .main--rays {
-  background: rgba(5, 20, 47, 0.5);
-}
+  background: rgba(5, 20, 47, 0.5); }
 
 .team_container__heading--rays {
-  background: #09275D;
-}
+  background: #09275D; }
 
 .carousel .slide .legend--rays {
   background: #09275D;
-  border: solid 1px #05142f;
-}
-.carousel .slide .legend--rays:hover {
-  background: #071d46;
-}
+  border: solid 1px #05142f; }
+  .carousel .slide .legend--rays:hover {
+    background: #071d46; }
 
 .header--reds, .footer--reds {
-  background: rgba(147, 0, 22, 0.5);
-}
+  background: rgba(147, 0, 22, 0.5); }
 
 .footer__content--reds {
-  background: #C6001E;
-}
+  background: #C6001E; }
 
 .nav__ul--reds {
-  border-bottom: solid 10px #C6001E;
-}
+  border-bottom: solid 10px #C6001E; }
 .nav__li-span--primary-reds {
-  color: #C6001E;
-}
+  color: #C6001E; }
 .nav__li-span--secondary-reds {
-  color: #000000;
-}
+  color: #000000; }
 .nav__sub-ul--reds {
-  background: #C6001E;
-}
+  background: #C6001E; }
 .nav__sub-li--reds:hover {
-  background: #cf112e;
-}
+  background: #cf112e; }
 
 .main--reds {
-  background: rgba(147, 0, 22, 0.5);
-}
+  background: rgba(147, 0, 22, 0.5); }
 
 .team_container__heading--reds {
-  background: #C6001E;
-}
+  background: #C6001E; }
 
 .carousel .slide .legend--reds {
   background: #C6001E;
-  border: solid 1px #930016;
-}
-.carousel .slide .legend--reds:hover {
-  background: #ad001a;
-}
+  border: solid 1px #930016; }
+  .carousel .slide .legend--reds:hover {
+    background: #ad001a; }
 
 .header--redsox, .footer--redsox {
-  background: rgba(147, 38, 45, 0.5);
-}
+  background: rgba(147, 38, 45, 0.5); }
 
 .footer__content--redsox {
-  background: #BC3039;
-}
+  background: #BC3039; }
 
 .nav__ul--redsox {
-  border-bottom: solid 10px #BC3039;
-}
+  border-bottom: solid 10px #BC3039; }
 .nav__li-span--primary-redsox {
-  color: #BC3039;
-}
+  color: #BC3039; }
 .nav__li-span--secondary-redsox {
-  color: #0A2141;
-}
+  color: #0A2141; }
 .nav__sub-ul--redsox {
-  background: #BC3039;
-}
+  background: #BC3039; }
 .nav__sub-li--redsox:hover {
-  background: #ba4c53;
-}
+  background: #ba4c53; }
 
 .main--redsox {
-  background: rgba(147, 38, 45, 0.5);
-}
+  background: rgba(147, 38, 45, 0.5); }
 
 .team_container__heading--redsox {
-  background: #BC3039;
-}
+  background: #BC3039; }
 
 .carousel .slide .legend--redsox {
   background: #BC3039;
-  border: solid 1px #93262d;
-}
-.carousel .slide .legend--redsox:hover {
-  background: #a82b33;
-}
+  border: solid 1px #93262d; }
+  .carousel .slide .legend--redsox:hover {
+    background: #a82b33; }
 
 .header--rockies, .footer--rockies {
-  background: rgba(29, 27, 74, 0.5);
-}
+  background: rgba(29, 27, 74, 0.5); }
 
 .footer__content--rockies {
-  background: #2b296f;
-}
+  background: #2b296f; }
 
 .nav__ul--rockies {
-  border-bottom: solid 10px #2b296f;
-}
+  border-bottom: solid 10px #2b296f; }
 .nav__li-span--primary-rockies {
-  color: #2b296f;
-}
+  color: #2b296f; }
 .nav__li-span--secondary-rockies {
-  color: #858a8d;
-}
+  color: #858a8d; }
 .nav__sub-ul--rockies {
-  background: #2b296f;
-}
+  background: #2b296f; }
 .nav__sub-li--rockies:hover {
-  background: #3f3d74;
-}
+  background: #3f3d74; }
 
 .main--rockies {
-  background: rgba(29, 27, 74, 0.5);
-}
+  background: rgba(29, 27, 74, 0.5); }
 
 .team_container__heading--rockies {
-  background: #2b296f;
-}
+  background: #2b296f; }
 
 .carousel .slide .legend--rockies {
   background: #2b296f;
-  border: solid 1px #1d1b4a;
-}
-.carousel .slide .legend--rockies:hover {
-  background: #24225c;
-}
+  border: solid 1px #1d1b4a; }
+  .carousel .slide .legend--rockies:hover {
+    background: #24225c; }
 
 .header--royals, .footer--royals {
-  background: rgba(0, 44, 84, 0.5);
-}
+  background: rgba(0, 44, 84, 0.5); }
 
 .footer__content--royals {
-  background: #004687;
-}
+  background: #004687; }
 
 .nav__ul--royals {
-  border-bottom: solid 10px #004687;
-}
+  border-bottom: solid 10px #004687; }
 .nav__li-span--primary-royals {
-  color: #004687;
-}
+  color: #004687; }
 .nav__li-span--secondary-royals {
-  color: #bf9a5b;
-}
+  color: #bf9a5b; }
 .nav__sub-ul--royals {
-  background: #004687;
-}
+  background: #004687; }
 .nav__sub-li--royals:hover {
-  background: #0c5394;
-}
+  background: #0c5394; }
 
 .main--royals {
-  background: rgba(0, 44, 84, 0.5);
-}
+  background: rgba(0, 44, 84, 0.5); }
 
 .team_container__heading--royals {
-  background: #004687;
-}
+  background: #004687; }
 
 .carousel .slide .legend--royals {
   background: #004687;
-  border: solid 1px #002c54;
-}
-.carousel .slide .legend--royals:hover {
-  background: #00396e;
-}
+  border: solid 1px #002c54; }
+  .carousel .slide .legend--royals:hover {
+    background: #00396e; }
 
 .header--tigers, .footer--tigers {
-  background: rgba(0, 9, 17, 0.5);
-}
+  background: rgba(0, 9, 17, 0.5); }
 
 .footer__content--tigers {
-  background: #002244;
-}
+  background: #002244; }
 
 .nav__ul--tigers {
-  border-bottom: solid 10px #002244;
-}
+  border-bottom: solid 10px #002244; }
 .nav__li-span--primary-tigers {
-  color: #002244;
-}
+  color: #002244; }
 .nav__li-span--secondary-tigers {
-  color: #f9461c;
-}
+  color: #f9461c; }
 .nav__sub-ul--tigers {
-  background: #002244;
-}
+  background: #002244; }
 .nav__sub-li--tigers:hover {
-  background: #072f56;
-}
+  background: #072f56; }
 
 .main--tigers {
-  background: rgba(0, 9, 17, 0.5);
-}
+  background: rgba(0, 9, 17, 0.5); }
 
 .team_container__heading--tigers {
-  background: #002244;
-}
+  background: #002244; }
 
 .carousel .slide .legend--tigers {
   background: #002244;
-  border: solid 1px #000911;
-}
-.carousel .slide .legend--tigers:hover {
-  background: #00152b;
-}
+  border: solid 1px #000911; }
+  .carousel .slide .legend--tigers:hover {
+    background: #00152b; }
 
 .header--twins, .footer--twins {
-  background: rgba(3, 11, 22, 0.5);
-}
+  background: rgba(3, 11, 22, 0.5); }
 
 .footer__content--twins {
-  background: #0A2142;
-}
+  background: #0A2142; }
 
 .nav__ul--twins {
-  border-bottom: solid 10px #0A2142;
-}
+  border-bottom: solid 10px #0A2142; }
 .nav__li-span--primary-twins {
-  color: #0A2142;
-}
+  color: #0A2142; }
 .nav__li-span--secondary-twins {
-  color: #CA001C;
-}
+  color: #CA001C; }
 .nav__sub-ul--twins {
-  background: #0A2142;
-}
+  background: #0A2142; }
 .nav__sub-li--twins:hover {
-  background: #152d51;
-}
+  background: #152d51; }
 
 .main--twins {
-  background: rgba(3, 11, 22, 0.5);
-}
+  background: rgba(3, 11, 22, 0.5); }
 
 .team_container__heading--twins {
-  background: #0A2142;
-}
+  background: #0A2142; }
 
 .carousel .slide .legend--twins {
   background: #0A2142;
-  border: solid 1px #030b16;
-}
-.carousel .slide .legend--twins:hover {
-  background: #07162c;
-}
+  border: solid 1px #030b16; }
+  .carousel .slide .legend--twins:hover {
+    background: #07162c; }
 
 .header--whitesox, .footer--whitesox {
-  background: rgba(11, 10, 8, 0.5);
-}
+  background: rgba(11, 10, 8, 0.5); }
 
 .footer__content--whitesox {
-  background: #27261F;
-}
+  background: #27261F; }
 
 .nav__ul--whitesox {
-  border-bottom: solid 10px #27261F;
-}
+  border-bottom: solid 10px #27261F; }
 .nav__li-span--primary-whitesox {
-  color: #27261F;
-}
+  color: #27261F; }
 .nav__li-span--secondary-whitesox {
-  color: #898D8F;
-}
+  color: #898D8F; }
 .nav__sub-ul--whitesox {
-  background: #27261F;
-}
+  background: #27261F; }
 .nav__sub-li--whitesox:hover {
-  background: #303030;
-}
+  background: #303030; }
 
 .main--whitesox {
-  background: rgba(11, 10, 8, 0.5);
-}
+  background: rgba(11, 10, 8, 0.5); }
 
 .team_container__heading--whitesox {
-  background: #27261F;
-}
+  background: #27261F; }
 
 .carousel .slide .legend--whitesox {
   background: #27261F;
-  border: solid 1px #0b0a08;
-}
-.carousel .slide .legend--whitesox:hover {
-  background: #191814;
-}
+  border: solid 1px #0b0a08; }
+  .carousel .slide .legend--whitesox:hover {
+    background: #191814; }
 
 .header--yankees, .footer--yankees {
-  background: rgba(9, 16, 32, 0.5);
-}
+  background: rgba(9, 16, 32, 0.5); }
 
 .footer__content--yankees {
-  background: #142448;
-}
+  background: #142448; }
 
 .nav__ul--yankees {
-  border-bottom: solid 10px #142448;
-}
+  border-bottom: solid 10px #142448; }
 .nav__li-span--primary-yankees {
-  color: #142448;
-}
+  color: #142448; }
 .nav__li-span--secondary-yankees {
-  color: #e3002b;
-}
+  color: #e3002b; }
 .nav__sub-ul--yankees {
-  background: #142448;
-}
+  background: #142448; }
 .nav__sub-li--yankees:hover {
-  background: #223153;
-}
+  background: #223153; }
 
 .main--yankees {
-  background: rgba(9, 16, 32, 0.5);
-}
+  background: rgba(9, 16, 32, 0.5); }
 
 .team_container__heading--yankees {
-  background: #142448;
-}
+  background: #142448; }
 
 .carousel .slide .legend--yankees {
   background: #142448;
-  border: solid 1px #091020;
-}
-.carousel .slide .legend--yankees:hover {
-  background: #0e1a34;
-}
+  border: solid 1px #091020; }
+  .carousel .slide .legend--yankees:hover {
+    background: #0e1a34; }
 
 .header--mlb, .footer--mlb {
-  background: rgba(3, 1, 81, 0.5);
-}
+  background: rgba(3, 1, 81, 0.5); }
 
 .footer__content--mlb {
-  background: #050184;
-}
+  background: #050184; }
 
 .nav__ul--mlb {
-  border-bottom: solid 10px #050184;
-}
+  border-bottom: solid 10px #050184; }
 .nav__li-span--primary-mlb {
-  color: #050184;
-}
+  color: #050184; }
 .nav__li-span--secondary-mlb {
-  color: #C60000;
-}
+  color: #C60000; }
 .nav__sub-ul--mlb {
-  background: #050184;
-}
+  background: #050184; }
 .nav__sub-li--mlb:hover {
-  background: #110d91;
-}
+  background: #110d91; }
 
 .main--mlb {
-  background: rgba(3, 1, 81, 0.5);
-}
+  background: rgba(3, 1, 81, 0.5); }
 
 .team_container__heading--mlb {
-  background: #050184;
-}
+  background: #050184; }
 
 .carousel .slide .legend--mlb {
   background: #050184;
-  border: solid 1px #030151;
-}
-.carousel .slide .legend--mlb:hover {
-  background: #04016b;
-}
+  border: solid 1px #030151; }
+  .carousel .slide .legend--mlb:hover {
+    background: #04016b; }
 
 .nav__ul {
   margin: 0px;
   padding: 0px;
-  background: #ffffff;
-}
+  background: #ffffff; }
 .nav__li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1321,56 +980,42 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 15px;
-}
-.nav__li:hover {
-  cursor: pointer;
-}
-.nav__li:focus {
-  outline: 5px auto -webkit-focus-ring-color;
-}
-.nav__li-img {
-  max-width: 100px;
-}
-@media screen and (max-width: 500px) {
+  padding: 15px; }
+  .nav__li:hover {
+    cursor: pointer; }
+  .nav__li:focus {
+    outline: 5px auto -webkit-focus-ring-color; }
   .nav__li-img {
-    max-width: 75px;
-  }
-}
-.nav__li-h1 {
-  display: inline-block;
-  text-transform: uppercase;
-  padding: 0px 10px;
-  font-weight: 900;
-}
-@media screen and (max-width: 500px) {
+    max-width: 100px; }
+    @media screen and (max-width: 500px) {
+      .nav__li-img {
+        max-width: 75px; } }
   .nav__li-h1 {
-    font-size: 1em;
-  }
-}
-.nav__li-span {
-  display: inline-block;
-  padding-left: 5px;
-}
-.nav__li-span::first-letter {
-  font-size: 1.3em;
-}
-.nav__li-icon {
-  max-width: 30px;
-  max-height: 30px;
-  fill: #d2d2d2;
-  margin-bottom: -5px;
-}
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0px 10px;
+    font-weight: 900; }
+    @media screen and (max-width: 500px) {
+      .nav__li-h1 {
+        font-size: 1em; } }
+  .nav__li-span {
+    display: inline-block;
+    padding-left: 5px; }
+    .nav__li-span::first-letter {
+      font-size: 1.3em; }
+  .nav__li-icon {
+    max-width: 30px;
+    max-height: 30px;
+    fill: #d2d2d2;
+    margin-bottom: -5px; }
 .nav__sub-ul {
   padding: 0px;
   color: #ffffff;
   text-transform: uppercase;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
-.nav__sub-ul--closed {
-  display: none;
-}
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  .nav__sub-ul--closed {
+    display: none; }
 .nav__sub-li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1379,91 +1024,73 @@ body {
   -ms-flex-align: center;
   align-items: center;
   padding: 10px 15px;
-  font-size: 14px;
-}
-.nav__sub-li:hover {
-  cursor: pointer;
-}
-.nav__sub-li-img {
-  max-width: 30px;
-  padding-right: 10px;
-}
+  font-size: 14px; }
+  .nav__sub-li:hover {
+    cursor: pointer; }
+  .nav__sub-li-img {
+    max-width: 30px;
+    padding-right: 10px; }
 
 .carousel .slide {
-  max-height: 350px;
-}
-@media screen and (max-width: 500px) {
-  .carousel .slide {
-    max-height: 250px;
-  }
-}
-.carousel .slide img {
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  object-position: top;
-}
-.carousel .slide .legend {
-  opacity: 1;
-  border-radius: 0px;
-  text-decoration: none;
-  box-shadow: 5px 5px 15px -10px #000000;
-}
+  max-height: 350px; }
+  @media screen and (max-width: 500px) {
+    .carousel .slide {
+      max-height: 250px; } }
+  .carousel .slide img {
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top; }
+  .carousel .slide .legend {
+    opacity: 1;
+    border-radius: 0px;
+    text-decoration: none;
+    -webkit-box-shadow: 5px 5px 15px -10px #000000;
+    box-shadow: 5px 5px 15px -10px #000000; }
 
 .team_container {
   background-color: #ffffff;
   color: #3c3c3c;
   -webkit-box-shadow: 5px 5px 15px -10px #929292;
-  box-shadow: 5px 5px 15px -10px #929292;
-}
-.team_container--full {
-  grid-column: 1/-1;
-}
-.team_container__table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.team_container__heading {
-  margin: 0px;
-  padding: 7px 10px;
-  text-align: center;
-  color: #ffffff;
-  font-size: 0.9em;
-}
-.team_container__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 10px;
-}
-.team_container__row:not(:last-child) {
-  border-bottom: solid 1px #d2d2d2;
-}
-.team_container__tr {
-  padding: 10px;
-}
-.team_container__tr:not(:last-child) {
-  border-bottom: solid 1px #d2d2d2;
-}
-.team_container__tr-heading {
-  font-size: 11px;
-  color: #9f9f9f;
-  min-height: 10px;
-  text-align: center;
-  border-bottom: solid 1px #d2d2d2;
-}
-.team_container__item {
-  padding: 10px;
-}
-.team_container__item--grow {
-  width: 100%;
-}
-.team_container--news .text-row {
-  height: 6em !important;
-}
+  box-shadow: 5px 5px 15px -10px #929292; }
+  .team_container--full {
+    grid-column: 1/-1; }
+  .team_container__table {
+    width: 100%;
+    border-collapse: collapse; }
+  .team_container__heading {
+    margin: 0px;
+    padding: 7px 10px;
+    text-align: center;
+    color: #ffffff;
+    font-size: .9em; }
+  .team_container__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px; }
+    .team_container__row:not(:last-child) {
+      border-bottom: solid 1px #d2d2d2; }
+  .team_container__tr {
+    padding: 10px; }
+    .team_container__tr:not(:last-child) {
+      border-bottom: solid 1px #d2d2d2; }
+    .team_container__tr-heading {
+      font-size: 11px;
+      color: #9f9f9f;
+      min-height: 10px;
+      text-align: center;
+      border-bottom: solid 1px #d2d2d2; }
+  .team_container__item {
+    padding: 10px; }
+    .team_container__item--grow {
+      width: 100%; }
+  .team_container--news .text-row {
+    height: 6em !important; }
 
 .game {
   display: grid;
@@ -1473,82 +1100,60 @@ body {
   align-items: center;
   text-align: center;
   padding: 10px;
-  min-height: 70px;
-}
-.game--yesterday {
-  grid-template-columns: 1fr 2fr;
-}
-.game__detail {
-  grid-row: 1/span 2;
-  font-size: 36px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 500px) {
+  min-height: 70px; }
+  .game--yesterday {
+    grid-template-columns: 1fr 2fr; }
   .game__detail {
-    font-size: 1.5em;
-  }
-}
-.game__detail:only-child {
-  grid-column: 1/-1;
-}
-.game__team {
-  padding: 5px;
-  font-weight: 700;
-  font-size: 1.2em;
-}
-@media screen and (max-width: 500px) {
+    grid-row: 1/span 2;
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase; }
+    @media screen and (max-width: 500px) {
+      .game__detail {
+        font-size: 1.5em; } }
+    .game__detail:only-child {
+      grid-column: 1 / -1; }
   .game__team {
-    font-size: 1em;
-  }
-}
-.game__team--away {
-  border-bottom: solid 1px #d2d2d2;
-  padding-bottom: 10px;
-}
+    padding: 5px;
+    font-weight: 700;
+    font-size: 1.2em; }
+    @media screen and (max-width: 500px) {
+      .game__team {
+        font-size: 1em; } }
+    .game__team--away {
+      border-bottom: solid 1px #d2d2d2;
+      padding-bottom: 10px; }
 
 @media screen and (max-width: 500px) {
   .standings__team-name {
-    display: none;
-  }
-}
+    display: none; } }
 @media screen and (min-width: 500px) {
   .standings__team-abbreviation {
-    display: none;
-  }
-}
+    display: none; } }
 
 .span--bold {
-  font-weight: bold;
-}
+  font-weight: bold; }
 .span--transparent {
-  opacity: 0.75;
-}
+  opacity: .75; }
 .span--italic {
-  font-style: italic;
-}
+  font-style: italic; }
 .span--large {
-  font-size: 1.1em;
-}
+  font-size: 1.1em; }
 .span--small {
-  font-size: 0.8em;
-}
+  font-size: .8em; }
 
 .text-block {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px;
-}
+  padding: 10px; }
 .text-row {
   width: 100% !important;
-  height: 2em !important;
-}
+  height: 2em !important; }
 
 .text--center {
-  text-align: center;
-}
+  text-align: center; }
 .text--right {
-  text-align: right;
-}
+  text-align: right; }
 
 .footer__content {
   max-width: 825px;
@@ -1556,18 +1161,16 @@ body {
   -webkit-box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
   padding: 5px;
-  box-sizing: border-box;
-}
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 .footer__a {
   color: #ffffff;
-  font-size: 0.7em;
+  font-size: .7em;
   text-decoration: none;
   letter-spacing: 1.5px;
-  opacity: 0.5;
-}
-.footer__a:hover, .footer__a:focus {
-  font-weight: bold;
-}
+  opacity: .5; }
+  .footer__a:hover, .footer__a:focus {
+    font-weight: bold; }
 
 .loader {
   min-height: 100vh;
@@ -1579,12 +1182,13 @@ body {
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
-}
-.loader__img {
-  animation-name: spin;
-  animation-duration: 2500ms;
-  animation-iteration-count: infinite;
-}
+  justify-content: center; }
+  .loader__img {
+    -webkit-animation-name: spin;
+    animation-name: spin;
+    -webkit-animation-duration: 2500ms;
+    animation-duration: 2500ms;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite; }
 
 /*# sourceMappingURL=style.css.map */

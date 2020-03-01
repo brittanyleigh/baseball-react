@@ -4,7 +4,7 @@ const REQUEST = "mlbStats/teams/REQUEST";
 const SUCCESS = "mlbStats/teams/SUCCESS";
 const FAILURE = "mlbStats/teams/FAILURE";
 
-const initialState = { data: [] };
+const initialState = { data: [], isFetching: true };
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case REQUEST:
@@ -26,14 +26,15 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const fetchTeamData = () => async (dispatch) => {
-  dispatch({ type: REQUEST});
+export const fetchTeamData = () => async dispatch => {
+  dispatch({ type: REQUEST });
 
-  return mlbStats.get('teams', {
-    params: {
-      sportId: 1,
-    }
-  })
-  .then((results) => dispatch({ type: SUCCESS, payload: results.data.teams.map(value => value.id)}))
-  .catch((error) => dispatch({ type: FAILURE, payload: true}))
-}
+  return mlbStats
+    .get("teams", {
+      params: {
+        sportId: 1
+      }
+    })
+    .then(results => dispatch({ type: SUCCESS, payload: results.data.teams }))
+    .catch(error => dispatch({ type: FAILURE, payload: true }));
+};
