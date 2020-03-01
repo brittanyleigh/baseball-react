@@ -21,14 +21,6 @@ const initialState = {
 class App extends React.Component {
   state = initialState;
 
-  getTeamClass() {
-    if (this.props.selected_team) {
-      let { teamName } = this.props.selected_team;
-      return teamName.replace(" ", "").toLowerCase();
-      console.log(teamName.replace(" ", "").toLowerCase());
-    }
-  }
-
   async componentDidMount() {
     await this.props.fetchTeamData();
     this.props.getPreviousTeam();
@@ -49,14 +41,7 @@ class App extends React.Component {
         </div>
       );
     } else if (this.props.selected_team) {
-      return (
-        <header
-          role="banner"
-          className={`header header--${this.getTeamClass()}`}
-        >
-          <Menu team={this.getTeamClass()} />
-        </header>
-      );
+      return <Menu />;
     }
   }
 }

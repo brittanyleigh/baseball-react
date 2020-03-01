@@ -1,4 +1,5 @@
 import mlbStats from "../apis/mlbStats";
+import { alphabetize } from "../utils";
 
 const REQUEST = "mlbStats/teams/REQUEST";
 const SUCCESS = "mlbStats/teams/SUCCESS";
@@ -35,6 +36,11 @@ export const fetchTeamData = () => async dispatch => {
         sportId: 1
       }
     })
-    .then(results => dispatch({ type: SUCCESS, payload: results.data.teams }))
+    .then(results =>
+      dispatch({
+        type: SUCCESS,
+        payload: alphabetize(results.data.teams)
+      })
+    )
     .catch(error => dispatch({ type: FAILURE, payload: true }));
 };

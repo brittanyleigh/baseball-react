@@ -5,14 +5,36 @@ import { ReactComponent as DownIcon } from "../img/down.svg";
 import { ReactComponent as UpIcon } from "../img/up.svg";
 
 const initialState = {
-  isOpen: false
+  isOpen: false,
+  team: undefined
 };
 
 class SelectTeam extends React.Component {
   state = initialState;
 
+  componentDidMount() {
+    if (this.props.selected_team) {
+      this.setState({ team: this.getTeamName(this.props.selected_team) });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.selected_team !== prevProps.selected_team) {
+      this.setState({ team: this.getTeamName(this.props.selected_team) });
+    }
+  }
+
+  getTeamName(team) {
+    let { teamName } = team;
+    if (teamName) {
+      return teamName.replace(" ", "").toLowerCase();
+    }
+    return undefined;
+  }
+
   updateAllData(team) {
     this.props.selectTeam(team);
+    this.toggleMenu();
   }
 
   updateAllDataOnEnter(event, team) {
@@ -29,16 +51,15 @@ class SelectTeam extends React.Component {
 
   toggleMenuOnEnter(event) {
     if (event.keyCode === 13) {
-      this.props.toggleMenu();
+      this.toggleMenu();
     }
   }
 
-  renderList() {
-    console.log(this.props.teams);
+  renderMenuList() {
     return this.props.teams.data.map(team => {
       return (
         <li
-          className={`nav__sub-li nav__sub-li--${this.props.team}`}
+          className={`nav__sub-li nav__sub-li--${this.state.team}`}
           key={team.id}
           tabIndex="0"
           onClick={() => this.updateAllData(team)}
@@ -55,7 +76,7 @@ class SelectTeam extends React.Component {
     });
   }
 
-  renderIcon() {
+  renderToggleIcon() {
     if (this.state.isOpen) {
       return <UpIcon className="nav__li-icon" />;
     } else {
@@ -63,7 +84,8 @@ class SelectTeam extends React.Component {
     }
   }
 
-  renderMenu() {
+  renderMenuHeading() {
+    console.log(this.props.teams);
     if (this.props.error) {
       return (
         <li className="nav__li">
@@ -76,54 +98,47 @@ class SelectTeam extends React.Component {
       );
     }
     return (
-      <React.Fragment>
-        <li
-          className="nav__li"
-          tabIndex="0"
-          onClick={() => this.toggleMenu()}
-          onKeyUp={event => this.toggleMenuOnEnter(event)}
-        >
-          <img
-            className="nav__li-img"
-            src={require(`../img/${this.props.selected_team.id}.png`)}
-            alt={`${this.props.selected_team.name} logo`}
-          ></img>
-          <h1 className="nav__li-h1">
-            <span
-              className={`nav__li-span nav__li-span--secondary-${this.props.team}`}
-            >
-              {this.props.selected_team.shortName}{" "}
-            </span>
-            <span
-              className={`nav__li-span nav__li-span--primary-${this.props.team}`}
-            >
-              {this.props.selected_team.teamName}
-            </span>
-          </h1>
-          {this.renderIcon()}
-        </li>
-        <ul
-          className={`nav__sub-ul nav__sub-ul--${
-            this.state.isOpen ? "open" : "closed"
-          } nav__sub-ul--${this.props.team}`}
-        >
-          {this.renderList()}
-        </ul>
-      </React.Fragment>
+      <li
+        className="nav__li"
+        tabIndex="0"
+        onClick={() => this.toggleMenu()}
+        onKeyUp={event => this.toggleMenuOnEnter(event)}
+      >
+        <img
+          className="nav__li-img"
+          src={require(`../img/${this.props.selected_team.id}.png`)}
+          alt={`${this.props.selected_team.name} logo`}
+        ></img>
+        <h1 className="nav__li-h1">
+          <span
+            className={`nav__li-span nav__li-span--primary-${this.state.team}`}
+          >
+            {this.props.selected_team.name}
+          </span>
+        </h1>
+        {this.renderToggleIcon()}
+      </li>
     );
   }
 
   render() {
     return (
-      <React.Fragment>
+      <header role="banner" className={`header header--${this.state.team}`}>
         <div className="heading">
           <nav className="nav" role="navigation">
-            <ul className={`nav__ul nav__ul--${this.props.team}`}>
-              {this.renderMenu()}
+            <ul className={`nav__ul nav__ul--${this.state.team}`}>
+              {this.renderMenuHeading()}
+              <ul
+                className={`nav__sub-ul nav__sub-ul--${
+                  this.state.isOpen ? "open" : "closed"
+                } nav__sub-ul--${this.state.team}`}
+              >
+                {this.renderMenuList()}
+              </ul>
             </ul>
           </nav>
         </div>
-      </React.Fragment>
+      </header>
     );
   }
 }
