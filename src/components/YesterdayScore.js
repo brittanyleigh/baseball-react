@@ -5,25 +5,24 @@ import TeamDataContainer from "./TeamDataContainer";
 
 class YesterdayScore extends React.Component {
   render() {
-    console.log(this.props.yesterday);
     if (this.props.yesterday.error) {
       return <Error />;
     } else {
-      return this.props.yesterday.map(game => {
+      return this.props.yesterday.data.map(game => {
         let outcome, awayTeam, homeTeam, key;
 
         // get game status & win/loss if played
-        if (game.isUnplayed === "true") {
-          outcome = game.game.scheduleStatus;
+        if (game.status.statusCode !== "F") {
+          outcome = game.status.detailedStatus;
         } else {
           if (
-            this.props.team.ID === game.game.homeTeam.ID &&
-            parseInt(game.homeScore) > parseInt(game.awayScore)
+            this.props.team.id === game.teams.home.team.id &&
+            parseInt(game.teams.home.score) > parseInt(game.teams.away.score)
           ) {
             outcome = "W";
           } else if (
-            this.props.team.ID === game.game.awayTeam.ID &&
-            parseInt(game.awayScore) > parseInt(game.homeScore)
+            this.props.team.id === game.teams.away.team.id &&
+            parseInt(game.teams.away.score) > parseInt(game.teams.home.score)
           ) {
             outcome = "W";
           } else {
@@ -31,34 +30,29 @@ class YesterdayScore extends React.Component {
           }
         }
 
-        if (game.isUnplayed === "false") {
+        if (game.status.statusCode === "F") {
           awayTeam = (
             <div className="game__team game__team--away">
-              {game.game.awayTeam.Name}: {game.awayScore}
+              {game.teams.away.team.name}: {game.teams.away.score}
             </div>
           );
           homeTeam = (
             <div className="game__team game__team--home">
-              {game.game.homeTeam.Name}: {game.homeScore}
+              {game.teams.home.team.name}: {game.teams.home.score}
             </div>
           );
         }
 
-        if (game.game.ID) {
-          key = game.game.ID;
-        } else {
-          key = game.id;
-        }
-
         return (
           <TeamDataContainer
+            key={game.gamePk}
             heading="Yesterday's Score"
             class="schedule"
-            team={this.getTeamClass()}
-            ready={this.props.yesterday.ready}
+            team={this.props.team.className}
+            ready={!this.props.yesterday.isFetching}
             placeholderRows={2}
           >
-            <div className="game game--yesterday" key={key}>
+            <div className="game game--yesterday">
               <div className="game__detail">{outcome}</div>
               {awayTeam}
               {homeTeam}
@@ -67,14 +61,19 @@ class YesterdayScore extends React.Component {
         );
       });
     }
+
+    return null;
   }
 }
 
 const mapStateToProps = state => {
   return {
     yesterday: state.yesterday,
-    team: state.selected_team
+    team: state.team.team
   };
 };
 
-export default connect(mapStateToProps)(YesterdayScore);
+export default connect(
+  mapStateToProps,
+  {}
+)(YesterdayScore);

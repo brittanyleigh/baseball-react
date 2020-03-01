@@ -24,14 +24,14 @@ class Menu extends React.Component {
     }
   }
 
-  updateAllData(team) {
+  selectTeam(team) {
     this.props.selectTeam(team);
     this.toggleMenu();
   }
 
-  updateAllDataOnEnter(event, team) {
+  selectTeamOnEnter(event, team) {
     if (event.keyCode === 13) {
-      this.updateAllData(team);
+      this.selectTeam(team);
     }
   }
 
@@ -54,8 +54,8 @@ class Menu extends React.Component {
           className={`nav__sub-li nav__sub-li--${this.state.team}`}
           key={team.id}
           tabIndex="0"
-          onClick={() => this.updateAllData(team)}
-          onKeyUp={event => this.updateAllDataOnEnter(event, team)}
+          onClick={() => this.selectTeam(team)}
+          onKeyUp={event => this.selectTeamOnEnter(event, team)}
         >
           <img
             className="nav__sub-li-img"
