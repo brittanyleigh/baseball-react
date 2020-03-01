@@ -14,22 +14,14 @@ class SelectTeam extends React.Component {
 
   componentDidMount() {
     if (this.props.selected_team) {
-      this.setState({ team: this.getTeamName(this.props.selected_team) });
+      this.setState({ team: this.props.selected_team.className });
     }
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.selected_team !== prevProps.selected_team) {
-      this.setState({ team: this.getTeamName(this.props.selected_team) });
+      this.setState({ team: this.props.selected_team.className });
     }
-  }
-
-  getTeamName(team) {
-    let { teamName } = team;
-    if (teamName) {
-      return teamName.replace(" ", "").toLowerCase();
-    }
-    return undefined;
   }
 
   updateAllData(team) {
@@ -85,7 +77,6 @@ class SelectTeam extends React.Component {
   }
 
   renderMenuHeading() {
-    console.log(this.props.teams);
     if (this.props.error) {
       return (
         <li className="nav__li">
@@ -122,6 +113,7 @@ class SelectTeam extends React.Component {
   }
 
   render() {
+    console.log(this.props.selected_team);
     return (
       <header role="banner" className={`header header--${this.state.team}`}>
         <div className="heading">

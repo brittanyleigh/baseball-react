@@ -14,6 +14,7 @@ export default function reducer(state = initialState, action = {}) {
 
 export const selectTeam = team => dispatch => {
   localStorage.setItem("selected_team", JSON.stringify(team));
+  team.className = team.teamName.replace(" ", "").toLowerCase();
   dispatch({ type: SELECT, payload: team });
 };
 
@@ -23,9 +24,13 @@ export const getPreviousTeam = () => async (dispatch, getState) => {
 
     try {
       previous_team = JSON.parse(previous_team);
+      previous_team.className = previous_team.teamName
+        .replace(" ", "")
+        .toLowerCase();
     } catch (e) {
       previous_team = undefined;
     }
+
     dispatch({
       type: SELECT,
       payload: previous_team

@@ -41,7 +41,11 @@ class App extends React.Component {
         </div>
       );
     } else if (this.props.selected_team) {
-      return <Menu />;
+      return (
+        <React.Fragment>
+          <Menu />
+        </React.Fragment>
+      );
     }
   }
 }
