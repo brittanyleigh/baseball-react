@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Menu from "./Menu";
+import Main from "./Main";
 import TeamDataContainer from "./TeamDataContainer";
 import YesterdayScore from "./YesterdayScore";
 import TodayGame from "./TodayGame";
@@ -44,6 +45,7 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <Menu />
+          <Main />
         </React.Fragment>
       );
     }

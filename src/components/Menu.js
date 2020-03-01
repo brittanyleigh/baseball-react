@@ -9,7 +9,7 @@ const initialState = {
   team: undefined
 };
 
-class SelectTeam extends React.Component {
+class Menu extends React.Component {
   state = initialState;
 
   componentDidMount() {
@@ -113,7 +113,6 @@ class SelectTeam extends React.Component {
   }
 
   render() {
-    console.log(this.props.selected_team);
     return (
       <header role="banner" className={`header header--${this.state.team}`}>
         <div className="heading">
@@ -147,4 +146,4 @@ export default connect(
   {
     selectTeam
   }
-)(SelectTeam);
+)(Menu);
