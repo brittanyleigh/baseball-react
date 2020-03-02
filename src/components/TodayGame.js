@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Error from "./Error";
 import TeamDataContainer from "./TeamDataContainer";
 import Schedule from "./Schedule";
+import Score from "./Score";
 
 class TodayGame extends React.Component {
   render() {
@@ -14,6 +15,16 @@ class TodayGame extends React.Component {
         if (game.status.statusCode === "S") {
           return (
             <Schedule
+              key={game.gamePk}
+              game={game}
+              heading="Today's Game"
+              team={this.props.team.className}
+              ready={!this.props.today.isFetching}
+            />
+          );
+        } else {
+          return (
+            <Score
               key={game.gamePk}
               game={game}
               heading="Today's Game"

@@ -33,9 +33,8 @@ export const getTodayGame = () => async (dispatch, getState) => {
   const to_year = today.getFullYear();
   const to_month = ("0" + (today.getMonth() + 1)).slice(-2);
   const to_date = today.getDate();
-  //const scoreDate = `${to_year}-${to_month}-${to_date}`;
+  const scoreDate = `${to_year}-${to_month}-${to_date}`;
   const team = getState().team.team.id;
-  const scoreDate = `${to_year}-${to_month}-02`;
 
   return mlbStats
     .get("schedule/games", {
