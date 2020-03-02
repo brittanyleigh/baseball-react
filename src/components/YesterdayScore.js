@@ -73,7 +73,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {}
-)(YesterdayScore);
+export default connect(mapStateToProps)(YesterdayScore);

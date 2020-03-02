@@ -26,30 +26,27 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getTodayGame = () => async (dispatch) => {
-  // TODO: use teamId
-  const team = '112';
-
-  dispatch({ type: REQUEST});
-
+export const getTodayGame = () => async (dispatch, getState) => {
+  dispatch({ type: REQUEST });
 
   const today = new Date(Date.now());
   const to_year = today.getFullYear();
-  const to_month = ('0' + (today.getMonth() + 1)).slice(-2);
+  const to_month = ("0" + (today.getMonth() + 1)).slice(-2);
   const to_date = today.getDate();
-  const scoreDate = `${to_year}-${to_month}-${to_date}`;
-  //const team = getState().selected_team;
+  //const scoreDate = `${to_year}-${to_month}-${to_date}`;
+  const team = getState().team.team.id;
+  const scoreDate = `${to_year}-${to_month}-02`;
 
-  return mlbStats.get('schedule/games', {
-    params: {
-      sportId: 1,
-      // TODO: dynamically update teamId
-      teamId: team,
-      date: scoreDate
-    }
-  })
-  .then((results) => {
-    dispatch({ type: SUCCESS, payload: results.data.dates[0].games})
-  })
-  .catch((error) => dispatch({ type: FAILURE, payload: true}))
-}
+  return mlbStats
+    .get("schedule/games", {
+      params: {
+        sportId: 1,
+        teamId: team,
+        date: scoreDate
+      }
+    })
+    .then(results => {
+      dispatch({ type: SUCCESS, payload: results.data.dates[0].games });
+    })
+    .catch(error => dispatch({ type: FAILURE, payload: true }));
+};
