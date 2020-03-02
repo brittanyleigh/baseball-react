@@ -1,7 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import ReactPlaceholder from "react-placeholder";
-import "react-placeholder/lib/reactPlaceholder.css";
 
 class TeamDataContainer extends React.Component {
   parentClass() {
@@ -30,22 +27,6 @@ class TeamDataContainer extends React.Component {
     }
   }
 
-  isReady() {
-    if (this.props.ready) {
-      return this.props.ready;
-    } else {
-      return false;
-    }
-  }
-
-  placeholderRows() {
-    if (this.props.placeholderRows) {
-      return this.props.placeholderRows;
-    } else {
-      return 1;
-    }
-  }
-
   render() {
     return (
       <div
@@ -62,23 +43,12 @@ class TeamDataContainer extends React.Component {
           {this.props.heading}
           {this.renderSubHeading()}
         </h4>
-        <ReactPlaceholder
-          type="text"
-          ready={this.isReady()}
-          rows={this.placeholderRows()}
-          color="#eeeeee"
-        >
-          {React.cloneElement(this.props.children, {
-            parentclass: this.parentClass()
-          })}
-        </ReactPlaceholder>
+        {React.cloneElement(this.props.children, {
+          parentclass: this.parentClass()
+        })}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(mapStateToProps)(TeamDataContainer);
+export default TeamDataContainer;

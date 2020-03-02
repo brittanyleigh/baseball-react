@@ -1,15 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import Error from "./Error";
-import TeamDataContainer from "./TeamDataContainer";
+import TeamDataPlaceholder from "./TeamDataPlaceholder";
 import Schedule from "./Schedule";
 import Score from "./Score";
 
 class TodayGame extends React.Component {
   render() {
-    console.log(this.props.today);
     if (this.props.today.error) {
       return <Error />;
+    } else if (this.props.today.isFetching) {
+      return (
+        <TeamDataPlaceholder
+          heading="Today's Game"
+          placeholderRows={2}
+          team={this.props.team.className}
+        />
+      );
     } else {
       return this.props.today.data.map(game => {
         if (game.status.statusCode === "S") {
@@ -19,7 +26,6 @@ class TodayGame extends React.Component {
               game={game}
               heading="Today's Game"
               team={this.props.team.className}
-              ready={!this.props.today.isFetching}
             />
           );
         } else {
@@ -29,7 +35,6 @@ class TodayGame extends React.Component {
               game={game}
               heading="Today's Game"
               team={this.props.team.className}
-              ready={!this.props.today.isFetching}
             />
           );
         }
