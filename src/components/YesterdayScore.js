@@ -2,11 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import Error from "./Error";
 import Score from "./Score";
+import TeamDataPlaceholder from "./TeamDataPlaceholder";
 
 class YesterdayScore extends React.Component {
   render() {
     if (this.props.yesterday.error) {
       return <Error />;
+    } else if (this.props.yesterday.isFetching) {
+      return (
+        <TeamDataPlaceholder
+          heading="Yesterday's Score"
+          placeholderRows={2}
+          team={this.props.team.className}
+        />
+      );
     } else {
       return this.props.yesterday.data.map(game => {
         return (

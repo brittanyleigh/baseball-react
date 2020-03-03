@@ -7,6 +7,7 @@ import Score from "./Score";
 
 class TodayGame extends React.Component {
   render() {
+    console.log(this.props.today);
     if (this.props.today.error) {
       return <Error />;
     } else if (this.props.today.isFetching) {
@@ -19,7 +20,8 @@ class TodayGame extends React.Component {
       );
     } else {
       return this.props.today.data.map(game => {
-        if (game.status.statusCode === "S") {
+        if (game.status.statusCode === "S" || game.status.statusCode === "I") {
+          // TODO: display box score for live game
           return (
             <Schedule
               key={game.gamePk}
