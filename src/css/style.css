@@ -1086,9 +1086,12 @@ body {
       text-align: center;
       border-bottom: solid 1px #d2d2d2; }
   .team_container__item {
-    padding: 10px; }
+    padding: 10px;
+    min-width: 75px; }
     .team_container__item--grow {
       width: 100%; }
+    .team_container__item--center {
+      text-align: center; }
   .team_container--news .text-row {
     height: 6em !important; }
 

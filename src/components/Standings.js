@@ -1,64 +1,75 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Error from './Error';
+import React from "react";
+import { connect } from "react-redux";
+import Error from "./Error";
+import TeamDataContainer from "./TeamDataContainer";
 
 class Standings extends React.Component {
-  formatAVG(average){
+  formatAVG(average) {
     return average.slice(1);
   }
-  
-  renderTeams(){
-    if (this.props.standings.teamentry) {
-      return this.props.standings.teamentry.map((team) => {      
+
+  renderTeams() {
+    if (this.props.standings.data) {
+      return this.props.standings.data.map(team => {
         return (
-          <tr className={` ${this.props.parentClass}__tr standings`} key={team.team.ID}>
-            <td className={`${this.props.parentClass}__item`}>{team.rank} </td>
-            <td className={`${this.props.parentClass}__item ${this.props.parentClass}__item--grow`}>
-              <span className="standings__team-name">{team.team.City} {team.team.Name}</span> 
-              <span className="standings__team-abbreviation">{team.team.Abbreviation}</span> 
+          <tr className=" team_container__tr standings" key={team.team.id}>
+            <td className="team_container__item">{team.divisionRank} </td>
+            <td className="team_container__item team_container__item--grow">
+              <span className="standings__team-name">{team.team.name}</span>
+              <span className="standings__team-abbreviation">
+                {/*{team.team.Abbreviation} */}
+              </span>
             </td>
-            <td className={`${this.props.parentClass}__item standings--winslosses-${team.rank}`}>{team.stats.Wins["#text"]}-{team.stats.Losses["#text"]} </td>
-            <td className={`${this.props.parentClass}__item`}>{this.formatAVG(team.stats.WinPct["#text"])} </td>
-            <td className={`${this.props.parentClass}__item`}>{team.stats.GamesBack["#text"]}</td>
+            <td className="team_container__item  team_container__item--center">
+              {team.leagueRecord.wins}-{team.leagueRecord.losses}{" "}
+            </td>
+            <td className="team_container__item team_container__item--center">
+              {team.leagueRecord.pct}{" "}
+            </td>
+            <td className="team_container__item team_container__item--center">
+              {team.divisionGamesBack}
+            </td>
           </tr>
         );
-      });       
+      });
     } else {
       return null;
     }
   }
-  
-  render() {
-    if (this.props.standings.teamentry) {
-      return (
-        <table className={`${this.props.parentClass}__table`}>
-          <thead>
-            <tr className={`${this.props.parentClass}__tr ${this.props.parentClass}__tr-heading `}>
-              <td></td>
-              <td></td>
-              <td className={`${this.props.parentClass}__tr-heading-item`}>W-L</td>
-              <td className={`${this.props.parentClass}__tr-heading-item`}>AVG</td>
-              <td className={`${this.props.parentClass}__tr-heading-item`}>GB</td>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderTeams()}  
-          </tbody>
-        </table>  
-      )      
-    } else if (this.props.standings.error){
-      return (
-        <Error />
-      )
-    }
 
+  render() {
+    if (this.props.standings.data) {
+      return (
+        <TeamDataContainer
+          heading="Standings"
+          class="full"
+          team={this.props.team.className}
+        >
+          <table className="team_container__table">
+            <thead>
+              <tr className="team_container__tr team_container__tr-heading ">
+                <td></td>
+                <td></td>
+                <td className="team_container__tr-heading-item">W-L</td>
+                <td className="team_container__tr-heading-item">AVG</td>
+                <td className="team_container__tr-heading-item">GB</td>
+              </tr>
+            </thead>
+            <tbody>{this.renderTeams()}</tbody>
+          </table>
+        </TeamDataContainer>
+      );
+    } else if (this.props.standings.error) {
+      return <Error />;
+    }
   }
 }
 
-const mapStateToProps = (state) => {
-  return { 
-    standings: state.standings
-  }
+const mapStateToProps = state => {
+  return {
+    standings: state.standings,
+    team: state.team.team
+  };
 };
 
 export default connect(mapStateToProps)(Standings);

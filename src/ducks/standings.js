@@ -26,28 +26,28 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getDivisionStandings = (teamId) => async (dispatch) => {
-  // TODO: use teamId
-  const team = '112';
+export const getDivisionStandings = teamId => async (dispatch, getState) => {
+  const team = getState().team.team.id;
 
-  dispatch({ type: REQUEST});
+  dispatch({ type: REQUEST });
 
-  return mlbStats.get('standings', {
-    params: {
-      leagueId: '103,104',
-      // TODO: dynamically update season year
-      season: '2019'
-    }
-  })
-  .then((results) => {
-    let division;
-    results.data.records.forEach((record, i) => {
-      if (record.teamRecords.find(item => item.team.id==team)) {
-        division = record.teamRecords;
+  return mlbStats
+    .get("standings", {
+      params: {
+        leagueId: "103,104",
+        // TODO: dynamically update season year
+        season: "2019"
       }
-    });
+    })
+    .then(results => {
+      let division;
+      results.data.records.forEach((record, i) => {
+        if (record.teamRecords.find(item => item.team.id == team)) {
+          division = record.teamRecords;
+        }
+      });
 
-    dispatch({ type: SUCCESS, payload: division})
-  })
-  .catch((error) => dispatch({ type: FAILURE, payload: true}))
-}
+      dispatch({ type: SUCCESS, payload: division });
+    })
+    .catch(error => dispatch({ type: FAILURE, payload: true }));
+};

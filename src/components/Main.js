@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 
 import YesterdayScore from "./YesterdayScore.js";
 import TodayGame from "./TodayGame.js";
+import Standings from "./Standings.js";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
+import { getDivisionStandings } from "../ducks/standings";
 
 const initialState = {
   isOpen: false,
@@ -28,9 +30,11 @@ class Main extends React.Component {
   updateAllStats() {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
+    this.props.getDivisionStandings();
   }
 
   render() {
+    console.log(this.props.standings);
     return (
       <main
         role="main"
@@ -39,6 +43,7 @@ class Main extends React.Component {
         <div className="container">
           <YesterdayScore />
           <TodayGame />
+          <Standings />
         </div>
       </main>
     );
@@ -48,11 +53,12 @@ class Main extends React.Component {
 const mapStateToProps = state => {
   return {
     teams: state.teams,
-    selected_team: state.team.team
+    selected_team: state.team.team,
+    standings: state.standings
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getYesterdayScore, getTodayGame }
+  { getYesterdayScore, getTodayGame, getDivisionStandings }
 )(Main);

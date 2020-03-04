@@ -37,13 +37,7 @@ class Score extends React.Component {
     }
 
     return (
-      <TeamDataContainer
-        heading={heading}
-        class="schedule"
-        team={team}
-        ready={ready}
-        placeholderRows={2}
-      >
+      <TeamDataContainer heading={heading} class="schedule" team={team}>
         <div className="game game--yesterday">
           <div className="game__detail">{outcome}</div>
           {awayTeam}
