@@ -20,10 +20,10 @@ class TodayGame extends React.Component {
       );
     } else {
       return this.props.today.data.map(game => {
-        if (game.status.statusCode === "S" || game.status.statusCode === "I") {
+        if (game.status.statusCode === "F" || game.status.statusCode === "O") {
           // TODO: display box score for live game
           return (
-            <Schedule
+            <Score
               key={game.gamePk}
               game={game}
               heading="Today's Game"
@@ -32,11 +32,12 @@ class TodayGame extends React.Component {
           );
         } else {
           return (
-            <Score
+            <Schedule
               key={game.gamePk}
               game={game}
               heading="Today's Game"
               team={this.props.team.className}
+              displayStatus={game.status.statusCode !== "S" && true}
             />
           );
         }

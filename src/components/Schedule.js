@@ -17,6 +17,7 @@ class Schedule extends React.Component {
         {game.teams.home.team.name}{" "}
       </div>
     );
+    let status = game.status.detailedState;
     let gameTime = new Date(game.gameDate).toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit"
@@ -32,7 +33,9 @@ class Schedule extends React.Component {
         placeholderRows={2}
       >
         <div className="game">
-          <div className="game__detail">{gameTime}</div>
+          <div className="game__detail">
+            {game.status.statusCode !== "S" ? status : gameTime}
+          </div>
           {awayTeam}
           {homeTeam}
         </div>
