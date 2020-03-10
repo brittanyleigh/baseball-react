@@ -30,22 +30,18 @@ class TeamDataContainer extends React.Component {
   render() {
     return (
       <div
-        className={`${this.parentClass()} ${this.parentClass()}--${
+        className={`team_container team_container--${
           this.props.class
         } ${this.classTwo()}`}
         id={this.props.id}
       >
         <h4
-          className={`${this.parentClass()}__heading ${this.parentClass()}__heading--${
-            this.props.team
-          }`}
+          className={`team_container__heading team_container__heading--${this.props.team}`}
         >
           {this.props.heading}
           {this.renderSubHeading()}
         </h4>
-        {React.cloneElement(this.props.children, {
-          parentclass: this.parentClass()
-        })}
+        {this.props.children}
       </div>
     );
   }

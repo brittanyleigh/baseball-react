@@ -1,41 +1,30 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Error from './Error';
+import React from "react";
+import { connect } from "react-redux";
+import Error from "./Error";
+import TeamDataContainer from "./TeamDataContainer";
+
 class PlayerStats extends React.Component {
-  
+  renderStats() {
+    return this.props.stat.map(player => {
+      return (
+        <div className="team_container__row" key={player.person.ID}>
+          <span className="team_container__span">{player.person.fullName}</span>
+          <span className="team_container__span">{player.value}</span>
+        </div>
+      );
+    });
+  }
+
   render() {
-    if (this.props.statData.error){
-      return <Error />
-    }
-    else if (this.props.statData) {
-      let statKey;
-      if (this.props.stat === 'AVG'){
-        statKey = 'BattingAvg';
-      } else if (this.props.stat === 'HR'){
-        statKey = 'Homeruns';
-      } else if (this.props.stat === 'RBI'){
-        statKey = 'RunsBattedIn';
-      } else if (this.props.stat === 'OPS'){
-        statKey = 'BatterOnBasePlusSluggingPct';
-      }
-      return this.props.statData.map((player) => {      
-        return (
-          <div className={` ${this.props.parentClass}__row`} key={player.player.ID}>
-            <span className={` ${this.props.parentClass}__span`}>{player.player.FirstName} {player.player.LastName}</span>
-            <span className={` ${this.props.parentClass}__span`}>{player.stats[statKey]['#text']}</span> 
-          </div>
-        );
-      });       
-    } else {
-      return null;
-    }
+    return (
+      <TeamDataContainer
+        heading={this.props.statName}
+        team={this.props.className}
+      >
+        {this.renderStats()}
+      </TeamDataContainer>
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return { 
-    stats: state.stats,
-  }
-};
-
-export default connect(mapStateToProps)(PlayerStats);
+export default PlayerStats;

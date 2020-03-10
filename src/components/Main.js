@@ -4,10 +4,12 @@ import { connect } from "react-redux";
 import YesterdayScore from "./YesterdayScore.js";
 import TodayGame from "./TodayGame.js";
 import Standings from "./Standings.js";
+import PlayerStats from "./PlayerStats";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
 import { getDivisionStandings } from "../ducks/standings";
+import { getHitterStats } from "../ducks/hitterStats";
 
 const initialState = {
   isOpen: false,
@@ -31,10 +33,25 @@ class Main extends React.Component {
     this.props.getYesterdayScore();
     this.props.getTodayGame();
     this.props.getDivisionStandings();
+    this.props.getHitterStats();
+  }
+
+  renderPlayerStats() {
+    if (this.props.hitterStats && this.props.hitterStats.data) {
+      const statKeys = Object.keys(this.props.hitterStats.data);
+      return statKeys.map(stat => {
+        return (
+          <PlayerStats
+            stat={this.props.hitterStats.data[stat]}
+            className={this.props.selected_team.className}
+            statName={stat}
+          />
+        );
+      });
+    }
   }
 
   render() {
-    console.log(this.props.standings);
     return (
       <main
         role="main"
@@ -44,6 +61,7 @@ class Main extends React.Component {
           <YesterdayScore />
           <TodayGame />
           <Standings />
+          {this.renderPlayerStats()}
         </div>
       </main>
     );
@@ -54,11 +72,12 @@ const mapStateToProps = state => {
   return {
     teams: state.teams,
     selected_team: state.team.team,
-    standings: state.standings
+    standings: state.standings,
+    hitterStats: state.hitterStats
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getYesterdayScore, getTodayGame, getDivisionStandings }
+  { getYesterdayScore, getTodayGame, getDivisionStandings, getHitterStats }
 )(Main);
