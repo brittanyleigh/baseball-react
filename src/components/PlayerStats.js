@@ -29,11 +29,18 @@ class PlayerStats extends React.Component {
       case "onBasePlusSlugging":
         return "OPS";
         break;
+      case "wins":
+        return "Wins";
+        break;
+      case "earnedRunAverage":
+        return "ERA";
+        break;
       default:
     }
   };
 
   render() {
+    console.log(this.props.statName);
     return (
       <TeamDataContainer heading={this.statName()} team={this.props.className}>
         {this.renderStats()}

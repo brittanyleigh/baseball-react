@@ -10,6 +10,7 @@ import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
 import { getDivisionStandings } from "../ducks/standings";
 import { getHitterStats } from "../ducks/hitterStats";
+import { getPitcherStats } from "../ducks/pitcherStats";
 
 const initialState = {
   isOpen: false,
@@ -34,15 +35,31 @@ class Main extends React.Component {
     this.props.getTodayGame();
     this.props.getDivisionStandings();
     this.props.getHitterStats();
+    this.props.getPitcherStats();
   }
 
-  renderPlayerStats() {
+  renderHitterStats() {
     if (this.props.hitterStats && this.props.hitterStats.data) {
       const statKeys = Object.keys(this.props.hitterStats.data);
       return statKeys.map(stat => {
         return (
           <PlayerStats
             stat={this.props.hitterStats.data[stat]}
+            className={this.props.selected_team.className}
+            statName={stat}
+          />
+        );
+      });
+    }
+  }
+
+  renderPitcherStats() {
+    if (this.props.pitcherStats && this.props.pitcherStats.data) {
+      const statKeys = Object.keys(this.props.pitcherStats.data);
+      return statKeys.map(stat => {
+        return (
+          <PlayerStats
+            stat={this.props.pitcherStats.data[stat]}
             className={this.props.selected_team.className}
             statName={stat}
           />
@@ -61,7 +78,8 @@ class Main extends React.Component {
           <YesterdayScore />
           <TodayGame />
           <Standings />
-          {this.renderPlayerStats()}
+          {this.renderHitterStats()}
+          {this.renderPitcherStats()}
         </div>
       </main>
     );
@@ -73,11 +91,18 @@ const mapStateToProps = state => {
     teams: state.teams,
     selected_team: state.team.team,
     standings: state.standings,
-    hitterStats: state.hitterStats
+    hitterStats: state.hitterStats,
+    pitcherStats: state.pitcherStats
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getYesterdayScore, getTodayGame, getDivisionStandings, getHitterStats }
+  {
+    getYesterdayScore,
+    getTodayGame,
+    getDivisionStandings,
+    getHitterStats,
+    getPitcherStats
+  }
 )(Main);
