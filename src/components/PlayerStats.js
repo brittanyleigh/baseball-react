@@ -15,12 +15,27 @@ class PlayerStats extends React.Component {
     });
   }
 
+  statName = () => {
+    switch (this.props.statName) {
+      case "homeRuns":
+        return "Home Runs";
+        break;
+      case "runsBattedIn":
+        return "RBIs";
+        break;
+      case "battingAverage":
+        return "Batting Average";
+        break;
+      case "onBasePlusSlugging":
+        return "OPS";
+        break;
+      default:
+    }
+  };
+
   render() {
     return (
-      <TeamDataContainer
-        heading={this.props.statName}
-        team={this.props.className}
-      >
+      <TeamDataContainer heading={this.statName()} team={this.props.className}>
         {this.renderStats()}
       </TeamDataContainer>
     );
