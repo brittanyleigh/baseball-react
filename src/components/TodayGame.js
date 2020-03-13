@@ -9,7 +9,7 @@ class TodayGame extends React.Component {
   render() {
     console.log(this.props.today);
     if (this.props.today.error) {
-      return <Error />;
+      return <Error heading="Today's Game" team={this.props.team.className} />;
     } else if (this.props.today.isFetching) {
       return (
         <TeamDataPlaceholder

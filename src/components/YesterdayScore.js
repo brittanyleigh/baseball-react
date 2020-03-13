@@ -7,7 +7,9 @@ import TeamDataPlaceholder from "./TeamDataPlaceholder";
 class YesterdayScore extends React.Component {
   render() {
     if (this.props.yesterday.error) {
-      return <Error />;
+      return (
+        <Error heading="Yesterday's Score" team={this.props.team.className} />
+      );
     } else if (this.props.yesterday.isFetching) {
       return (
         <TeamDataPlaceholder
