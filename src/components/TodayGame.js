@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Error from "./Error";
 import TeamDataPlaceholder from "./TeamDataPlaceholder";
@@ -20,33 +21,36 @@ class TodayGame extends React.Component {
           team={selected_team.className}
         />
       );
-    } else {
-      return today.data.map(game => {
-        if (game.status.statusCode === "F" || game.status.statusCode === "O") {
-          // TODO: display box score for live game
-          return (
-            <Score
-              key={game.gamePk}
-              game={game}
-              heading="Today's Game"
-              team={selected_team.className}
-            />
-          );
-        } else {
-          return (
-            <Schedule
-              key={game.gamePk}
-              game={game}
-              heading="Today's Game"
-              team={selected_team.className}
-              displayStatus={game.status.statusCode !== "S" && true}
-            />
-          );
-        }
-      });
     }
+    return today.data.map(game => {
+      if (game.status.statusCode === "F" || game.status.statusCode === "O") {
+        // TODO: display box score for live game
+        return (
+          <Score
+            key={game.gamePk}
+            game={game}
+            heading="Today's Game"
+            team={selected_team.className}
+          />
+        );
+      }
+      return (
+        <Schedule
+          key={game.gamePk}
+          game={game}
+          heading="Today's Game"
+          team={selected_team.className}
+          displayStatus={game.status.statusCode !== "S" && true}
+        />
+      );
+    });
   }
 }
+
+TodayGame.propTypes = {
+  selected_team: PropTypes.object.isRequired,
+  today: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => {
   return {

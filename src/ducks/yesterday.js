@@ -31,7 +31,7 @@ export const getYesterdayScore = () => async (dispatch, getState) => {
 
   const yesterday = new Date(Date.now() - 864e5);
   const yester_year = yesterday.getFullYear();
-  const yester_month = ("0" + (yesterday.getMonth() + 1)).slice(-2);
+  const yester_month = (`0${  yesterday.getMonth() + 1}`).slice(-2);
   const yester_date = yesterday.getDate();
   const scoreDate = `${yester_year}-${yester_month}-${yester_date}`;
   const tempYesterday = "2019-06-11";

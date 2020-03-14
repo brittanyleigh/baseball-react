@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import YesterdayScore from "./YesterdayScore.js";
 import TodayGame from "./TodayGame.js";
@@ -49,6 +50,7 @@ class Main extends React.Component {
       return statKeys.map(stat => {
         return (
           <PlayerStats
+            key={stat}
             stat={hitterStats.data[stat]}
             className={selected_team.className}
             statName={stat}
@@ -56,6 +58,7 @@ class Main extends React.Component {
         );
       });
     }
+    return null;
   }
 
   renderPitcherStats() {
@@ -66,6 +69,7 @@ class Main extends React.Component {
       return statKeys.map(stat => {
         return (
           <PlayerStats
+            key={stat}
             stat={pitcherStats.data[stat]}
             className={selected_team.className}
             statName={stat}
@@ -73,6 +77,7 @@ class Main extends React.Component {
         );
       });
     }
+    return null;
   }
 
   render() {
@@ -91,6 +96,18 @@ class Main extends React.Component {
     );
   }
 }
+
+Main.propTypes = {
+  selected_team: PropTypes.object.isRequired,
+  hitterStats: PropTypes.object,
+  pitcherStats: PropTypes.object,
+  getYesterdayScore: PropTypes.func.isRequired,
+  getTodayGame: PropTypes.func.isRequired,
+  getDivisionStandings: PropTypes.func.isRequired,
+  getHitterStats: PropTypes.func.isRequired,
+  getPitcherStats: PropTypes.func.isRequired,
+  getTeamNews: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
   return {

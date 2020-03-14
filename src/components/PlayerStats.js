@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import TeamDataContainer from "./TeamDataContainer";
 
 class PlayerStats extends React.Component {
@@ -40,5 +41,11 @@ class PlayerStats extends React.Component {
     );
   }
 }
+
+PlayerStats.propTypes = {
+  className: PropTypes.string.isRequired,
+  statName: PropTypes.string.isRequired,
+  stat: PropTypes.object.isRequired
+};
 
 export default PlayerStats;

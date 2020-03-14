@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Error from "./Error";
 import Score from "./Score";
@@ -21,20 +22,24 @@ class YesterdayScore extends React.Component {
           team={selected_team.className}
         />
       );
-    } else {
-      return yesterday.data.map(game => {
-        return (
-          <Score
-            key={game.gamePk}
-            game={game}
-            heading="Yesterday's Score"
-            team={selected_team.className}
-          />
-        );
-      });
     }
+    return yesterday.data.map(game => {
+      return (
+        <Score
+          key={game.gamePk}
+          game={game}
+          heading="Yesterday's Score"
+          team={selected_team.className}
+        />
+      );
+    });
   }
 }
+
+YesterdayScore.propTypes = {
+  yesterday: PropTypes.object.isRequired,
+  selected_team: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => {
   return {

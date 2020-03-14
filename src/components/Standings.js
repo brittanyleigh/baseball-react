@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import Error from "./Error";
 import TeamDataContainer from "./TeamDataContainer";
 
@@ -34,9 +36,8 @@ class Standings extends React.Component {
           </tr>
         );
       });
-    } else {
-      return null;
     }
+    return null;
   }
 
   render() {
@@ -66,8 +67,14 @@ class Standings extends React.Component {
     } else if (standings.error) {
       return <Error />;
     }
+    return null;
   }
 }
+
+Standings.propTypes = {
+  standings: PropTypes.object.isRequired,
+  selected_team: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => {
   return {

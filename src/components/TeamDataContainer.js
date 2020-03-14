@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class TeamDataContainer extends React.Component {
   renderSubHeading() {
@@ -15,15 +16,16 @@ class TeamDataContainer extends React.Component {
         </React.Fragment>
       );
     }
+    return null;
   }
 
   render() {
-    const { heading, children } = this.props;
+    const { heading, children, className, team } = this.props;
 
     return (
-      <div className={`team_container team_container--${this.props.class} `}>
+      <div className={`team_container team_container--${className} `}>
         <h4
-          className={`team_container__heading team_container__heading--${this.props.team}`}
+          className={`team_container__heading team_container__heading--${team}`}
         >
           {heading}
           {this.renderSubHeading()}
@@ -33,5 +35,13 @@ class TeamDataContainer extends React.Component {
     );
   }
 }
+
+TeamDataContainer.propTypes = {
+  subheading: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  className: PropTypes.string.isRequired,
+  team: PropTypes.string.isRequired
+};
 
 export default TeamDataContainer;

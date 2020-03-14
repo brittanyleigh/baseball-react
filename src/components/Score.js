@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import TeamDataContainer from "./TeamDataContainer";
 
 class Score extends React.Component {
@@ -22,12 +24,14 @@ class Score extends React.Component {
 
       if (
         this.props.team.id === game.teams.home.team.id &&
-        parseInt(game.teams.home.score) > parseInt(game.teams.away.score)
+        parseInt(game.teams.home.score, 10) >
+          parseInt(game.teams.away.score, 10)
       ) {
         outcome = "W";
       } else if (
         this.props.team.id === game.teams.away.team.id &&
-        parseInt(game.teams.away.score) > parseInt(game.teams.home.score)
+        parseInt(game.teams.away.score, 10) >
+          parseInt(game.teams.home.score, 10)
       ) {
         outcome = "W";
       } else {
@@ -36,7 +40,7 @@ class Score extends React.Component {
     }
 
     return (
-      <TeamDataContainer heading={heading} class="schedule" team={team}>
+      <TeamDataContainer heading={heading} className="schedule" team={team}>
         <div className="game game--yesterday">
           <div className="game__detail">{outcome}</div>
           {awayTeam}
@@ -46,5 +50,11 @@ class Score extends React.Component {
     );
   }
 }
+
+Score.propTypes = {
+  game: PropTypes.object.isRequired,
+  heading: PropTypes.string.isRequired,
+  team: PropTypes.string.isRequired
+};
 
 export default Score;

@@ -18,7 +18,7 @@ export const selectTeam = team => dispatch => {
 
 export const getPreviousTeam = () => async (dispatch, getState) => {
   if (localStorage.hasOwnProperty("selected_team")) {
-    var previous_team = localStorage.getItem("selected_team");
+    let previous_team = localStorage.getItem("selected_team");
 
     try {
       previous_team = JSON.parse(previous_team);

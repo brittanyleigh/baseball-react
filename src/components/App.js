@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Menu from "./Menu";
 import Main from "./Main";
@@ -28,6 +29,7 @@ class App extends React.Component {
     if (teams.isFetching || !selected_team) {
       return (
         <div className="loader">
+          {/* eslint-disable global-require */}
           <img
             className="loader__img"
             src={require(`../img/baseball.svg`)}
@@ -35,16 +37,23 @@ class App extends React.Component {
           ></img>
         </div>
       );
-    } else if (selected_team) {
-      return (
-        <React.Fragment>
-          <Menu />
-          <Main />
-        </React.Fragment>
-      );
     }
+    return (
+      <React.Fragment>
+        <Menu />
+        <Main />
+      </React.Fragment>
+    );
   }
 }
+
+App.propTypes = {
+  selected_team: PropTypes.object,
+  teams: PropTypes.object.isRequired,
+  fetchTeamData: PropTypes.func.isRequired,
+  getPreviousTeam: PropTypes.func.isRequired,
+  selectTeam: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
   return {

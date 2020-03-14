@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Error from "./Error";
 
@@ -8,7 +9,7 @@ import { Carousel } from "react-responsive-carousel";
 
 class News extends React.Component {
   renderNews() {
-    const { news, team } = this.props;
+    const { news, selected_team } = this.props;
 
     if (news.data) {
       return news.data.map(article => {
@@ -19,7 +20,7 @@ class News extends React.Component {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`legend legend--${team}`}
+              className={`legend legend--${selected_team}`}
             >
               <span className="span--bold span--large">{article.title}</span>
               <br></br>
@@ -31,26 +32,29 @@ class News extends React.Component {
           </React.Fragment>
         );
       });
-    } else {
-      return null;
     }
+    return null;
   }
   render() {
     const { news } = this.props;
 
     if (news.error) {
       return <Error />;
-    } else {
-      return (
-        <div className="team_container--full">
-          <Carousel showThumbs={false} showStatus={false}>
-            {this.renderNews()}
-          </Carousel>
-        </div>
-      );
     }
+    return (
+      <div className="team_container--full">
+        <Carousel showThumbs={false} showStatus={false}>
+          {this.renderNews()}
+        </Carousel>
+      </div>
+    );
   }
 }
+
+News.propTypes = {
+  news: PropTypes.object.isRequired,
+  selected_team: PropTypes.string.isRequired
+};
 
 const mapStateToProps = state => {
   return {

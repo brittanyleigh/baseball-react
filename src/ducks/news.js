@@ -35,9 +35,9 @@ export const getTeamNews = () => async (dispatch, getState) => {
 
   return news
     .get(
-      "everything?q=" +
-        team_search +
-        "&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40"
+      `everything?q=${ 
+        team_search 
+        }&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
     )
     .then(results => {
       const team_news = results.data.articles.filter(article => {

@@ -40,7 +40,7 @@ export const getPitcherStats = teamId => async dispatch => {
       }
     })
     .then(results => {
-      let statLeaders = {};
+      const statLeaders = {};
       results.data.teamLeaders.forEach((record, i) => {
         if (record.statGroup === "pitching") {
           statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);

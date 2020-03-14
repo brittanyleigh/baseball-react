@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import { selectTeam } from "../ducks/team";
 import { ReactComponent as DownIcon } from "../img/down.svg";
 import { ReactComponent as UpIcon } from "../img/up.svg";
@@ -7,6 +9,8 @@ import { ReactComponent as UpIcon } from "../img/up.svg";
 const initialState = {
   isOpen: false
 };
+
+const enter = 13;
 
 class Menu extends React.Component {
   state = initialState;
@@ -17,7 +21,7 @@ class Menu extends React.Component {
   }
 
   selectTeamOnEnter(event, team) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === enter) {
       this.selectTeam(team);
     }
   }
@@ -29,7 +33,7 @@ class Menu extends React.Component {
   }
 
   toggleMenuOnEnter(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === enter) {
       this.toggleMenu();
     }
   }
@@ -46,6 +50,7 @@ class Menu extends React.Component {
           onClick={() => this.selectTeam(team)}
           onKeyUp={event => this.selectTeamOnEnter(event, team)}
         >
+          {/* eslint-disable global-require */}
           <img
             className="nav__sub-li-img"
             src={require(`../img/${team.id}.png`)}
@@ -60,9 +65,8 @@ class Menu extends React.Component {
   renderToggleIcon() {
     if (this.state.isOpen) {
       return <UpIcon className="nav__li-icon" />;
-    } else {
-      return <DownIcon className="nav__li-icon" />;
     }
+    return <DownIcon className="nav__li-icon" />;
   }
 
   renderMenuHeading() {
@@ -130,6 +134,13 @@ class Menu extends React.Component {
     );
   }
 }
+
+Menu.propTypes = {
+  teams: PropTypes.object.isRequired,
+  selected_team: PropTypes.object.isRequired,
+  selectTeam: PropTypes.func.isRequired,
+  error: PropTypes.bool
+};
 
 const mapStateToProps = state => {
   return {
