@@ -29,7 +29,7 @@ export default function reducer(state = initialState, action = {}) {
 export const getTeamNews = () => async (dispatch, getState) => {
   let payload;
   const { team } = getState().team;
-  const { id, teamName } = team;
+  const { teamName } = team;
   const team_search = encodeURIComponent(teamName);
   dispatch({ type: REQUEST });
 

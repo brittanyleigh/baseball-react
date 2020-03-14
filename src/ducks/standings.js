@@ -42,7 +42,7 @@ export const getDivisionStandings = teamId => async (dispatch, getState) => {
     .then(results => {
       let division;
       results.data.records.forEach((record, i) => {
-        if (record.teamRecords.find(item => item.team.id == team)) {
+        if (record.teamRecords.find(item => item.team.id === team)) {
           division = record.teamRecords;
         }
       });

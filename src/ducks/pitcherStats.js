@@ -26,26 +26,27 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getPitcherStats = (teamId) => async (dispatch) => {
+export const getPitcherStats = teamId => async dispatch => {
   // TODO: use teamId
-  const team = '112';
-  dispatch({ type: REQUEST});
+  const team = "112";
+  dispatch({ type: REQUEST });
 
-  return mlbStats.get(`teams/${team}/leaders`, {
-    params: {
-      leaderCategories: 'wins,earnedRunAverage',
-      // TODO: dynamically update season year
-      season: '2019'
-    }
-  })
-  .then((results) => {
-    let statLeaders = {};
-    results.data.teamLeaders.forEach((record, i) => {
-      if (record.statGroup == "pitching") {
-        statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
+  return mlbStats
+    .get(`teams/${team}/leaders`, {
+      params: {
+        leaderCategories: "wins,earnedRunAverage",
+        // TODO: dynamically update season year
+        season: "2019"
       }
-    });
-    dispatch({ type: SUCCESS, payload: statLeaders})
-  })
-  .catch((error) => dispatch({ type: FAILURE, payload: true}))
-}
+    })
+    .then(results => {
+      let statLeaders = {};
+      results.data.teamLeaders.forEach((record, i) => {
+        if (record.statGroup === "pitching") {
+          statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
+        }
+      });
+      dispatch({ type: SUCCESS, payload: statLeaders });
+    })
+    .catch(error => dispatch({ type: FAILURE, payload: true }));
+};

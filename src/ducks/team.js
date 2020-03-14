@@ -1,5 +1,3 @@
-import mlbStats from "../apis/mlbStats";
-
 const SELECT = "mlbStats/team/SELECT";
 
 const initialState = { team: undefined };

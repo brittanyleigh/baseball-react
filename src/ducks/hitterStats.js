@@ -42,7 +42,7 @@ export const getHitterStats = teamId => async (dispatch, getState) => {
     .then(results => {
       let statLeaders = {};
       results.data.teamLeaders.forEach((record, i) => {
-        if (record.statGroup == "hitting") {
+        if (record.statGroup === "hitting") {
           statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
         }
       });
