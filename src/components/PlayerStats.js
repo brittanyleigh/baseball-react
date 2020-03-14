@@ -6,7 +6,7 @@ class PlayerStats extends React.Component {
   renderStats() {
     return this.props.stat.map(player => {
       return (
-        <div className="team_container__row" key={player.person.ID}>
+        <div className="team_container__row" key={player.person.id}>
           <span className="team_container__span">{player.person.fullName}</span>
           <span className="team_container__span">{player.value}</span>
         </div>
@@ -45,7 +45,7 @@ class PlayerStats extends React.Component {
 PlayerStats.propTypes = {
   className: PropTypes.string.isRequired,
   statName: PropTypes.string.isRequired,
-  stat: PropTypes.object.isRequired
+  stat: PropTypes.array.isRequired
 };
 
 export default PlayerStats;

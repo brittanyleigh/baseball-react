@@ -7,10 +7,9 @@ import Error from "./Error";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-class News extends React.Component {
+class TeamNews extends React.Component {
   renderNews() {
     const { news, selected_team } = this.props;
-    console.log(selected_team);
 
     if (news.data) {
       return news.data.map(article => {
@@ -52,9 +51,9 @@ class News extends React.Component {
   }
 }
 
-News.propTypes = {
+TeamNews.propTypes = {
   news: PropTypes.object.isRequired,
-  selected_team: PropTypes.string.isRequired
+  selected_team: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
@@ -64,4 +63,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(News);
+export default connect(mapStateToProps)(TeamNews);
