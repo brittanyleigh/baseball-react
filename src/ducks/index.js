@@ -8,6 +8,7 @@ import today from "./today";
 import hitterStats from "./hitterStats";
 import pitcherStats from "./pitcherStats";
 import team from "./team";
+import news from "./news";
 
 const reducers = combineReducers({
   teams,
@@ -16,7 +17,8 @@ const reducers = combineReducers({
   today,
   hitterStats,
   pitcherStats,
-  team
+  team,
+  news
 });
 
 export default reducers;

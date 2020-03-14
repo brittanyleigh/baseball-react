@@ -11,6 +11,7 @@ import { getTodayGame } from "../ducks/today";
 import { getDivisionStandings } from "../ducks/standings";
 import { getHitterStats } from "../ducks/hitterStats";
 import { getPitcherStats } from "../ducks/pitcherStats";
+import { getTeamNews } from "../ducks/news";
 
 const initialState = {
   isOpen: false,
@@ -22,6 +23,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.updateAllStats();
+    this.props.getTeamNews();
   }
 
   componentDidUpdate(prevProps) {
@@ -69,6 +71,7 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log(this.props.news);
     return (
       <main
         role="main"
@@ -92,7 +95,8 @@ const mapStateToProps = state => {
     selected_team: state.team.team,
     standings: state.standings,
     hitterStats: state.hitterStats,
-    pitcherStats: state.pitcherStats
+    pitcherStats: state.pitcherStats,
+    news: state.news
   };
 };
 
@@ -103,6 +107,7 @@ export default connect(
     getTodayGame,
     getDivisionStandings,
     getHitterStats,
-    getPitcherStats
+    getPitcherStats,
+    getTeamNews
   }
 )(Main);

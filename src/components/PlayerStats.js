@@ -40,7 +40,6 @@ class PlayerStats extends React.Component {
   };
 
   render() {
-    console.log(this.props.statName);
     return (
       <TeamDataContainer heading={this.statName()} team={this.props.className}>
         {this.renderStats()}
