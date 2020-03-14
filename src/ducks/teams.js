@@ -27,7 +27,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const fetchTeamData = () => async dispatch => {
+export const fetchTeamData = () => dispatch => {
   dispatch({ type: REQUEST });
 
   return mlbStats
@@ -42,5 +42,5 @@ export const fetchTeamData = () => async dispatch => {
         payload: alphabetize(results.data.teams)
       })
     )
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(dispatch({ type: FAILURE, payload: true }));
 };

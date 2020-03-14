@@ -26,9 +26,9 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getPitcherStats = teamId => async dispatch => {
-  // TODO: use teamId
-  const team = "112";
+export const getPitcherStats = () => (dispatch, getState) => {
+  const team = getState().team.team.id;
+  const numberOfLeaders = 3;
   dispatch({ type: REQUEST });
 
   return mlbStats
@@ -41,12 +41,15 @@ export const getPitcherStats = teamId => async dispatch => {
     })
     .then(results => {
       const statLeaders = {};
-      results.data.teamLeaders.forEach((record, i) => {
+      results.data.teamLeaders.forEach(record => {
         if (record.statGroup === "pitching") {
-          statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
+          statLeaders[record.leaderCategory] = record.leaders.slice(
+            0,
+            numberOfLeaders
+          );
         }
       });
       dispatch({ type: SUCCESS, payload: statLeaders });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(dispatch({ type: FAILURE, payload: true }));
 };

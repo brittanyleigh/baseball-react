@@ -16,8 +16,8 @@ export const selectTeam = team => dispatch => {
   dispatch({ type: SELECT, payload: team });
 };
 
-export const getPreviousTeam = () => async (dispatch, getState) => {
-  if (localStorage.hasOwnProperty("selected_team")) {
+export const getPreviousTeam = () => dispatch => {
+  if (localStorage.selected_team) {
     let previous_team = localStorage.getItem("selected_team");
 
     try {

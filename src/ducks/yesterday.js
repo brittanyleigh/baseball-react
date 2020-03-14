@@ -26,13 +26,16 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getYesterdayScore = () => async (dispatch, getState) => {
+export const getYesterdayScore = () => (dispatch, getState) => {
   dispatch({ type: REQUEST });
+  const oneDay = 864e5;
+  const negativeTwo = -2;
 
-  const yesterday = new Date(Date.now() - 864e5);
+  const yesterday = new Date(Date.now() - oneDay);
   const yester_year = yesterday.getFullYear();
-  const yester_month = (`0${  yesterday.getMonth() + 1}`).slice(-2);
+  const yester_month = `0${yesterday.getMonth() + 1}`.slice(negativeTwo);
   const yester_date = yesterday.getDate();
+  /* eslint-disable no-unused-vars*/
   const scoreDate = `${yester_year}-${yester_month}-${yester_date}`;
   const tempYesterday = "2019-06-11";
   const team = getState().team.team.id;
@@ -48,5 +51,5 @@ export const getYesterdayScore = () => async (dispatch, getState) => {
     .then(results => {
       dispatch({ type: SUCCESS, payload: results.data.dates[0].games });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(dispatch({ type: FAILURE, payload: true }));
 };

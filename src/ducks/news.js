@@ -26,8 +26,9 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getTeamNews = () => async (dispatch, getState) => {
+export const getTeamNews = () => (dispatch, getState) => {
   let payload;
+  const numberOfArticles = 7;
   const { team } = getState().team;
   const { teamName } = team;
   const team_search = encodeURIComponent(teamName);
@@ -35,16 +36,16 @@ export const getTeamNews = () => async (dispatch, getState) => {
 
   return news
     .get(
-      `everything?q=${ 
-        team_search 
-        }&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
+      `everything?q=${team_search}&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
     )
     .then(results => {
       const team_news = results.data.articles.filter(article => {
         return article.title.includes(teamName);
       });
-      payload = results.data.articles ? team_news.slice(0, 7) : null;
+      payload = results.data.articles
+        ? team_news.slice(0, numberOfArticles)
+        : null;
       dispatch({ type: SUCCESS, payload });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(dispatch({ type: FAILURE, payload: true }));
 };
