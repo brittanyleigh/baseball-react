@@ -5,6 +5,7 @@ import YesterdayScore from "./YesterdayScore.js";
 import TodayGame from "./TodayGame.js";
 import Standings from "./Standings.js";
 import PlayerStats from "./PlayerStats";
+import TeamNews from "./TeamNews";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
@@ -23,7 +24,6 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.updateAllStats();
-    this.props.getTeamNews();
   }
 
   componentDidUpdate(prevProps) {
@@ -38,6 +38,7 @@ class Main extends React.Component {
     this.props.getDivisionStandings();
     this.props.getHitterStats();
     this.props.getPitcherStats();
+    this.props.getTeamNews();
   }
 
   renderHitterStats() {
@@ -71,7 +72,6 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.props.news);
     return (
       <main
         role="main"
@@ -83,6 +83,7 @@ class Main extends React.Component {
           <Standings />
           {this.renderHitterStats()}
           {this.renderPitcherStats()}
+          <TeamNews team={this.props.selected_team.className} />
         </div>
       </main>
     );
