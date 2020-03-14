@@ -10,6 +10,7 @@ import { Carousel } from "react-responsive-carousel";
 class News extends React.Component {
   renderNews() {
     const { news, selected_team } = this.props;
+    console.log(selected_team);
 
     if (news.data) {
       return news.data.map(article => {
@@ -20,7 +21,7 @@ class News extends React.Component {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`legend legend--${selected_team}`}
+              className={`legend legend--${selected_team.className}`}
             >
               <span className="span--bold span--large">{article.title}</span>
               <br></br>
@@ -58,7 +59,8 @@ News.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    news: state.news
+    news: state.news,
+    selected_team: state.team.team
   };
 };
 
