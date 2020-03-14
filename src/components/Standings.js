@@ -47,7 +47,7 @@ class Standings extends React.Component {
       return (
         <TeamDataContainer
           heading="Standings"
-          class="full"
+          className="full"
           team={selected_team.className}
         >
           <table className="team_container__table">
