@@ -33,11 +33,9 @@ export const getTeamNews = () => async (dispatch, getState) => {
   const team_search = encodeURIComponent(teamName);
   dispatch({ type: REQUEST });
 
-  return news
+  await news
     .get(
-      `everything?q=${ 
-        team_search 
-        }&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
+      `everything?q=${team_search}&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
     )
     .then(results => {
       const team_news = results.data.articles.filter(article => {
@@ -46,5 +44,5 @@ export const getTeamNews = () => async (dispatch, getState) => {
       payload = results.data.articles ? team_news.slice(0, 7) : null;
       dispatch({ type: SUCCESS, payload });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };

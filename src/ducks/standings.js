@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getDivisionStandings = teamId => async (dispatch, getState) => {
+export const getDivisionStandings = () => (dispatch, getState) => {
   const team = getState().team.team.id;
 
   dispatch({ type: REQUEST });
@@ -41,7 +41,7 @@ export const getDivisionStandings = teamId => async (dispatch, getState) => {
     })
     .then(results => {
       let division;
-      results.data.records.forEach((record, i) => {
+      results.data.records.forEach(record => {
         if (record.teamRecords.find(item => item.team.id === team)) {
           division = record.teamRecords;
         }
@@ -49,5 +49,5 @@ export const getDivisionStandings = teamId => async (dispatch, getState) => {
 
       dispatch({ type: SUCCESS, payload: division });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };

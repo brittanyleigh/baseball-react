@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getHitterStats = teamId => async (dispatch, getState) => {
+export const getHitterStats = () => (dispatch, getState) => {
   const team = getState().team.team.id;
   dispatch({ type: REQUEST });
 
@@ -41,12 +41,12 @@ export const getHitterStats = teamId => async (dispatch, getState) => {
     })
     .then(results => {
       const statLeaders = {};
-      results.data.teamLeaders.forEach((record, i) => {
+      results.data.teamLeaders.forEach(record => {
         if (record.statGroup === "hitting") {
           statLeaders[record.leaderCategory] = record.leaders.slice(0, 3);
         }
       });
       dispatch({ type: SUCCESS, payload: statLeaders });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };

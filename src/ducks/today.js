@@ -26,12 +26,12 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getTodayGame = () => async (dispatch, getState) => {
+export const getTodayGame = () => (dispatch, getState) => {
   dispatch({ type: REQUEST });
 
   const today = new Date(Date.now());
   const to_year = today.getFullYear();
-  const to_month = (`0${  today.getMonth() + 1}`).slice(-2);
+  const to_month = `0${today.getMonth() + 1}`.slice(-2);
   const to_date = today.getDate();
   const scoreDate = `${to_year}-${to_month}-${to_date}`;
   const team = getState().team.team.id;
@@ -47,5 +47,5 @@ export const getTodayGame = () => async (dispatch, getState) => {
     .then(results => {
       dispatch({ type: SUCCESS, payload: results.data.dates[0].games });
     })
-    .catch(error => dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };
