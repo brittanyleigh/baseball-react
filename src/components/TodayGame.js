@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import Error from "./Error";
 import TeamDataPlaceholder from "./TeamDataPlaceholder";
 import Schedule from "./Schedule";
@@ -7,18 +8,20 @@ import Score from "./Score";
 
 class TodayGame extends React.Component {
   render() {
-    if (this.props.today.error) {
-      return <Error heading="Today's Game" team={this.props.team.className} />;
-    } else if (this.props.today.isFetching) {
+    const { today, selected_team } = this.props;
+
+    if (today.error) {
+      return <Error heading="Today's Game" team={selected_team.className} />;
+    } else if (today.isFetching) {
       return (
         <TeamDataPlaceholder
           heading="Today's Game"
           placeholderRows={2}
-          team={this.props.team.className}
+          team={selected_team.className}
         />
       );
     } else {
-      return this.props.today.data.map(game => {
+      return today.data.map(game => {
         if (game.status.statusCode === "F" || game.status.statusCode === "O") {
           // TODO: display box score for live game
           return (
@@ -26,7 +29,7 @@ class TodayGame extends React.Component {
               key={game.gamePk}
               game={game}
               heading="Today's Game"
-              team={this.props.team.className}
+              team={selected_team.className}
             />
           );
         } else {
@@ -35,7 +38,7 @@ class TodayGame extends React.Component {
               key={game.gamePk}
               game={game}
               heading="Today's Game"
-              team={this.props.team.className}
+              team={selected_team.className}
               displayStatus={game.status.statusCode !== "S" && true}
             />
           );
@@ -48,7 +51,7 @@ class TodayGame extends React.Component {
 const mapStateToProps = state => {
   return {
     today: state.today,
-    team: state.team.team
+    selected_team: state.team.team
   };
 };
 

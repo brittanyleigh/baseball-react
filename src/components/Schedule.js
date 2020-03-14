@@ -1,5 +1,4 @@
 import React from "react";
-import Error from "./Error";
 import TeamDataContainer from "./TeamDataContainer";
 
 class Schedule extends React.Component {

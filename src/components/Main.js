@@ -42,13 +42,15 @@ class Main extends React.Component {
   }
 
   renderHitterStats() {
-    if (this.props.hitterStats && this.props.hitterStats.data) {
-      const statKeys = Object.keys(this.props.hitterStats.data);
+    const { hitterStats, selected_team } = this.props;
+
+    if (hitterStats && hitterStats.data) {
+      const statKeys = Object.keys(hitterStats.data);
       return statKeys.map(stat => {
         return (
           <PlayerStats
-            stat={this.props.hitterStats.data[stat]}
-            className={this.props.selected_team.className}
+            stat={hitterStats.data[stat]}
+            className={selected_team.className}
             statName={stat}
           />
         );
@@ -57,13 +59,15 @@ class Main extends React.Component {
   }
 
   renderPitcherStats() {
-    if (this.props.pitcherStats && this.props.pitcherStats.data) {
-      const statKeys = Object.keys(this.props.pitcherStats.data);
+    const { pitcherStats, selected_team } = this.props;
+
+    if (pitcherStats && pitcherStats.data) {
+      const statKeys = Object.keys(pitcherStats.data);
       return statKeys.map(stat => {
         return (
           <PlayerStats
-            stat={this.props.pitcherStats.data[stat]}
-            className={this.props.selected_team.className}
+            stat={pitcherStats.data[stat]}
+            className={selected_team.className}
             statName={stat}
           />
         );
@@ -72,18 +76,16 @@ class Main extends React.Component {
   }
 
   render() {
+    const { selected_team } = this.props;
     return (
-      <main
-        role="main"
-        className={`main main--${this.props.selected_team.className}`}
-      >
+      <main role="main" className={`main main--${selected_team.className}`}>
         <div className="container">
           <YesterdayScore />
           <TodayGame />
           <Standings />
           {this.renderHitterStats()}
           {this.renderPitcherStats()}
-          <TeamNews team={this.props.selected_team.className} />
+          <TeamNews team={selected_team.className} />
         </div>
       </main>
     );
@@ -92,12 +94,9 @@ class Main extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    teams: state.teams,
     selected_team: state.team.team,
-    standings: state.standings,
     hitterStats: state.hitterStats,
-    pitcherStats: state.pitcherStats,
-    news: state.news
+    pitcherStats: state.pitcherStats
   };
 };
 

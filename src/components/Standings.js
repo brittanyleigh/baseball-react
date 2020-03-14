@@ -9,8 +9,10 @@ class Standings extends React.Component {
   }
 
   renderTeams() {
-    if (this.props.standings.data) {
-      return this.props.standings.data.map(team => {
+    const { standings } = this.props;
+
+    if (standings.data) {
+      return standings.data.map(team => {
         return (
           <tr className=" team_container__tr standings" key={team.team.id}>
             <td className="team_container__item">{team.divisionRank} </td>
@@ -38,12 +40,14 @@ class Standings extends React.Component {
   }
 
   render() {
-    if (this.props.standings.data) {
+    const { standings, selected_team } = this.props;
+
+    if (standings.data) {
       return (
         <TeamDataContainer
           heading="Standings"
           class="full"
-          team={this.props.team.className}
+          team={selected_team.className}
         >
           <table className="team_container__table">
             <thead>
@@ -59,7 +63,7 @@ class Standings extends React.Component {
           </table>
         </TeamDataContainer>
       );
-    } else if (this.props.standings.error) {
+    } else if (standings.error) {
       return <Error />;
     }
   }
@@ -68,7 +72,7 @@ class Standings extends React.Component {
 const mapStateToProps = state => {
   return {
     standings: state.standings,
-    team: state.team.team
+    selected_team: state.team.team
   };
 };
 

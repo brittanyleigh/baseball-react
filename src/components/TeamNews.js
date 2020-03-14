@@ -1,13 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+
+import Error from "./Error";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import Error from "./Error";
 
 class News extends React.Component {
   renderNews() {
-    if (this.props.news.data) {
-      return this.props.news.data.map(article => {
+    const { news, team } = this.props;
+
+    if (news.data) {
+      return news.data.map(article => {
         return (
           <React.Fragment key={article.title}>
             <img src={article.urlToImage} alt={article.title} />
@@ -15,7 +19,7 @@ class News extends React.Component {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`legend legend--${this.props.team}`}
+              className={`legend legend--${team}`}
             >
               <span className="span--bold span--large">{article.title}</span>
               <br></br>
@@ -32,7 +36,9 @@ class News extends React.Component {
     }
   }
   render() {
-    if (this.props.news.error) {
+    const { news } = this.props;
+
+    if (news.error) {
       return <Error />;
     } else {
       return (

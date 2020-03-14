@@ -1,25 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
 import ReactPlaceholder from "react-placeholder";
 import "react-placeholder/lib/reactPlaceholder.css";
 
 class TeamDataPlaceholder extends React.Component {
-  parentClass() {
-    return "team_container";
-  }
-
   render() {
     return (
-      <div
-        className={`${this.parentClass()} ${this.parentClass()}--${
-          this.props.class
-        }`}
-        id={this.props.id}
-      >
+      <div className={`team_container team_container--${this.props.class}`}>
         <h4
-          className={`${this.parentClass()}__heading ${this.parentClass()}__heading--${
-            this.props.team
-          }`}
+          className={`team_container__heading team_container__heading--${this.props.team}`}
         >
           {this.props.heading}
         </h4>

@@ -1,11 +1,10 @@
 import React from "react";
-import Error from "./Error";
 import TeamDataContainer from "./TeamDataContainer";
 
 class Score extends React.Component {
   render() {
-    const { game, heading, team, ready } = this.props;
-    let outcome, awayTeam, homeTeam, key;
+    const { game, heading, team } = this.props;
+    let outcome, awayTeam, homeTeam;
 
     if (game.status.statusCode !== "F") {
       outcome = game.status.detailedStatus;

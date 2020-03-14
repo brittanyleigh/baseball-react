@@ -1,47 +1,34 @@
 import React from "react";
 
 class TeamDataContainer extends React.Component {
-  parentClass() {
-    return "team_container";
-  }
-
   renderSubHeading() {
-    if (this.props.subheading) {
+    const { subheading } = this.props;
+
+    if (subheading) {
       return (
         <React.Fragment>
-          <br></br>
+          <br />
           <span className="span--italic span--transparent span--small">
             {" "}
-            {this.props.subheading}
+            {subheading}
           </span>
         </React.Fragment>
       );
     }
   }
 
-  classTwo() {
-    if (this.props.class2) {
-      return this.parentClass() + "--" + this.props.class2;
-    } else {
-      return "";
-    }
-  }
-
   render() {
+    const { heading, children } = this.props;
+
     return (
-      <div
-        className={`team_container team_container--${
-          this.props.class
-        } ${this.classTwo()}`}
-        id={this.props.id}
-      >
+      <div className={`team_container team_container--${this.props.class} `}>
         <h4
           className={`team_container__heading team_container__heading--${this.props.team}`}
         >
-          {this.props.heading}
+          {heading}
           {this.renderSubHeading()}
         </h4>
-        {this.props.children}
+        {children}
       </div>
     );
   }

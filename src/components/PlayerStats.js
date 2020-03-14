@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import Error from "./Error";
 import TeamDataContainer from "./TeamDataContainer";
 
 class PlayerStats extends React.Component {
@@ -19,23 +17,18 @@ class PlayerStats extends React.Component {
     switch (this.props.statName) {
       case "homeRuns":
         return "Home Runs";
-        break;
       case "runsBattedIn":
         return "RBIs";
-        break;
       case "battingAverage":
         return "Batting Average";
-        break;
       case "onBasePlusSlugging":
         return "OPS";
-        break;
       case "wins":
         return "Wins";
-        break;
       case "earnedRunAverage":
         return "ERA";
-        break;
       default:
+        return "Misc. Stats";
     }
   };
 
