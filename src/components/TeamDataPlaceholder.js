@@ -1,26 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import ReactPlaceholder from "react-placeholder";
-import "react-placeholder/lib/reactPlaceholder.css";
-
 class TeamDataPlaceholder extends React.Component {
+  renderRows() {
+    const { placeholderRows } = this.props;
+    const rows = [];
+    for (let i = 0; i < placeholderRows; i++) {
+      rows.push(<div className="team_container__placeholder" key={i} />);
+    }
+    return rows;
+  }
+
   render() {
-    const { team, heading, placeholderRows } = this.props;
+    const { team, heading, className } = this.props;
 
     return (
-      <div className="team_container">
+      <div className={`team_container team_container--${className} `}>
         <h4
           className={`team_container__heading team_container__heading--${team}`}
         >
           {heading}
         </h4>
-        <ReactPlaceholder
-          type="text"
-          ready={false}
-          rows={placeholderRows}
-          color="#eeeeee"
-        />
+        {this.renderRows()}
       </div>
     );
   }
@@ -29,7 +30,8 @@ class TeamDataPlaceholder extends React.Component {
 TeamDataPlaceholder.propTypes = {
   heading: PropTypes.string.isRequired,
   team: PropTypes.string.isRequired,
-  placeholderRows: PropTypes.number.isRequired
+  placeholderRows: PropTypes.number.isRequired,
+  className: PropTypes.string
 };
 
 export default TeamDataPlaceholder;

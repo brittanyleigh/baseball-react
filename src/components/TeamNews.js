@@ -3,51 +3,59 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Error from "./Error";
+import TeamDataPlaceholder from "./TeamDataPlaceholder";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 class TeamNews extends React.Component {
+  renderCarouselSlides(data, selected_team) {
+    return data.map(article => {
+      return (
+        <React.Fragment key={article.title}>
+          <img src={article.urlToImage} alt={article.title} />
+          <a
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`legend legend--${selected_team.className}`}
+          >
+            <span className="span--bold span--large">{article.title}</span>
+            <br></br>
+            <span className="span--italic span--transparent">
+              {" "}
+              --{article.source.name}{" "}
+            </span>
+          </a>
+        </React.Fragment>
+      );
+    });
+  }
+
   renderNews() {
     const { news, selected_team } = this.props;
 
-    if (news.data) {
-      return news.data.map(article => {
-        return (
-          <React.Fragment key={article.title}>
-            <img src={article.urlToImage} alt={article.title} />
-            <a
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`legend legend--${selected_team.className}`}
-            >
-              <span className="span--bold span--large">{article.title}</span>
-              <br></br>
-              <span className="span--italic span--transparent">
-                {" "}
-                --{article.source.name}{" "}
-              </span>
-            </a>
-          </React.Fragment>
-        );
-      });
+    if (news.isFetching) {
+      return (
+        <TeamDataPlaceholder
+          heading="Team News"
+          placeholderRows={5}
+          team={selected_team.className}
+        />
+      );
     }
-    return null;
-  }
-  render() {
-    const { news } = this.props;
-
-    if (news.error) {
-      return <Error />;
-    }
-    return (
-      <div className="team_container--full">
+    if (news.data.length > 0) {
+      return (
         <Carousel showThumbs={false} showStatus={false}>
-          {this.renderNews()}
+          {this.renderCarouselSlides(news.data, selected_team)}
         </Carousel>
-      </div>
-    );
+      );
+    }
+    return <Error heading="Team News" team={selected_team.className} />;
+  }
+
+  render() {
+    return <div className="team_container--full">{this.renderNews()}</div>;
   }
 }
 
