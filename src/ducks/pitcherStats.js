@@ -51,5 +51,5 @@ export const getPitcherStats = () => (dispatch, getState) => {
       });
       dispatch({ type: SUCCESS, payload: statLeaders });
     })
-    .catch(dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };

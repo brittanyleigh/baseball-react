@@ -10,11 +10,7 @@ class YesterdayScore extends React.Component {
   render() {
     const { yesterday, selected_team } = this.props;
 
-    if (yesterday.error) {
-      return (
-        <Error heading="Yesterday's Score" team={selected_team.className} />
-      );
-    } else if (yesterday.isFetching) {
+    if (yesterday.isFetching) {
       return (
         <TeamDataPlaceholder
           heading="Yesterday's Score"
@@ -22,17 +18,20 @@ class YesterdayScore extends React.Component {
           team={selected_team.className}
         />
       );
+    } else if (yesterday.data.length > 0) {
+      return yesterday.data.map(game => {
+        return (
+          <Score
+            key={game.gamePk}
+            game={game}
+            heading="Yesterday's Score"
+            team={selected_team.className}
+          />
+        );
+      });
     }
-    return yesterday.data.map(game => {
-      return (
-        <Score
-          key={game.gamePk}
-          game={game}
-          heading="Yesterday's Score"
-          team={selected_team.className}
-        />
-      );
-    });
+
+    return <Error heading="Yesterday's Score" team={selected_team.className} />;
   }
 }
 

@@ -11,9 +11,7 @@ class TodayGame extends React.Component {
   render() {
     const { today, selected_team } = this.props;
 
-    if (today.error) {
-      return <Error heading="Today's Game" team={selected_team.className} />;
-    } else if (today.isFetching) {
+    if (today.isFetching) {
       return (
         <TeamDataPlaceholder
           heading="Today's Game"
@@ -21,29 +19,31 @@ class TodayGame extends React.Component {
           team={selected_team.className}
         />
       );
-    }
-    return today.data.map(game => {
-      if (game.status.statusCode === "F" || game.status.statusCode === "O") {
-        // TODO: display box score for live game
+    } else if (today.data.length > 0) {
+      return today.data.map(game => {
+        if (game.status.statusCode === "F" || game.status.statusCode === "O") {
+          // TODO: display box score for live game
+          return (
+            <Score
+              key={game.gamePk}
+              game={game}
+              heading="Today's Game"
+              team={selected_team.className}
+            />
+          );
+        }
         return (
-          <Score
+          <Schedule
             key={game.gamePk}
             game={game}
             heading="Today's Game"
             team={selected_team.className}
+            displayStatus={game.status.statusCode !== "S" && true}
           />
         );
-      }
-      return (
-        <Schedule
-          key={game.gamePk}
-          game={game}
-          heading="Today's Game"
-          team={selected_team.className}
-          displayStatus={game.status.statusCode !== "S" && true}
-        />
-      );
-    });
+      });
+    }
+    return <Error heading="Today's Game" team={selected_team.className} />;
   }
 }
 

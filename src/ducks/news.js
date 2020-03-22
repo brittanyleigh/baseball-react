@@ -34,7 +34,7 @@ export const getTeamNews = () => (dispatch, getState) => {
   const team_search = encodeURIComponent(teamName);
   dispatch({ type: REQUEST });
 
-  return news
+  news
     .get(
       `everything?q=${team_search}&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
     )
@@ -47,5 +47,5 @@ export const getTeamNews = () => (dispatch, getState) => {
         : null;
       dispatch({ type: SUCCESS, payload });
     })
-    .catch(dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };

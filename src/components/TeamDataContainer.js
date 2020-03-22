@@ -2,23 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class TeamDataContainer extends React.Component {
-  renderSubHeading() {
-    const { subheading } = this.props;
-
-    if (subheading) {
-      return (
-        <React.Fragment>
-          <br />
-          <span className="span--italic span--transparent span--small">
-            {" "}
-            {subheading}
-          </span>
-        </React.Fragment>
-      );
-    }
-    return null;
-  }
-
   render() {
     const { heading, children, className, team } = this.props;
 
@@ -28,7 +11,6 @@ class TeamDataContainer extends React.Component {
           className={`team_container__heading team_container__heading--${team}`}
         >
           {heading}
-          {this.renderSubHeading()}
         </h4>
         {children}
       </div>
@@ -37,10 +19,9 @@ class TeamDataContainer extends React.Component {
 }
 
 TeamDataContainer.propTypes = {
-  subheading: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
-  className: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  className: PropTypes.string,
   team: PropTypes.string.isRequired
 };
 

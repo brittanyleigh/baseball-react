@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import Error from "./Error";
 import TeamDataContainer from "./TeamDataContainer";
+import TeamDataPlaceholder from "./TeamDataPlaceholder";
 
 class Standings extends React.Component {
   formatAVG(average) {
@@ -11,9 +12,9 @@ class Standings extends React.Component {
   }
 
   renderTeams() {
-    const { standings } = this.props;
+    const { standings, selected_team } = this.props;
 
-    if (standings.data) {
+    if (standings.data.length > 0) {
       return standings.data.map(team => {
         return (
           <tr className=" team_container__tr standings" key={team.team.id}>
@@ -37,37 +38,43 @@ class Standings extends React.Component {
         );
       });
     }
-    return null;
+    return <Error heading="Standings" team={selected_team.className} />;
   }
 
   render() {
     const { standings, selected_team } = this.props;
 
-    if (standings.data) {
+    if (standings.isFetching) {
       return (
-        <TeamDataContainer
+        <TeamDataPlaceholder
           heading="Standings"
-          class="full"
+          placeholderRows={5}
           team={selected_team.className}
-        >
-          <table className="team_container__table">
-            <thead>
-              <tr className="team_container__tr team_container__tr-heading ">
-                <td></td>
-                <td></td>
-                <td className="team_container__tr-heading-item">W-L</td>
-                <td className="team_container__tr-heading-item">AVG</td>
-                <td className="team_container__tr-heading-item">GB</td>
-              </tr>
-            </thead>
-            <tbody>{this.renderTeams()}</tbody>
-          </table>
-        </TeamDataContainer>
+          className="full"
+        />
       );
-    } else if (standings.error) {
-      return <Error />;
     }
-    return null;
+
+    return (
+      <TeamDataContainer
+        heading="Standings"
+        className="full"
+        team={selected_team.className}
+      >
+        <table className="team_container__table">
+          <thead>
+            <tr className="team_container__tr team_container__tr-heading ">
+              <td></td>
+              <td></td>
+              <td className="team_container__tr-heading-item">W-L</td>
+              <td className="team_container__tr-heading-item">AVG</td>
+              <td className="team_container__tr-heading-item">GB</td>
+            </tr>
+          </thead>
+          <tbody>{this.renderTeams()}</tbody>
+        </table>
+      </TeamDataContainer>
+    );
   }
 }
 

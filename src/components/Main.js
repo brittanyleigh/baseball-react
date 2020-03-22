@@ -7,6 +7,7 @@ import TodayGame from "./TodayGame.js";
 import Standings from "./Standings.js";
 import PlayerStats from "./PlayerStats";
 import TeamNews from "./TeamNews";
+import TeamDataPlaceholder from "./TeamDataPlaceholder";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
@@ -45,7 +46,15 @@ class Main extends React.Component {
   renderHitterStats() {
     const { hitterStats, selected_team } = this.props;
 
-    if (hitterStats && hitterStats.data) {
+    if (hitterStats.isFetching) {
+      return (
+        <TeamDataPlaceholder
+          heading="Hitter Stats"
+          placeholderRows={3}
+          team={selected_team.className}
+        />
+      );
+    } else if (hitterStats && hitterStats.data) {
       const statKeys = Object.keys(hitterStats.data);
       return statKeys.map(stat => {
         return (
@@ -64,7 +73,15 @@ class Main extends React.Component {
   renderPitcherStats() {
     const { pitcherStats, selected_team } = this.props;
 
-    if (pitcherStats && pitcherStats.data) {
+    if (pitcherStats.isFetching) {
+      return (
+        <TeamDataPlaceholder
+          heading="Pitcher Stats"
+          placeholderRows={3}
+          team={selected_team.className}
+        />
+      );
+    } else if (pitcherStats && pitcherStats.data) {
       const statKeys = Object.keys(pitcherStats.data);
       return statKeys.map(stat => {
         return (

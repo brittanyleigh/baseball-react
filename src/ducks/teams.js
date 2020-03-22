@@ -42,5 +42,5 @@ export const fetchTeamData = () => dispatch => {
         payload: alphabetize(results.data.teams)
       })
     )
-    .catch(dispatch({ type: FAILURE, payload: true }));
+    .catch(error => dispatch({ type: FAILURE, payload: error }));
 };

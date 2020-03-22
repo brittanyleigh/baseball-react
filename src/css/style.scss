@@ -426,6 +426,11 @@ body {
       height: 6em!important;
     }
   }
+  &__placeholder {
+    height: 25px;
+    background: #eeeeee;
+    margin: 15px;
+  }
 }
 
 .game {

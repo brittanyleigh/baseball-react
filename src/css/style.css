@@ -1094,6 +1094,10 @@ body {
       text-align: center; }
   .team_container--news .text-row {
     height: 6em !important; }
+  .team_container__placeholder {
+    height: 25px;
+    background: #eeeeee;
+    margin: 15px; }
 
 .game {
   display: grid;
