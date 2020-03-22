@@ -2,44 +2,42 @@ import React from "react";
 import PropTypes from "prop-types";
 import Block from "./Block";
 
-class PlayerStats extends React.Component {
-  renderStats() {
-    return this.props.stat.map(player => {
-      return (
-        <div className="block__row" key={player.person.id}>
-          <span className="block__span">{player.person.fullName}</span>
-          <span className="block__span">{player.value}</span>
-        </div>
-      );
-    });
-  }
-
-  statName = () => {
-    switch (this.props.statName) {
-      case "homeRuns":
-        return "Home Runs";
-      case "runsBattedIn":
-        return "RBIs";
-      case "battingAverage":
-        return "Batting Average";
-      case "onBasePlusSlugging":
-        return "OPS";
-      case "wins":
-        return "Wins";
-      case "earnedRunAverage":
-        return "ERA";
-      default:
-        return "Misc. Stats";
-    }
-  };
-
-  render() {
+function renderStats(stat) {
+  return stat.map(player => {
     return (
-      <Block heading={this.statName()} team={this.props.className}>
-        {this.renderStats()}
-      </Block>
+      <div className="block__row" key={player.person.id}>
+        <span className="block__span">{player.person.fullName}</span>
+        <span className="block__span">{player.value}</span>
+      </div>
     );
+  });
+}
+
+function statName(statName) {
+  switch (statName) {
+    case "homeRuns":
+      return "Home Runs";
+    case "runsBattedIn":
+      return "RBIs";
+    case "battingAverage":
+      return "Batting Average";
+    case "onBasePlusSlugging":
+      return "OPS";
+    case "wins":
+      return "Wins";
+    case "earnedRunAverage":
+      return "ERA";
+    default:
+      return "Misc. Stats";
   }
+}
+
+function PlayerStats(props) {
+  return (
+    <Block heading={statName(props.statName)} team={props.className}>
+      {renderStats(props.stat)}
+    </Block>
+  );
 }
 
 PlayerStats.propTypes = {

@@ -377,6 +377,7 @@ body {
   color: $dark_gray;
   -webkit-box-shadow: 5px 5px 15px -10px darken($gray, 25%);
           box-shadow: 5px 5px 15px -10px darken($gray, 25%);
+  border: solid 1px darken($gray, 5%);
 
   &--full {
     grid-column: 1/-1;

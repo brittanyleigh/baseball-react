@@ -1053,7 +1053,8 @@ body {
   background-color: #ffffff;
   color: #3c3c3c;
   -webkit-box-shadow: 5px 5px 15px -10px #929292;
-  box-shadow: 5px 5px 15px -10px #929292; }
+  box-shadow: 5px 5px 15px -10px #929292;
+  border: solid 1px #c5c5c5; }
   .block--full {
     grid-column: 1/-1; }
   .block__table {
