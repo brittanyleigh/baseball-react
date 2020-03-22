@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import Error from "./Error";
 import Score from "./Score";
-import TeamDataPlaceholder from "./TeamDataPlaceholder";
+import PlaceholderBlock from "./PlaceholderBlock";
 
 class YesterdayScore extends React.Component {
   render() {
@@ -12,11 +12,7 @@ class YesterdayScore extends React.Component {
 
     if (yesterday.isFetching) {
       return (
-        <TeamDataPlaceholder
-          heading="Yesterday's Score"
-          placeholderRows={2}
-          team={selected_team.className}
-        />
+        <PlaceholderBlock placeholderRows={2} team={selected_team.className} />
       );
     } else if (yesterday.data.length > 0) {
       return yesterday.data.map(game => {

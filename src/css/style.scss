@@ -261,7 +261,7 @@ body {
   .main--#{$team} {
     @include transparent-team-background($team);
   }
-  .team_container__heading--#{$team} {
+  .block__heading--#{$team} {
     @include team-background($team);
   }
 
@@ -349,7 +349,7 @@ body {
 
 .carousel {
   .slide {
-    max-height: 350px;
+    max-height: 500px;
 
     @media screen and (max-width: $small) {
       max-height: 250px;
@@ -372,7 +372,7 @@ body {
 }
 
 
-.team_container {
+.block {
   background-color: $neutral;
   color: $dark_gray;
   -webkit-box-shadow: 5px 5px 15px -10px darken($gray, 25%);
@@ -391,6 +391,7 @@ body {
     text-align: center;
     color: $neutral;
     font-size: .9em;
+    min-height: 15px;
   }
   &__row {
     display: -webkit-box;
@@ -409,6 +410,10 @@ body {
       min-height: 10px;
       text-align: center;
       border-bottom: solid 1px $gray;
+      padding: 5px;
+      &--left {
+        text-align: left;
+      }
     }
   }
   &__item {
@@ -430,7 +435,6 @@ body {
     background: #eeeeee;
     margin: 15px;
   }
-}
 
 .game {
   display: grid;
@@ -564,4 +568,5 @@ body {
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
   }
+}
 }

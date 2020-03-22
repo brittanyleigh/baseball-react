@@ -87,7 +87,7 @@ body {
 .main--angels {
   background: rgba(135, 0, 24, 0.5); }
 
-.team_container__heading--angels {
+.block__heading--angels {
   background: #BA0021; }
 
 .carousel .slide .legend--angels {
@@ -116,7 +116,7 @@ body {
 .main--astros {
   background: rgba(0, 19, 48, 0.5); }
 
-.team_container__heading--astros {
+.block__heading--astros {
   background: #002863; }
 
 .carousel .slide .legend--astros {
@@ -145,7 +145,7 @@ body {
 .main--athletics {
   background: rgba(0, 21, 17, 0.5); }
 
-.team_container__heading--athletics {
+.block__heading--athletics {
   background: #00483a; }
 
 .carousel .slide .legend--athletics {
@@ -174,7 +174,7 @@ body {
 .main--bluejays {
   background: rgba(11, 46, 98, 0.5); }
 
-.team_container__heading--bluejays {
+.block__heading--bluejays {
   background: #104490; }
 
 .carousel .slide .legend--bluejays {
@@ -203,7 +203,7 @@ body {
 .main--braves {
   background: rgba(2, 25, 51, 0.5); }
 
-.team_container__heading--braves {
+.block__heading--braves {
   background: #043164; }
 
 .carousel .slide .legend--braves {
@@ -232,7 +232,7 @@ body {
 .main--brewers {
   background: rgba(0, 1, 3, 0.5); }
 
-.team_container__heading--brewers {
+.block__heading--brewers {
   background: #08142e; }
 
 .carousel .slide .legend--brewers {
@@ -261,7 +261,7 @@ body {
 .main--cardinals {
   background: rgba(154, 31, 52, 0.5); }
 
-.team_container__heading--cardinals {
+.block__heading--cardinals {
   background: #c42842; }
 
 .carousel .slide .legend--cardinals {
@@ -290,7 +290,7 @@ body {
 .main--cubs {
   background: rgba(9, 33, 88, 0.5); }
 
-.team_container__heading--cubs {
+.block__heading--cubs {
   background: #0e3386; }
 
 .carousel .slide .legend--cubs {
@@ -319,7 +319,7 @@ body {
 .main--d-backs {
   background: rgba(138, 13, 39, 0.5); }
 
-.team_container__heading--d-backs {
+.block__heading--d-backs {
   background: #b91134; }
 
 .carousel .slide .legend--d-backs {
@@ -348,7 +348,7 @@ body {
 .main--dodgers {
   background: rgba(0, 61, 105, 0.5); }
 
-.team_container__heading--dodgers {
+.block__heading--dodgers {
   background: #005A9C; }
 
 .carousel .slide .legend--dodgers {
@@ -377,7 +377,7 @@ body {
 .main--giants {
   background: rgba(12, 12, 12, 0.5); }
 
-.team_container__heading--giants {
+.block__heading--giants {
   background: #272425; }
 
 .carousel .slide .legend--giants {
@@ -406,7 +406,7 @@ body {
 .main--indians {
   background: rgba(22, 36, 60, 0.5); }
 
-.team_container__heading--indians {
+.block__heading--indians {
   background: #233b62; }
 
 .carousel .slide .legend--indians {
@@ -435,7 +435,7 @@ body {
 .main--mariners {
   background: rgba(0, 34, 52, 0.5); }
 
-.team_container__heading--mariners {
+.block__heading--mariners {
   background: #004467; }
 
 .carousel .slide .legend--mariners {
@@ -464,7 +464,7 @@ body {
 .main--marlins {
   background: rgba(0, 0, 0, 0.5); }
 
-.team_container__heading--marlins {
+.block__heading--marlins {
   background: #000000; }
 
 .carousel .slide .legend--marlins {
@@ -493,7 +493,7 @@ body {
 .main--mets {
   background: rgba(0, 44, 81, 0.5); }
 
-.team_container__heading--mets {
+.block__heading--mets {
   background: #004784; }
 
 .carousel .slide .legend--mets {
@@ -522,7 +522,7 @@ body {
 .main--nationals {
   background: rgba(138, 9, 35, 0.5); }
 
-.team_container__heading--nationals {
+.block__heading--nationals {
   background: #ba0c2f; }
 
 .carousel .slide .legend--nationals {
@@ -551,7 +551,7 @@ body {
 .main--orioles {
   background: rgba(0, 0, 0, 0.5); }
 
-.team_container__heading--orioles {
+.block__heading--orioles {
   background: #000000; }
 
 .carousel .slide .legend--orioles {
@@ -580,7 +580,7 @@ body {
 .main--padres {
   background: rgba(0, 22, 47, 0.5); }
 
-.team_container__heading--padres {
+.block__heading--padres {
   background: #002d62; }
 
 .carousel .slide .legend--padres {
@@ -609,7 +609,7 @@ body {
 .main--phillies {
   background: rgba(158, 12, 49, 0.5); }
 
-.team_container__heading--phillies {
+.block__heading--phillies {
   background: #cd1040; }
 
 .carousel .slide .legend--phillies {
@@ -638,7 +638,7 @@ body {
 .main--pirates {
   background: rgba(11, 10, 8, 0.5); }
 
-.team_container__heading--pirates {
+.block__heading--pirates {
   background: #27261F; }
 
 .carousel .slide .legend--pirates {
@@ -667,7 +667,7 @@ body {
 .main--rangers {
   background: rgba(0, 41, 83, 0.5); }
 
-.team_container__heading--rangers {
+.block__heading--rangers {
   background: #004286; }
 
 .carousel .slide .legend--rangers {
@@ -696,7 +696,7 @@ body {
 .main--rays {
   background: rgba(5, 20, 47, 0.5); }
 
-.team_container__heading--rays {
+.block__heading--rays {
   background: #09275D; }
 
 .carousel .slide .legend--rays {
@@ -725,7 +725,7 @@ body {
 .main--reds {
   background: rgba(147, 0, 22, 0.5); }
 
-.team_container__heading--reds {
+.block__heading--reds {
   background: #C6001E; }
 
 .carousel .slide .legend--reds {
@@ -754,7 +754,7 @@ body {
 .main--redsox {
   background: rgba(147, 38, 45, 0.5); }
 
-.team_container__heading--redsox {
+.block__heading--redsox {
   background: #BC3039; }
 
 .carousel .slide .legend--redsox {
@@ -783,7 +783,7 @@ body {
 .main--rockies {
   background: rgba(29, 27, 74, 0.5); }
 
-.team_container__heading--rockies {
+.block__heading--rockies {
   background: #2b296f; }
 
 .carousel .slide .legend--rockies {
@@ -812,7 +812,7 @@ body {
 .main--royals {
   background: rgba(0, 44, 84, 0.5); }
 
-.team_container__heading--royals {
+.block__heading--royals {
   background: #004687; }
 
 .carousel .slide .legend--royals {
@@ -841,7 +841,7 @@ body {
 .main--tigers {
   background: rgba(0, 9, 17, 0.5); }
 
-.team_container__heading--tigers {
+.block__heading--tigers {
   background: #002244; }
 
 .carousel .slide .legend--tigers {
@@ -870,7 +870,7 @@ body {
 .main--twins {
   background: rgba(3, 11, 22, 0.5); }
 
-.team_container__heading--twins {
+.block__heading--twins {
   background: #0A2142; }
 
 .carousel .slide .legend--twins {
@@ -899,7 +899,7 @@ body {
 .main--whitesox {
   background: rgba(11, 10, 8, 0.5); }
 
-.team_container__heading--whitesox {
+.block__heading--whitesox {
   background: #27261F; }
 
 .carousel .slide .legend--whitesox {
@@ -928,7 +928,7 @@ body {
 .main--yankees {
   background: rgba(9, 16, 32, 0.5); }
 
-.team_container__heading--yankees {
+.block__heading--yankees {
   background: #142448; }
 
 .carousel .slide .legend--yankees {
@@ -957,7 +957,7 @@ body {
 .main--mlb {
   background: rgba(3, 1, 81, 0.5); }
 
-.team_container__heading--mlb {
+.block__heading--mlb {
   background: #050184; }
 
 .carousel .slide .legend--mlb {
@@ -1032,7 +1032,7 @@ body {
     padding-right: 10px; }
 
 .carousel .slide {
-  max-height: 350px; }
+  max-height: 500px; }
   @media screen and (max-width: 500px) {
     .carousel .slide {
       max-height: 250px; } }
@@ -1049,23 +1049,24 @@ body {
     -webkit-box-shadow: 5px 5px 15px -10px #000000;
     box-shadow: 5px 5px 15px -10px #000000; }
 
-.team_container {
+.block {
   background-color: #ffffff;
   color: #3c3c3c;
   -webkit-box-shadow: 5px 5px 15px -10px #929292;
   box-shadow: 5px 5px 15px -10px #929292; }
-  .team_container--full {
+  .block--full {
     grid-column: 1/-1; }
-  .team_container__table {
+  .block__table {
     width: 100%;
     border-collapse: collapse; }
-  .team_container__heading {
+  .block__heading {
     margin: 0px;
     padding: 7px 10px;
     text-align: center;
     color: #ffffff;
-    font-size: .9em; }
-  .team_container__row {
+    font-size: .9em;
+    min-height: 15px; }
+  .block__row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1073,129 +1074,124 @@ body {
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 10px; }
-    .team_container__row:not(:last-child) {
+    .block__row:not(:last-child) {
       border-bottom: solid 1px #d2d2d2; }
-  .team_container__tr {
+  .block__tr {
     padding: 10px; }
-    .team_container__tr:not(:last-child) {
+    .block__tr:not(:last-child) {
       border-bottom: solid 1px #d2d2d2; }
-    .team_container__tr-heading {
+    .block__tr-heading {
       font-size: 11px;
       color: #9f9f9f;
       min-height: 10px;
       text-align: center;
-      border-bottom: solid 1px #d2d2d2; }
-  .team_container__item {
-    padding: 10px;
-    min-width: 75px; }
-    .team_container__item--grow {
+      border-bottom: solid 1px #d2d2d2;
+      padding: 5px; }
+      .block__tr-heading--left {
+        text-align: left; }
+  .block__item {
+    padding: 10px; }
+    .block__item--grow {
       width: 100%; }
-    .team_container__item--center {
+    .block__item--center {
       text-align: center; }
-  .team_container--news .text-row {
+  .block--news .text-row {
     height: 6em !important; }
-  .team_container__placeholder {
+  .block__placeholder {
     height: 25px;
     background: #eeeeee;
     margin: 15px; }
-
-.game {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-  min-height: 70px; }
-  .game--yesterday {
-    grid-template-columns: 1fr 2fr; }
-  .game__detail {
-    grid-row: 1/span 2;
-    font-size: 36px;
-    font-weight: 900;
-    text-transform: uppercase; }
-    @media screen and (max-width: 500px) {
-      .game__detail {
-        font-size: 1.5em; } }
-    .game__detail:only-child {
-      grid-column: 1 / -1; }
-  .game__team {
-    padding: 5px;
-    font-weight: 700;
-    font-size: 1.2em; }
-    @media screen and (max-width: 500px) {
-      .game__team {
-        font-size: 1em; } }
-    .game__team--away {
-      border-bottom: solid 1px #d2d2d2;
-      padding-bottom: 10px; }
-
-@media screen and (max-width: 500px) {
-  .standings__team-name {
-    display: none; } }
-@media screen and (min-width: 500px) {
-  .standings__team-abbreviation {
-    display: none; } }
-
-.span--bold {
-  font-weight: bold; }
-.span--transparent {
-  opacity: .75; }
-.span--italic {
-  font-style: italic; }
-.span--large {
-  font-size: 1.1em; }
-.span--small {
-  font-size: .8em; }
-
-.text-block {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px; }
-.text-row {
-  width: 100% !important;
-  height: 2em !important; }
-
-.text--center {
-  text-align: center; }
-.text--right {
-  text-align: right; }
-
-.footer__content {
-  max-width: 860px;
-  margin: 0 auto;
-  -webkit-box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
-  padding: 5px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-.footer__a {
-  color: #ffffff;
-  font-size: .7em;
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  opacity: .5; }
-  .footer__a:hover, .footer__a:focus {
+  .block .game {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    min-height: 70px; }
+    .block .game--yesterday {
+      grid-template-columns: 1fr 2fr; }
+    .block .game__detail {
+      grid-row: 1/span 2;
+      font-size: 36px;
+      font-weight: 900;
+      text-transform: uppercase; }
+      @media screen and (max-width: 500px) {
+        .block .game__detail {
+          font-size: 1.5em; } }
+      .block .game__detail:only-child {
+        grid-column: 1 / -1; }
+    .block .game__team {
+      padding: 5px;
+      font-weight: 700;
+      font-size: 1.2em; }
+      @media screen and (max-width: 500px) {
+        .block .game__team {
+          font-size: 1em; } }
+      .block .game__team--away {
+        border-bottom: solid 1px #d2d2d2;
+        padding-bottom: 10px; }
+  @media screen and (max-width: 500px) {
+    .block .standings__team-name {
+      display: none; } }
+  @media screen and (min-width: 500px) {
+    .block .standings__team-abbreviation {
+      display: none; } }
+  .block .span--bold {
     font-weight: bold; }
-
-.loader {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
-  .loader__img {
-    -webkit-animation-name: spin;
-    animation-name: spin;
-    -webkit-animation-duration: 2500ms;
-    animation-duration: 2500ms;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite; }
+  .block .span--transparent {
+    opacity: .75; }
+  .block .span--italic {
+    font-style: italic; }
+  .block .span--large {
+    font-size: 1.1em; }
+  .block .span--small {
+    font-size: .8em; }
+  .block .text-block {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px; }
+  .block .text-row {
+    width: 100% !important;
+    height: 2em !important; }
+  .block .text--center {
+    text-align: center; }
+  .block .text--right {
+    text-align: right; }
+  .block .footer__content {
+    max-width: 860px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 30px 35px 2px rgba(0, 0, 0, 0.75);
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .block .footer__a {
+    color: #ffffff;
+    font-size: .7em;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    opacity: .5; }
+    .block .footer__a:hover, .block .footer__a:focus {
+      font-weight: bold; }
+  .block .loader {
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .block .loader__img {
+      -webkit-animation-name: spin;
+      animation-name: spin;
+      -webkit-animation-duration: 2500ms;
+      animation-duration: 2500ms;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite; }
 
 /*# sourceMappingURL=style.css.map */

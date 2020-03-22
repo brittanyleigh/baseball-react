@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Error from "./Error";
-import TeamDataPlaceholder from "./TeamDataPlaceholder";
+import PlaceholderBlock from "./PlaceholderBlock";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -37,11 +37,7 @@ class TeamNews extends React.Component {
 
     if (news.isFetching) {
       return (
-        <TeamDataPlaceholder
-          heading="Team News"
-          placeholderRows={5}
-          team={selected_team.className}
-        />
+        <PlaceholderBlock placeholderRows={5} team={selected_team.className} />
       );
     }
     if (news.data.length > 0) {
@@ -55,7 +51,7 @@ class TeamNews extends React.Component {
   }
 
   render() {
-    return <div className="team_container--full">{this.renderNews()}</div>;
+    return <div className="block--full">{this.renderNews()}</div>;
   }
 }
 

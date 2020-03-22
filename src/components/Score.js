@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import TeamDataContainer from "./TeamDataContainer";
+import Block from "./Block";
 
 class Score extends React.Component {
   render() {
@@ -40,13 +40,13 @@ class Score extends React.Component {
     }
 
     return (
-      <TeamDataContainer heading={heading} className="schedule" team={team}>
+      <Block heading={heading} team={team}>
         <div className="game game--yesterday">
           <div className="game__detail">{outcome}</div>
           {awayTeam}
           {homeTeam}
         </div>
-      </TeamDataContainer>
+      </Block>
     );
   }
 }

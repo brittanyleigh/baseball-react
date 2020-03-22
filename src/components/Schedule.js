@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TeamDataContainer from "./TeamDataContainer";
+import Block from "./Block";
 
 class Schedule extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class Schedule extends React.Component {
     gameTime = gameTime.charAt(0) === "0" ? gameTime.slice(1) : gameTime;
 
     return (
-      <TeamDataContainer heading={heading} className="schedule" team={team}>
+      <Block heading={heading} team={team}>
         <div className="game">
           <div className="game__detail">
             {game.status.statusCode !== "S" ? status : gameTime}
@@ -32,7 +32,7 @@ class Schedule extends React.Component {
           {awayTeam}
           {homeTeam}
         </div>
-      </TeamDataContainer>
+      </Block>
     );
   }
 }

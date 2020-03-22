@@ -7,7 +7,7 @@ import TodayGame from "./TodayGame.js";
 import Standings from "./Standings.js";
 import PlayerStats from "./PlayerStats";
 import TeamNews from "./TeamNews";
-import TeamDataPlaceholder from "./TeamDataPlaceholder";
+import PlaceholderBlock from "./PlaceholderBlock";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
@@ -48,11 +48,7 @@ class Main extends React.Component {
 
     if (hitterStats.isFetching) {
       return (
-        <TeamDataPlaceholder
-          heading="Hitter Stats"
-          placeholderRows={3}
-          team={selected_team.className}
-        />
+        <PlaceholderBlock placeholderRows={3} team={selected_team.className} />
       );
     } else if (hitterStats && hitterStats.data) {
       const statKeys = Object.keys(hitterStats.data);
@@ -75,11 +71,7 @@ class Main extends React.Component {
 
     if (pitcherStats.isFetching) {
       return (
-        <TeamDataPlaceholder
-          heading="Pitcher Stats"
-          placeholderRows={3}
-          team={selected_team.className}
-        />
+        <PlaceholderBlock placeholderRows={3} team={selected_team.className} />
       );
     } else if (pitcherStats && pitcherStats.data) {
       const statKeys = Object.keys(pitcherStats.data);

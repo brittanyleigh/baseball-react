@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Error from "./Error";
-import TeamDataContainer from "./TeamDataContainer";
-import TeamDataPlaceholder from "./TeamDataPlaceholder";
+import Block from "./Block";
+import PlaceholderBlock from "./PlaceholderBlock";
 
 class Standings extends React.Component {
   formatAVG(average) {
@@ -21,21 +21,21 @@ class Standings extends React.Component {
         });
 
         return (
-          <tr className=" team_container__tr standings" key={team.team.id}>
-            <td className="team_container__item">{team.divisionRank} </td>
-            <td className="team_container__item team_container__item--grow">
+          <tr className=" block__tr standings" key={team.team.id}>
+            <td className="block__item">{team.divisionRank} </td>
+            <td className="block__item">
               <span className="standings__team-name">{team.team.name}</span>
               <span className="standings__team-abbreviation">
                 {teamInfo.abbreviation}
               </span>
             </td>
-            <td className="team_container__item  team_container__item--center">
+            <td className="block__item  block__item--center">
               {team.leagueRecord.wins}-{team.leagueRecord.losses}{" "}
             </td>
-            <td className="team_container__item team_container__item--center">
+            <td className="block__item block__item--center">
               {team.leagueRecord.pct}{" "}
             </td>
-            <td className="team_container__item team_container__item--center">
+            <td className="block__item block__item--center">
               {team.divisionGamesBack}
             </td>
           </tr>
@@ -50,8 +50,7 @@ class Standings extends React.Component {
 
     if (standings.isFetching) {
       return (
-        <TeamDataPlaceholder
-          heading="Standings"
+        <PlaceholderBlock
           placeholderRows={5}
           team={selected_team.className}
           className="full"
@@ -60,24 +59,28 @@ class Standings extends React.Component {
     }
 
     return (
-      <TeamDataContainer
+      <Block
         heading="Standings"
         className="full"
         team={selected_team.className}
       >
-        <table className="team_container__table">
+        <table className="block__table">
           <thead>
-            <tr className="team_container__tr team_container__tr-heading ">
-              <td></td>
-              <td></td>
-              <td className="team_container__tr-heading-item">W-L</td>
-              <td className="team_container__tr-heading-item">AVG</td>
-              <td className="team_container__tr-heading-item">GB</td>
+            <tr>
+              <td className="block__tr-heading block__tr-heading--left">
+                RANK
+              </td>
+              <td className="block__tr-heading block__tr-heading--left">
+                TEAM
+              </td>
+              <td className="block__tr-heading">W-L</td>
+              <td className="block__tr-heading">AVG</td>
+              <td className="block__tr-heading">GB</td>
             </tr>
           </thead>
           <tbody>{this.renderTeams()}</tbody>
         </table>
-      </TeamDataContainer>
+      </Block>
     );
   }
 }

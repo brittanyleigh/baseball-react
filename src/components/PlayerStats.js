@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TeamDataContainer from "./TeamDataContainer";
+import Block from "./Block";
 
 class PlayerStats extends React.Component {
   renderStats() {
     return this.props.stat.map(player => {
       return (
-        <div className="team_container__row" key={player.person.id}>
-          <span className="team_container__span">{player.person.fullName}</span>
-          <span className="team_container__span">{player.value}</span>
+        <div className="block__row" key={player.person.id}>
+          <span className="block__span">{player.person.fullName}</span>
+          <span className="block__span">{player.value}</span>
         </div>
       );
     });
@@ -35,9 +35,9 @@ class PlayerStats extends React.Component {
 
   render() {
     return (
-      <TeamDataContainer heading={this.statName()} team={this.props.className}>
+      <Block heading={this.statName()} team={this.props.className}>
         {this.renderStats()}
-      </TeamDataContainer>
+      </Block>
     );
   }
 }

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Error from "./Error";
-import TeamDataPlaceholder from "./TeamDataPlaceholder";
+import PlaceholderBlock from "./PlaceholderBlock";
 import Schedule from "./Schedule";
 import Score from "./Score";
 
@@ -13,11 +13,7 @@ class TodayGame extends React.Component {
 
     if (today.isFetching) {
       return (
-        <TeamDataPlaceholder
-          heading="Today's Game"
-          placeholderRows={2}
-          team={selected_team.className}
-        />
+        <PlaceholderBlock placeholderRows={2} team={selected_team.className} />
       );
     } else if (today.data.length > 0) {
       return today.data.map(game => {

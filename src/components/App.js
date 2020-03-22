@@ -26,7 +26,6 @@ class App extends React.Component {
 
   render() {
     const { selected_team, teams } = this.props;
-    //console.log(teams);
     if (teams.isFetching || !selected_team) {
       return (
         <div className="loader">

@@ -151,7 +151,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {
-    selectTeam
-  }
+  { selectTeam }
 )(Menu);
