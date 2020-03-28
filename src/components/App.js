@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+/* eslint-disable global-require */
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Menu from "./Menu";
 import Main from "./Main";
@@ -9,60 +9,40 @@ import "../css/style.css";
 import { fetchTeamData } from "../ducks/teams";
 import { getPreviousTeam, selectTeam } from "../ducks/team";
 
-const initialState = {
-  selected_team: undefined
-};
+function App() {
+  const dispatch = useDispatch();
+  const store = useSelector(state => state);
+  const { teams, team } = store;
+  const selected_team = team.team;
 
-class App extends React.Component {
-  state = initialState;
+  useEffect(() => {
+    dispatch(fetchTeamData());
+    dispatch(getPreviousTeam());
+  }, []);
 
-  async componentDidMount() {
-    await this.props.fetchTeamData();
-    this.props.getPreviousTeam();
-    if (!this.props.selected_team) {
-      this.props.selectTeam(this.props.teams.data[0]);
+  useEffect(() => {
+    if (!selected_team && teams.data.length > 0) {
+      dispatch(selectTeam(teams.data[0]));
     }
-  }
+  }, [teams]);
 
-  render() {
-    const { selected_team, teams } = this.props;
-    if (teams.isFetching || !selected_team) {
-      return (
-        <div className="loader">
-          {/* eslint-disable global-require */}
-          <img
-            className="loader__img"
-            src={require(`../img/baseball.svg`)}
-            alt="spinning baseball loader icon"
-          ></img>
-        </div>
-      );
-    }
+  if (teams.isFetching || !selected_team) {
     return (
-      <React.Fragment>
-        <Menu />
-        <Main />
-      </React.Fragment>
+      <div className="loader">
+        <img
+          className="loader__img"
+          src={require(`../img/baseball.svg`)}
+          alt="spinning baseball loader icon"
+        ></img>
+      </div>
     );
   }
+  return (
+    <React.Fragment>
+      <Menu />
+      <Main />
+    </React.Fragment>
+  );
 }
 
-App.propTypes = {
-  selected_team: PropTypes.object,
-  teams: PropTypes.object.isRequired,
-  fetchTeamData: PropTypes.func.isRequired,
-  getPreviousTeam: PropTypes.func.isRequired,
-  selectTeam: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => {
-  return {
-    selected_team: state.team.team,
-    teams: state.teams
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { fetchTeamData, getPreviousTeam, selectTeam }
-)(App);
+export default App;
