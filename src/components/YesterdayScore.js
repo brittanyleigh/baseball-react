@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Error from "./Error";
+import Empty from "./Empty";
 import Score from "./Score";
 import PlaceholderBlock from "./PlaceholderBlock";
 
@@ -25,9 +25,23 @@ function YesterdayScore() {
         />
       );
     });
+  } else if (yesterday.data.length === 0) {
+    return (
+      <Empty
+        heading="Yesterday's Score"
+        team={selected_team.className}
+        offDay={true}
+      />
+    );
   }
 
-  return <Error heading="Yesterday's Score" team={selected_team.className} />;
+  return (
+    <Empty
+      heading="Yesterday's Score"
+      team={selected_team.className}
+      error={true}
+    />
+  );
 }
 
 export default YesterdayScore;

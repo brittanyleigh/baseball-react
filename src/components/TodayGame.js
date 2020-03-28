@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Error from "./Error";
+import Empty from "./Empty";
 import PlaceholderBlock from "./PlaceholderBlock";
 import Schedule from "./Schedule";
 import Score from "./Score";
@@ -39,7 +39,9 @@ function TodayGame() {
       );
     });
   }
-  return <Error heading="Today's Game" team={selected_team.className} />;
+  return (
+    <Empty heading="Today's Game" team={selected_team.className} error={true} />
+  );
 }
 
 export default TodayGame;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Error from "./Error";
+import Empty from "./Empty";
 import PlaceholderBlock from "./PlaceholderBlock";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -48,7 +48,9 @@ function TeamNews() {
       </Carousel>
     );
   } else {
-    newsBlock = <Error heading="Team News" team={selected_team.className} />;
+    newsBlock = (
+      <Empty heading="Team News" team={selected_team.className} error={true} />
+    );
   }
 
   return <div className="block--full">{newsBlock}</div>;

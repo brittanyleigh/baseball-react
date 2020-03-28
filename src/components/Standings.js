@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import Error from "./Error";
+import Empty from "./Empty";
 import Block from "./Block";
 import PlaceholderBlock from "./PlaceholderBlock";
 
@@ -34,7 +34,9 @@ function renderTeams(standings, selected_team, teams) {
       );
     });
   }
-  return <Error heading="Standings" team={selected_team.className} />;
+  return (
+    <Empty heading="Standings" team={selected_team.className} error={true} />
+  );
 }
 
 function Standings() {

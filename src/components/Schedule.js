@@ -16,6 +16,8 @@ function Schedule(props) {
     </div>
   );
   const status = game.status.detailedState;
+  const code = game.status.statusCode;
+
   let gameTime = new Date(game.gameDate).toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit"
@@ -25,8 +27,10 @@ function Schedule(props) {
   return (
     <Block heading={heading} team={team}>
       <div className="game">
-        <div className="game__detail">
-          {game.status.statusCode !== "S" ? status : gameTime}
+        <div
+          className={`game__detail ${code !== "S" && "game__detail--special"}`}
+        >
+          {code !== "S" ? status : gameTime}
         </div>
         {awayTeam}
         {homeTeam}

@@ -6,6 +6,7 @@ import Block from "./Block";
 function Score(props) {
   const { game, heading, team } = props;
   let outcome, awayTeam, homeTeam;
+  console.log(game);
 
   if (game.status.statusCode !== "F") {
     outcome = game.status.detailedStatus;
@@ -38,7 +39,7 @@ function Score(props) {
 
   return (
     <Block heading={heading} team={team}>
-      <div className="game game--yesterday">
+      <div className="game">
         <div className="game__detail">{outcome}</div>
         {awayTeam}
         {homeTeam}

@@ -378,6 +378,13 @@ body {
   -webkit-box-shadow: 5px 5px 15px -10px darken($gray, 25%);
           box-shadow: 5px 5px 15px -10px darken($gray, 25%);
   border: solid 1px darken($gray, 5%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 
   &--full {
     grid-column: 1/-1;
@@ -425,6 +432,21 @@ body {
     &--center {
       text-align: center;
     }
+    &--flex {
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    }
   }
   &--news {
     .text-row {
@@ -436,11 +458,10 @@ body {
     background: #eeeeee;
     margin: 15px;
   }
-}
 
 .game {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -448,8 +469,8 @@ body {
   padding: $item-padding;
   min-height: 70px;
 
-  &--yesterday {
-    grid-template-columns: 1fr 2fr;
+  &--special {
+    grid-template-columns: 1fr 1fr;
   }
 
   &__detail {
@@ -457,12 +478,20 @@ body {
     font-size: 36px;
     font-weight: 900;
     text-transform: uppercase;
+    &--special {
+      word-break: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+      font-size: 28px;
+    }
     @media screen and (max-width: $small){
       font-size: 1.5em;
     }
     &:only-child {
       grid-column: 1 / -1;
     }
+
   }
   &__team {
     padding: 5px;
@@ -570,4 +599,12 @@ body {
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
   }
+}
+
+.message {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
 }
