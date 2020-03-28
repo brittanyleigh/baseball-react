@@ -1,26 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class PlaceholderBlock extends React.Component {
-  renderRows() {
-    const { placeholderRows } = this.props;
-    const rows = [];
-    for (let i = 0; i < placeholderRows; i++) {
-      rows.push(<div className="block__placeholder" key={i} />);
-    }
-    return rows;
+function PlaceholderBlock(props) {
+  const { team, className, placeholderRows } = props;
+  const rows = [];
+  for (let i = 0; i < placeholderRows; i++) {
+    rows.push(<div className="block__placeholder" key={i} />);
   }
 
-  render() {
-    const { team, className } = this.props;
-
-    return (
-      <div className={`block block--${className} `}>
-        <h4 className={`block__heading block__heading--${team}`}> </h4>
-        {this.renderRows()}
-      </div>
-    );
-  }
+  return (
+    <div className={`block block--${className} `}>
+      <h4 className={`block__heading block__heading--${team}`}> </h4>
+      {rows}
+    </div>
+  );
 }
 
 PlaceholderBlock.propTypes = {

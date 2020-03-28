@@ -1,17 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class Block extends React.Component {
-  render() {
-    const { heading, children, className, team } = this.props;
+function Block(props) {
+  const { heading, children, className, team } = props;
 
-    return (
-      <div className={`block${className ? ` block--${className}` : ""}`}>
-        <h4 className={`block__heading block__heading--${team}`}>{heading}</h4>
-        {children}
-      </div>
-    );
-  }
+  return (
+    <div className={`block${className ? ` block--${className}` : ""}`}>
+      <h4 className={`block__heading block__heading--${team}`}>{heading}</h4>
+      {children}
+    </div>
+  );
 }
 
 Block.propTypes = {
