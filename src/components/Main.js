@@ -11,9 +11,6 @@ import YearHeading from "./YearHeading";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
-import { getDivisionStandings } from "../ducks/standings";
-import { getHitterStats } from "../ducks/hitterStats";
-import { getPitcherStats } from "../ducks/pitcherStats";
 import { getTeamNews } from "../ducks/news";
 
 function Main() {
@@ -26,9 +23,6 @@ function Main() {
   useEffect(() => {
     dispatch(getYesterdayScore());
     dispatch(getTodayGame());
-    dispatch(getDivisionStandings());
-    dispatch(getHitterStats());
-    dispatch(getPitcherStats());
     dispatch(getTeamNews());
   }, [selected_team]);
 

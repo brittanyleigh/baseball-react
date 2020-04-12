@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getDivisionStandings = () => (dispatch, getState) => {
+export const getDivisionStandings = year => (dispatch, getState) => {
   const team = getState().team.team.id;
 
   dispatch({ type: REQUEST });
@@ -35,8 +35,7 @@ export const getDivisionStandings = () => (dispatch, getState) => {
     .get("standings", {
       params: {
         leagueId: "103,104",
-        // TODO: dynamically update season year
-        season: "1995"
+        season: year
       }
     })
     .then(results => {

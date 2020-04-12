@@ -6,7 +6,6 @@ import Block from "./Block";
 function Score(props) {
   const { game, heading, team } = props;
   let outcome, awayTeam, homeTeam;
-  console.log(game);
 
   if (game.status.statusCode !== "F") {
     outcome = game.status.detailedStatus;

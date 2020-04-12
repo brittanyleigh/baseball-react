@@ -19,6 +19,7 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         isFetching: false,
+        data: [],
         error: action.payload
       };
     default:
@@ -26,7 +27,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getPitcherStats = () => (dispatch, getState) => {
+export const getPitcherStats = year => (dispatch, getState) => {
   const team = getState().team.team.id;
   const numberOfLeaders = 3;
   dispatch({ type: REQUEST });
@@ -35,8 +36,7 @@ export const getPitcherStats = () => (dispatch, getState) => {
     .get(`teams/${team}/leaders`, {
       params: {
         leaderCategories: "wins,earnedRunAverage",
-        // TODO: dynamically update season year
-        season: "2019"
+        season: year
       }
     })
     .then(results => {

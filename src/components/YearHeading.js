@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Select from "react-select";
+import moment from "moment";
+
+import { getDivisionStandings } from "../ducks/standings";
+import { getHitterStats } from "../ducks/hitterStats";
+import { getPitcherStats } from "../ducks/pitcherStats";
 
 function YesterdayScore() {
+  const dispatch = useDispatch();
+  const currentYear = moment().format("YYYY");
+  const [year, setYear] = useState(currentYear);
+
+  useEffect(() => {
+    dispatch(getDivisionStandings(year));
+    dispatch(getHitterStats(year));
+    dispatch(getPitcherStats(year));
+  }, [year]);
+
   const options = [
     { value: "2020", label: "2020" },
     { value: "2019", label: "2019" },
@@ -32,7 +48,10 @@ function YesterdayScore() {
       <Select
         className="section-heading__select"
         options={options}
-        defaultValue={{ label: "2020", value: "2020" }}
+        defaultValue={{ label: currentYear, value: currentYear }}
+        onChange={e => {
+          setYear(e.value);
+        }}
       />
     </div>
   );

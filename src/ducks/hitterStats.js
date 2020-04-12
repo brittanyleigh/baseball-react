@@ -19,6 +19,7 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         isFetching: false,
+        data: [],
         error: action.payload
       };
     default:
@@ -26,7 +27,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getHitterStats = () => (dispatch, getState) => {
+export const getHitterStats = year => (dispatch, getState) => {
   const team = getState().team.team.id;
   const numberOfLeaders = 3;
 
@@ -37,8 +38,7 @@ export const getHitterStats = () => (dispatch, getState) => {
       params: {
         leaderCategories:
           "homeRuns,runsBattedIn,battingAverage,onBasePlusSlugging",
-        // TODO: dynamically update season year
-        season: "2019"
+        season: year
       }
     })
     .then(results => {
