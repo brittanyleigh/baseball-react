@@ -25,14 +25,14 @@ function Score(props) {
       team.id === game.teams.home.team.id &&
       parseInt(game.teams.home.score, 10) > parseInt(game.teams.away.score, 10)
     ) {
-      outcome = "W";
+      outcome = "WIN";
     } else if (
       team.id === game.teams.away.team.id &&
       parseInt(game.teams.away.score, 10) > parseInt(game.teams.home.score, 10)
     ) {
-      outcome = "W";
+      outcome = "WIN";
     } else {
-      outcome = "L";
+      outcome = "LOSS";
     }
   }
 
