@@ -34,7 +34,7 @@ function TodayGame() {
           game={game}
           heading="Today's Game"
           team={selected_team.className}
-          displayStatus={game.status.statusCode !== "S" && true}
+          displayStatus={game.status.statusCode !== "S"}
         />
       );
     });

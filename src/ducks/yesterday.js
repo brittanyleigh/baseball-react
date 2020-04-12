@@ -1,4 +1,5 @@
 import mlbStats from "../apis/mlbStats";
+import moment from "moment";
 
 const REQUEST = "mlbStats/yesterday/REQUEST";
 const SUCCESS = "mlbStats/yesterday/SUCCESS";
@@ -28,16 +29,10 @@ export default function reducer(state = initialState, action = {}) {
 
 export const getYesterdayScore = () => (dispatch, getState) => {
   dispatch({ type: REQUEST });
-  const oneDay = 864e5;
-  const negativeTwo = -2;
 
-  const yesterday = new Date(Date.now() - oneDay);
-  const yester_year = yesterday.getFullYear();
-  const yester_month = `0${yesterday.getMonth() + 1}`.slice(negativeTwo);
-  const yester_date = yesterday.getDate();
-  /* eslint-disable no-unused-vars*/
-  const scoreDate = `${yester_year}-${yester_month}-${yester_date}`;
-  const tempYesterday = "2019-06-11";
+  const yesterday = moment()
+    .subtract(1, "days")
+    .format("YYYY-MM-DD");
   const team = getState().team.team.id;
 
   return mlbStats
@@ -45,7 +40,7 @@ export const getYesterdayScore = () => (dispatch, getState) => {
       params: {
         sportId: 1,
         teamId: team,
-        date: tempYesterday
+        date: yesterday
       }
     })
     .then(results => {

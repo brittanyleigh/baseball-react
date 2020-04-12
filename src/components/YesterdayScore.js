@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import Empty from "./Empty";
 import Score from "./Score";
+import Schedule from "./Schedule";
 import PlaceholderBlock from "./PlaceholderBlock";
 
 function YesterdayScore() {
@@ -16,12 +17,23 @@ function YesterdayScore() {
     );
   } else if (yesterday.data.length > 0) {
     return yesterday.data.map(game => {
+      if (game.status.statusCode === "F") {
+        return (
+          <Score
+            key={game.gamePk}
+            game={game}
+            heading="Yesterday's Score"
+            team={selected_team.className}
+          />
+        );
+      }
       return (
-        <Score
+        <Schedule
           key={game.gamePk}
           game={game}
-          heading="Yesterday's Score"
+          heading="Yesterday's Game"
           team={selected_team.className}
+          displayStatus={game.status.statusCode !== "S"}
         />
       );
     });
