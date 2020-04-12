@@ -7,6 +7,7 @@ import Standings from "./Standings.js";
 import PlayerStats from "./PlayerStats";
 import TeamNews from "./TeamNews";
 import PlaceholderBlock from "./PlaceholderBlock";
+import YearHeading from "./YearHeading";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
@@ -70,11 +71,14 @@ function Main() {
   return (
     <main role="main" className={`main main--${selected_team.className}`}>
       <div className="container">
+        <h2 className="section-heading">Scoreboard</h2>
         <YesterdayScore />
         <TodayGame />
+        <YearHeading />
         <Standings />
         {hitterStatsContent}
         {pitcherStatsContent}
+        <h2 className="section-heading">Team News</h2>
         <TeamNews team={selected_team.className} />
       </div>
     </main>

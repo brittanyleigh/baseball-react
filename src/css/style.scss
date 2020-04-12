@@ -212,6 +212,27 @@ body {
 .heading {
   @include container();
 }
+
+.section-heading {
+  margin: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  grid-column: 1/-1;
+  margin-top: 15px;
+  border-bottom: solid 1px $gray;
+  padding-bottom: 5px;
+
+  &__select {
+    display: inline-block;
+    min-width: 125px;
+    font-size: 1.5rem;
+  }
+
+  &--inline-block {
+    display: inline-block;
+  }
+}
+
 .container {
   @include container();
   background: url('../img/bg.jpg');

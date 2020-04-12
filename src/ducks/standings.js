@@ -36,7 +36,7 @@ export const getDivisionStandings = () => (dispatch, getState) => {
       params: {
         leagueId: "103,104",
         // TODO: dynamically update season year
-        season: "2019"
+        season: "1995"
       }
     })
     .then(results => {
