@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import YesterdayScore from "./YesterdayScore.js";
-import TodayGame from "./TodayGame.js";
+import Scoreboard from "./Scoreboard";
 import Standings from "./Standings.js";
 import PlayerStats from "./PlayerStats";
 import TeamNews from "./TeamNews";
@@ -65,9 +64,7 @@ function Main() {
   return (
     <main role="main" className={`main main--${selected_team.className}`}>
       <div className="container">
-        <h2 className="section-heading">Scoreboard</h2>
-        <YesterdayScore />
-        <TodayGame />
+        <Scoreboard />
         <YearHeading team={selected_team} />
         <Standings />
         {hitterStatsContent}

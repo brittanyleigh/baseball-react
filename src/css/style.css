@@ -1028,7 +1028,10 @@ body {
   color: #ffffff;
   text-transform: uppercase;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  position: absolute;
+  width: 100%;
+  z-index: 100; }
   .nav__sub-ul--closed {
     display: none; }
 .nav__sub-li {

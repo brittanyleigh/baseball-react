@@ -1,9 +1,8 @@
 import mlbStats from "../apis/mlbStats";
-import moment from "moment";
 
-const REQUEST = "mlbStats/today/REQUEST";
-const SUCCESS = "mlbStats/today/SUCCESS";
-const FAILURE = "mlbStats/today/FAILURE";
+const REQUEST = "mlbStats/seasons/REQUEST";
+const SUCCESS = "mlbStats/seasons/SUCCESS";
+const FAILURE = "mlbStats/seasons/FAILURE";
 
 const initialState = { data: [] };
 export default function reducer(state = initialState, action = {}) {
@@ -20,7 +19,6 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         isFetching: false,
-        data: [],
         error: action.payload
       };
     default:
@@ -28,22 +26,19 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export const getTodayGame = () => (dispatch, getState) => {
+export const getSeasonDates = () => dispatch => {
   dispatch({ type: REQUEST });
 
-  const today = moment().format("YYYY-MM-DD");
-  const team = getState().team.team.id;
-
   return mlbStats
-    .get("schedule", {
+    .get("seasons?sportId=1", {
       params: {
-        sportId: 1,
-        teamId: team,
-        date: today
+        sportId: 1
       }
     })
     .then(results => {
-      dispatch({ type: SUCCESS, payload: results.data.dates[0].games });
+      const dates = results.data.seasons[0];
+      const season = { start: dates.seasonStartDate, end: dates.seasonEndDate };
+      dispatch({ type: SUCCESS, payload: season });
     })
     .catch(error => dispatch({ type: FAILURE, payload: error }));
 };
