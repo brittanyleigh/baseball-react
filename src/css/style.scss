@@ -300,6 +300,7 @@ body {
     margin: 0px;
     padding: 0px;
     background: $neutral;
+    position: relative;
   }
   &__li {
     @include flex-center();
