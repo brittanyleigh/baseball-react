@@ -68,7 +68,7 @@ function Main() {
         <h2 className="section-heading">Scoreboard</h2>
         <YesterdayScore />
         <TodayGame />
-        <YearHeading />
+        <YearHeading team={selected_team} />
         <Standings />
         {hitterStatsContent}
         {pitcherStatsContent}

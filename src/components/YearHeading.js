@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Select from "react-select";
+import PropTypes from "prop-types";
 import moment from "moment";
 
 import { getDivisionStandings } from "../ducks/standings";
 import { getHitterStats } from "../ducks/hitterStats";
 import { getPitcherStats } from "../ducks/pitcherStats";
 
-function YesterdayScore() {
+function YearHeading(props) {
+  const { team } = props;
   const dispatch = useDispatch();
   const currentYear = moment().format("YYYY");
   const [year, setYear] = useState(currentYear);
@@ -16,7 +18,7 @@ function YesterdayScore() {
     dispatch(getDivisionStandings(year));
     dispatch(getHitterStats(year));
     dispatch(getPitcherStats(year));
-  }, [year]);
+  }, [year, team]);
 
   const options = [
     { value: "2020", label: "2020" },
@@ -57,4 +59,8 @@ function YesterdayScore() {
   );
 }
 
-export default YesterdayScore;
+YearHeading.propTypes = {
+  team: PropTypes.string.isRequired
+};
+
+export default YearHeading;
