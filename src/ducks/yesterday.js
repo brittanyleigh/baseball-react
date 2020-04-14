@@ -20,6 +20,7 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         isFetching: false,
+        data: [],
         error: action.payload
       };
     default:

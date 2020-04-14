@@ -38,6 +38,14 @@ function TodayGame() {
         />
       );
     });
+  } else if (today.data.length === 0) {
+    return (
+      <Empty
+        heading="Today's Game"
+        team={selected_team.className}
+        offDay={true}
+      />
+    );
   }
   return (
     <Empty heading="Today's Game" team={selected_team.className} error={true} />
