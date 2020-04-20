@@ -13,17 +13,30 @@ test("can render with redux with defaults", async () => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares);
   const store = mockStore();
+  const mockTeams = [
+    {
+      id: 112,
+      name: "Chicago Cubs",
+      abbreviation: "CHC",
+      teamName: "Cubs",
+      division: {
+        id: 205,
+        name: "National League Central",
+        link: "/api/v1/divisions/205"
+      }
+    }
+  ];
 
   mockAxios.get.mockImplementationOnce(() =>
-    Promise.resolve({ data: { teams: ["Cubs"] } })
+    Promise.resolve({ data: { teams: mockTeams } })
   );
 
-  await store.dispatch(fetchTeamData());
+  //await store.dispatch(fetchTeamData());
   render(<App />);
 
-  console.log(store.getActions());
+  //console.log(store.getActions());
 
   await waitFor(() => {
-    //expect(screen.getByText("scoreboard")).toBeInTheDocument();
+    expect(screen.getByText("scoreboard")).toBeInTheDocument();
   });
 });
