@@ -7,8 +7,6 @@ import mockAxios from "axios";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import { fetchTeamData } from "../ducks/teams";
-
 test("can render with redux with defaults", async () => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares);
@@ -26,17 +24,29 @@ test("can render with redux with defaults", async () => {
       }
     }
   ];
+  const mockSeason = {
+    seasons: [
+      {
+        seasonStartDate: "2020-02-21",
+        seasonEndDate: "2020-10-28"
+      }
+    ]
+  };
 
-  mockAxios.get.mockImplementationOnce(() =>
-    Promise.resolve({ data: { teams: mockTeams } })
-  );
+  mockAxios.get.mockImplementation(url => {
+    switch (url) {
+      case "teams":
+        return Promise.resolve({ data: { teams: mockTeams } });
+      case "seasons?sportId=1":
+        return Promise.resolve({ data: mockSeason });
+      default:
+        return Promise.reject(new Error("not found"));
+    }
+  });
 
-  //await store.dispatch(fetchTeamData());
   render(<App />);
 
-  //console.log(store.getActions());
-
   await waitFor(() => {
-    expect(screen.getByText("scoreboard")).toBeInTheDocument();
+    expect(screen.getByText(/scoreboard/i)).toBeInTheDocument();
   });
 });
