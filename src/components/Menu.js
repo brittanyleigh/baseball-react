@@ -66,6 +66,7 @@ function Menu(props) {
       <li
         className="nav__li"
         tabIndex="0"
+        data-testid="menu"
         onClick={() => setIsOpen(!isOpen)}
         onKeyUp={event => {
           if (event.keyCode === enter) {

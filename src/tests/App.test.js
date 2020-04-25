@@ -56,14 +56,14 @@ test("can render with redux with defaults", async () => {
   render(<App />);
   await waitFor(() => {
     expect(screen.getByText(/scoreboard/i)).toBeInTheDocument();
-    expect(screen.getByText(/red/i)).toBeInTheDocument();
+    expect(screen.getByTestId("menu")).toBeInTheDocument();
   });
 });
 
 test("can select different team by clicking", async () => {
   render(<App />);
   await waitFor(() => {
-    expect(screen.getByText(/red/i)).toBeInTheDocument();
+    expect(screen.getByTestId("menu")).toBeInTheDocument();
   });
   fireEvent.click(screen.getByText(/red/i));
   expect(screen.getByText(/cubs/i)).toBeInTheDocument();
@@ -74,10 +74,20 @@ test("can select different team by clicking", async () => {
 test("can select different team by keypress", async () => {
   render(<App />);
   await waitFor(() => {
-    expect(screen.getByText(/red/i)).toBeInTheDocument();
+    expect(screen.getByTestId("menu")).toBeInTheDocument();
   });
-  fireEvent.keyDown(screen.getByText(/red/i), { key: "Enter", code: "Enter" });
-  expect(screen.getByText(/cubs/i)).toBeInTheDocument();
-  fireEvent.keyDown(screen.getByText(/cubs/i), { key: "Enter", code: "Enter" });
+  fireEvent.keyUp(screen.getByTestId("menu"), {
+    key: "Enter",
+    code: "Enter",
+    keyCode: 13
+  });
+  await waitFor(() => {
+    expect(screen.getByText(/cubs/i)).toBeInTheDocument();
+  });
+  fireEvent.keyUp(screen.getByText(/cubs/i), {
+    key: "Enter",
+    code: "Enter",
+    keyCode: 13
+  });
   expect(screen.queryByText(/red/i)).toBeNull();
 });
