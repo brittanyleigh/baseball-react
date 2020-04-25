@@ -7,11 +7,27 @@ import PlaceholderBlock from "./PlaceholderBlock";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
+function renderImage(articleImage, alt) {
+  const backupImages = [
+    "baseball-base.jpg",
+    "baseball-stadium.jpg",
+    "dirty-baseball.jpg",
+    "multiple-baseballs.jpg",
+    "two-baseballs.jpg"
+  ];
+  const index = Math.floor(Math.random() * backupImages.length);
+  if (articleImage) {
+    return <img src={articleImage} alt={alt} />;
+  }
+  /* eslint-disable-next-line */
+  return <img src={require(`../img/news/${backupImages[index]}`)} alt={alt} />;
+}
+
 function renderCarouselSlides(data, selected_team) {
   return data.map(article => {
     return (
       <React.Fragment key={article.title}>
-        <img src={article.urlToImage} alt={article.title} />
+        {renderImage(article.urlToImage, article.title)}
         <a
           href={article.url}
           target="_blank"
