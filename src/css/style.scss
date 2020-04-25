@@ -492,7 +492,7 @@ body {
           align-items: center;
   text-align: center;
   padding: $item-padding;
-  min-height: 70px;
+  min-height: 80px;
 
   &--special {
     grid-template-columns: 1fr 1fr;
@@ -500,7 +500,7 @@ body {
 
   &__detail {
     grid-row: 1/span 2;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 900;
     text-transform: uppercase;
     &--special {

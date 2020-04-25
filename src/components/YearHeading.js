@@ -60,7 +60,7 @@ function YearHeading(props) {
 }
 
 YearHeading.propTypes = {
-  team: PropTypes.string.isRequired
+  team: PropTypes.object.isRequired
 };
 
 export default YearHeading;
