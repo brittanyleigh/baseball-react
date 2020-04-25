@@ -22,7 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --silent",
+    "coverage": "react-scripts test --env=jest-environment-jsdom-sixteen --silent --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint . --ext .js --fix",

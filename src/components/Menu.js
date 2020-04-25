@@ -99,13 +99,13 @@ function Menu(props) {
         <nav className="nav" role="navigation">
           <ul className={`nav__ul nav__ul--${selected_team.className}`}>
             {heading}
-            <ul
-              className={`nav__sub-ul nav__sub-ul--${
-                isOpen ? "open" : "closed"
-              } nav__sub-ul--${selected_team.className}`}
-            >
-              {teamList}
-            </ul>
+            {isOpen && (
+              <ul
+                className={`nav__sub-ul nav__sub-ul--open nav__sub-ul--${selected_team.className}`}
+              >
+                {teamList}
+              </ul>
+            )}
           </ul>
         </nav>
       </div>
