@@ -40,7 +40,6 @@ export const getPitcherStats = year => (dispatch, getState) => {
       }
     })
     .then(results => {
-      console.log("results");
       const statLeaders = {};
       results.data.teamLeaders.forEach(record => {
         if (record.statGroup === "pitching") {
