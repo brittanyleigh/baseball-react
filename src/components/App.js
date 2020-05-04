@@ -28,7 +28,7 @@ function App() {
 
   if (teams.isFetching || !selected_team) {
     return (
-      <div className="loader">
+      <div className="loader" data-testid="loader">
         <img
           className="loader__img"
           src={require(`../img/baseball.svg`)}

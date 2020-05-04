@@ -32,6 +32,199 @@ const mockSeason = {
     }
   ]
 };
+const mockStats = {
+  teamLeaders: [
+    {
+      leaderCategory: "wins",
+      leaders: [
+        {
+          person: {
+            fullName: "Wins One"
+          },
+          rank: 1,
+          value: "15"
+        },
+        {
+          person: {
+            fullName: "Wins Two"
+          },
+          rank: 2,
+          value: "12"
+        },
+        {
+          person: {
+            fullName: "Wins Three"
+          },
+          rank: 3,
+          value: "10"
+        }
+      ],
+      statGroup: "pitching"
+    },
+    {
+      leaderCategory: "earnedRunAverage",
+      leaders: [
+        {
+          person: {
+            fullName: "ERA One"
+          },
+          rank: 1,
+          value: "3.00"
+        },
+        {
+          person: {
+            fullName: "ERA Two"
+          },
+          rank: 2,
+          value: "2.75"
+        },
+        {
+          person: {
+            fullName: "ERA Three"
+          },
+          rank: 3,
+          value: "2.50"
+        }
+      ],
+      statGroup: "pitching"
+    },
+    {
+      leaderCategory: "homeRuns",
+      leaders: [
+        {
+          person: {
+            fullName: "HR One"
+          },
+          rank: 1,
+          value: "30"
+        },
+        {
+          person: {
+            fullName: "HR Two"
+          },
+          rank: 2,
+          value: "27"
+        },
+        {
+          person: {
+            fullName: "HR Three"
+          },
+          rank: 3,
+          value: "25"
+        }
+      ],
+      statGroup: "hitting"
+    },
+    {
+      leaderCategory: "runsBattedIn",
+      leaders: [
+        {
+          person: {
+            fullName: "RBI One"
+          },
+          rank: 1,
+          value: "60"
+        },
+        {
+          person: {
+            fullName: "RBI Two"
+          },
+          rank: 2,
+          value: "50"
+        },
+        {
+          person: {
+            fullName: "RBI Three"
+          },
+          rank: 3,
+          value: "40"
+        }
+      ],
+      statGroup: "hitting"
+    },
+    {
+      leaderCategory: "battingAverage",
+      leaders: [
+        {
+          person: {
+            fullName: "AVG One"
+          },
+          rank: 1,
+          value: ".300"
+        },
+        {
+          person: {
+            fullName: "AVG Two"
+          },
+          rank: 2,
+          value: ".275"
+        },
+        {
+          person: {
+            fullName: "AVG Three"
+          },
+          rank: 3,
+          value: ".250"
+        }
+      ],
+      statGroup: "hitting"
+    },
+    {
+      leaderCategory: "onBasePlusSlugging",
+      leaders: [
+        {
+          person: {
+            fullName: "OPS One"
+          },
+          rank: 1,
+          value: ".300"
+        },
+        {
+          person: {
+            fullName: "OPS Two"
+          },
+          rank: 2,
+          value: ".275"
+        },
+        {
+          person: {
+            fullName: "OPS Three"
+          },
+          rank: 3,
+          value: ".250"
+        }
+      ],
+      statGroup: "hitting"
+    },
+    {
+      leaderCategory: "MISC",
+      leaders: [
+        {
+          person: {
+            fullName: "MISC One"
+          },
+          rank: 1,
+          value: ".300"
+        },
+        {
+          person: {
+            fullName: "MISC Two"
+          },
+          rank: 2,
+          value: ".275"
+        },
+        {
+          person: {
+            fullName: "MISC Three"
+          },
+          rank: 3,
+          value: ".250"
+        }
+      ],
+      statGroup: "hitting"
+    }
+  ]
+};
 
 mockAxios.get.mockImplementation(url => {
   switch (url) {
@@ -39,6 +232,8 @@ mockAxios.get.mockImplementation(url => {
       return Promise.resolve({ data: { teams: mockTeams } });
     case "seasons?sportId=1":
       return Promise.resolve({ data: mockSeason });
+    case "teams/111/leaders":
+      return Promise.resolve({ data: mockStats });
     default:
       return Promise.reject(new Error("not found"));
   }

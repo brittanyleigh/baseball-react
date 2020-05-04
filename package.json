@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen --silent",
+    "test:loud": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "coverage": "react-scripts test  --env=jest-environment-jsdom-sixteen --coverage --watchAll=false --silent",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js",
