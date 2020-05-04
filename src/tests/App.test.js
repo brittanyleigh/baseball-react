@@ -225,6 +225,33 @@ const mockStats = {
     }
   ]
 };
+const mockYesterday = {
+  dates: [
+    {
+      games: [
+        {
+          status: {
+            abstractGameState: "Final",
+            codedGameState: "D",
+            detailedState: "Postponed",
+            statusCode: "DO"
+          },
+          teams: {
+            away: {
+              team: { id: 111, name: "Yesterday One" }
+            },
+            home: {
+              team: {
+                id: 109,
+                name: "Yesterday Two"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+};
 
 mockAxios.get.mockImplementation(url => {
   switch (url) {
@@ -234,6 +261,8 @@ mockAxios.get.mockImplementation(url => {
       return Promise.resolve({ data: mockSeason });
     case "teams/111/leaders":
       return Promise.resolve({ data: mockStats });
+    case "schedule/games":
+      return Promise.resolve({ data: mockYesterday });
     default:
       return Promise.reject(new Error("not found"));
   }
@@ -271,6 +300,7 @@ test("can select different team by keypress", async () => {
   await waitFor(() => {
     expect(screen.getByTestId("menu")).toBeInTheDocument();
   });
+  console.log(screen.debug());
   fireEvent.keyUp(screen.getByTestId("menu"), {
     key: "Enter",
     code: "Enter",

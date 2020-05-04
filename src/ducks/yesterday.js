@@ -45,6 +45,7 @@ export const getYesterdayScore = () => (dispatch, getState) => {
       }
     })
     .then(results => {
+      console.log(results);
       dispatch({ type: SUCCESS, payload: results.data.dates[0].games });
     })
     .catch(error => dispatch({ type: FAILURE, payload: error }));
