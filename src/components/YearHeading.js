@@ -18,7 +18,7 @@ function YearHeading(props) {
     dispatch(getDivisionStandings(year));
     dispatch(getHitterStats(year));
     dispatch(getPitcherStats(year));
-  }, [year, team]);
+  }, [year, team, dispatch]);
 
   const options = [
     { value: "2020", label: "2020" },

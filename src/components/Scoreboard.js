@@ -16,7 +16,7 @@ function Scoreboard() {
 
   useEffect(() => {
     dispatch(getSeasonDates());
-  }, []);
+  }, [dispatch]);
 
   if (seasonStarted && !seasonOver) {
     return (

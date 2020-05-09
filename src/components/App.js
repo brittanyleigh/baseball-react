@@ -18,13 +18,13 @@ function App() {
   useEffect(() => {
     dispatch(fetchTeamData());
     dispatch(getPreviousTeam());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!selected_team && teams.data.length > 0) {
       dispatch(selectTeam(teams.data[0]));
     }
-  }, [teams]);
+  }, [teams, dispatch, selected_team]);
 
   if (teams.isFetching || !selected_team) {
     return (

@@ -23,7 +23,7 @@ function Main() {
     dispatch(getYesterdayScore());
     dispatch(getTodayGame());
     dispatch(getTeamNews());
-  }, [selected_team]);
+  }, [selected_team, dispatch]);
 
   if (hitterStats.isFetching) {
     hitterStatsContent = (
