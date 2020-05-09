@@ -43,7 +43,6 @@ export const getTeamNews = () => (dispatch, getState) => {
   news
     .get("everything", { params })
     .then(results => {
-      console.log("news!");
       const team_news = results.data.articles.filter(article => {
         return article.title.includes(teamName);
       });
