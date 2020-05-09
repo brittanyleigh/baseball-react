@@ -34,11 +34,16 @@ export const getTeamNews = () => (dispatch, getState) => {
   const team_search = encodeURIComponent(teamName);
   dispatch({ type: REQUEST });
 
+  const params = {
+    q: team_search,
+    domains: "mlb.com,espn.com,bleacherreport.com",
+    sortBy: "publishedAt",
+    pageSize: "40"
+  };
   news
-    .get(
-      `everything?q=${team_search}&domains=mlb.com,espn.com,bleacherreport.com&sortBy=publishedAt&pageSize=40`
-    )
+    .get("everything", { params })
     .then(results => {
+      console.log("news!");
       const team_news = results.data.articles.filter(article => {
         return article.title.includes(teamName);
       });

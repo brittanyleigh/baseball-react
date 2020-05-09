@@ -4,13 +4,7 @@ import { render, fireEvent, screen, waitFor } from "./test-utils";
 import "@testing-library/jest-dom/extend-expect";
 import App from "../components/App";
 import mockAxios from "axios";
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
 import mockData from "./mock-data";
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
-let store = mockStore();
 
 mockAxios.get.mockImplementation(url => {
   switch (url) {
@@ -26,6 +20,8 @@ mockAxios.get.mockImplementation(url => {
       return Promise.resolve({ data: mockData.score });
     case "standings":
       return Promise.resolve({ data: mockData.standings });
+    case "everything":
+      return Promise.resolve({ data: mockData.news });
     default:
       return Promise.reject(new Error("not found"));
   }

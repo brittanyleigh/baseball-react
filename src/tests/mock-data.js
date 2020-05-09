@@ -306,6 +306,24 @@ const mockData = {
         ]
       }
     ]
+  },
+  news: {
+    articles: [
+      {
+        author: "John Doe",
+        source: { name: "Espn.com" },
+        title: "Chicago Cubs News Article One",
+        url: "https://www.espn.com/",
+        urlToImage: "https://via.placeholder.com/150"
+      },
+      {
+        author: "Jane Doe",
+        source: { name: "bleacherreport.com" },
+        title: "Another Fantastic Chicago Cubs News Article",
+        url: "https://www.espn.com/",
+        urlToImage: "https://via.placeholder.com/150"
+      }
+    ]
   }
 };
 export default mockData;
