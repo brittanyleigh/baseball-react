@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 
 import YesterdayScore from "./YesterdayScore.js";
 import TodayGame from "./TodayGame.js";
@@ -21,7 +22,9 @@ function Scoreboard() {
   if (seasonStarted && !seasonOver) {
     return (
       <React.Fragment>
-        <h2 className="section-heading">Scoreboard</h2>
+        <h2 className="section-heading">
+          Scoreboard: {moment().format("MMM. Do YYYY")}
+        </h2>
         <YesterdayScore />
         <TodayGame />
       </React.Fragment>

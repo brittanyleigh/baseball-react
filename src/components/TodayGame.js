@@ -24,7 +24,7 @@ function TodayGame() {
             key={game.gamePk}
             game={game}
             heading="Today's Game"
-            team={selected_team.className}
+            team={selected_team}
           />
         );
       }

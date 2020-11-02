@@ -23,7 +23,7 @@ function YesterdayScore() {
             key={game.gamePk}
             game={game}
             heading="Yesterday's Score"
-            team={selected_team.className}
+            team={selected_team}
           />
         );
       }

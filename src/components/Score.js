@@ -37,7 +37,7 @@ function Score(props) {
   }
 
   return (
-    <Block heading={heading} team={team}>
+    <Block heading={heading} team={team.className}>
       <div className="game">
         <div className="game__detail">{outcome}</div>
         {awayTeam}
@@ -50,7 +50,7 @@ function Score(props) {
 Score.propTypes = {
   game: PropTypes.object.isRequired,
   heading: PropTypes.string.isRequired,
-  team: PropTypes.string.isRequired
+  team: PropTypes.object.isRequired
 };
 
 export default Score;
