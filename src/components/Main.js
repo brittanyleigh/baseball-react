@@ -4,13 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Scoreboard from "./Scoreboard";
 import Standings from "./Standings.js";
 import PlayerStats from "./PlayerStats";
-import TeamNews from "./TeamNews";
 import PlaceholderBlock from "./PlaceholderBlock";
 import YearHeading from "./YearHeading";
 
 import { getYesterdayScore } from "../ducks/yesterday";
 import { getTodayGame } from "../ducks/today";
-import { getTeamNews } from "../ducks/news";
 
 function Main() {
   const store = useSelector(state => state);
@@ -22,7 +20,6 @@ function Main() {
   useEffect(() => {
     dispatch(getYesterdayScore());
     dispatch(getTodayGame());
-    dispatch(getTeamNews());
   }, [selected_team, dispatch]);
 
   if (hitterStats.isFetching) {
@@ -69,8 +66,12 @@ function Main() {
         <Standings />
         {hitterStatsContent}
         {pitcherStatsContent}
+        {/*
+        // NOTE: newsapi.org no longer supports free plans (only works locally)
+        // TODO: find alternative news API for this component
         <h2 className="section-heading">Team News</h2>
         <TeamNews team={selected_team.className} />
+        */}
       </div>
     </main>
   );
